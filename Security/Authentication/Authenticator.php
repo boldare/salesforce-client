@@ -2,9 +2,11 @@
 
 namespace Xsolve\SalesforceClient\Security\Authentication;
 
-use GuzzleHttp\Client;
 use Xsolve\SalesforceClient\ {
-    Enum\GrantType,
+    Http\ClientInterface,
+    Request\SalesforceRequestInterface,
+    Security\Authentication\Strategy\NotFoundException,
+    Security\Authentication\Strategy\RegenerateStrategyInterface,
     Security\Token\Token,
     Security\Token\TokenInterface
 };
@@ -14,16 +16,23 @@ class Authenticator implements AuthenticatorInterface
     const ENDPOINT = 'https://login.salesforce.com/services/oauth2/token';
 
     /**
-     * @var Client
+     * @var ClientInterface
      */
     protected $client;
 
     /**
-     * @param Client $client
+     * @var RegenerateStrategyInterface[]
      */
-    public function __construct(Client $client)
+    protected $regenerateStrategies;
+
+    /**
+     * @param ClientInterface $client
+     * @param RegenerateStrategyInterface[] $regenerateStrategies
+     */
+    public function __construct(ClientInterface $client, array $regenerateStrategies = [])
     {
         $this->client = $client;
+        $this->regenerateStrategies = $regenerateStrategies;
     }
 
     /**
@@ -31,14 +40,18 @@ class Authenticator implements AuthenticatorInterface
      */
     public function authenticate(CredentialsInterface $credentials) : TokenInterface
     {
-        $response = $this->client->post(self::ENDPOINT, [
+        $response = $this->client->request(SalesforceRequestInterface::METHOD_POST, self::ENDPOINT, [
             'form_params' => $credentials->getCredentials()
         ])->getBody();
 
         $parsedBody = json_decode($response, true);
 
         if (!$parsedBody) {
-            throw new \Exception('Something went wrong...');
+            throw new \RuntimeException(sprintf('Cannot decode response: %s', $response));
+        }
+
+        if (!$this->hasRequiredFields($parsedBody)) {
+            throw new \RuntimeException(sprintf('Response do not contains required fields: token_type, access_token, instance_url.'));
         }
 
         return new Token(
@@ -54,32 +67,29 @@ class Authenticator implements AuthenticatorInterface
      */
     public function regenerate(CredentialsInterface $credentials, TokenInterface $token): TokenInterface
     {
-        dump('regenerate');
-        if ($credentials->getGrantType() !== GrantType::AUTHORIZATION_TOKEN) {
-            return $this->authenticate($credentials);
+        foreach ($this->regenerateStrategies as $strategy) {
+            if ($strategy->support($credentials, $token)) {
+                return $this->authenticate($strategy->getCredentials($credentials, $token));
+            }
         }
 
-        if (empty($token->getRefreshToken())) {
-            return $this->authenticate($credentials);
-        }
-
-        dump('regenerate - refresh token');
-        return $this->authenticate($this->createRefreshCredentials($credentials, $token));
+        throw new NotFoundException('Strategy not found for given credentials and token.');
     }
 
-    /**
-     * @param CredentialsInterface $credentials
-     * @param TokenInterface $token
-     *
-     * @return CredentialsInterface
-     */
-    protected function createRefreshCredentials(CredentialsInterface $credentials, TokenInterface $token)
+    protected function hasRequiredFields(array $array) : bool
     {
-        return new ArrayCredentials([
-            'grant_type' => GrantType::REFRESH_TOKEN,
-            'client_id' => $credentials->getClientId(),
-            'client_secret' => $credentials->getClientSecret(),
-            'refresh_token' => $token->getRefreshToken(),
-        ]);
+        if (!isset($array['token_type'])) {
+            return false;
+        }
+
+        if (!isset($array['access_token'])) {
+            return false;
+        }
+
+        if (!isset($array['instance_url'])) {
+            return false;
+        }
+
+        return true;
     }
 }
