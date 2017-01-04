@@ -62,7 +62,7 @@ class AuthenticatorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \RuntimeException
+     * @expectedException Xsolve\SalesforceClient\Security\Authentication\AuthorizationFailedException
      */
     public function testEmptyResponse()
     {
@@ -70,7 +70,7 @@ class AuthenticatorTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \RuntimeException
+     * @expectedException Xsolve\SalesforceClient\Security\Authentication\AuthorizationFailedException
      */
     public function testBadResponse()
     {

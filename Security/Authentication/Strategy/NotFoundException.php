@@ -2,6 +2,8 @@
 
 namespace Xsolve\SalesforceClient\Security\Authentication\Strategy;
 
-class NotFoundException extends \Exception
+use Xsolve\SalesforceClient\Security\Authentication\AuthorizationFailedException;
+
+class NotFoundException extends AuthorizationFailedException
 {
 }
