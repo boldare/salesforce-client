@@ -39,11 +39,11 @@ class Authenticator implements AuthenticatorInterface
     /**
      * {@inheritdoc}
      */
-    public function authenticate(CredentialsInterface $credentials) : TokenInterface
+    public function authenticate(Credentials $credentials) : TokenInterface
     {
         try {
             $response = $this->client->request(SalesforceRequestInterface::METHOD_POST, self::ENDPOINT, [
-                'form_params' => $credentials->getCredentials()
+                'form_params' => $credentials->getParameters()
             ])->getBody();
         } catch (HttpException $e) {
             throw new AuthorizationFailedException('Authentication request failed.', 400, $e);
@@ -70,7 +70,7 @@ class Authenticator implements AuthenticatorInterface
     /**
      * {@inheritdoc}
      */
-    public function regenerate(CredentialsInterface $credentials, TokenInterface $token): TokenInterface
+    public function regenerate(Credentials $credentials, TokenInterface $token): TokenInterface
     {
         foreach ($this->regenerateStrategies as $strategy) {
             if ($strategy->support($credentials, $token)) {
