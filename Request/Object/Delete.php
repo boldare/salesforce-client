@@ -2,7 +2,10 @@
 
 namespace Xsolve\SalesforceClient\Request\Object;
 
-use Xsolve\SalesforceClient\Request\SalesforceRequestInterface;
+use Xsolve\SalesforceClient\ {
+    Enum\AbstractSObjectType,
+    Request\SalesforceRequestInterface
+};
 
 class Delete implements SalesforceRequestInterface
 {
@@ -22,7 +25,7 @@ class Delete implements SalesforceRequestInterface
      * @param string $objectType
      * @param string $id
      */
-    public function __construct(string $objectType, string $id)
+    public function __construct(AbstractSObjectType $objectType, string $id)
     {
         $this->objectType = $objectType;
         $this->id = $id;

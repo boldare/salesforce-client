@@ -2,7 +2,10 @@
 
 namespace Xsolve\SalesforceClient\Request\Object;
 
-use Xsolve\SalesforceClient\Request\SalesforceRequestInterface;
+use Xsolve\SalesforceClient\ {
+    Enum\AbstractSObjectType,
+    Request\SalesforceRequestInterface
+};
 
 class Create implements SalesforceRequestInterface
 {
@@ -22,7 +25,7 @@ class Create implements SalesforceRequestInterface
      * @param string $objectType
      * @param array $params
      */
-    public function __construct(string $objectType, array $params = [])
+    public function __construct(AbstractSObjectType $objectType, array $params = [])
     {
         $this->objectType = $objectType;
         $this->params = $params;
