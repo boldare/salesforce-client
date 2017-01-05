@@ -12,7 +12,7 @@ interface AuthenticatorInterface
     /**
      * @param CredentialsInterface $credentials
      *
-     * @throws AuthorizationFailedException
+     * @throws Exception\AuthenticationFailedException
      */
     public function authenticate(Credentials $credentials) : TokenInterface;
 
@@ -20,7 +20,7 @@ interface AuthenticatorInterface
      * @param CredentialsInterface $credentials
      * @param TokenInterface $token
      *
-     * @throws AuthorizationFailedException
+     * @throws Exception\AuthenticationFailedException
      */
     public function regenerate(Credentials $credentials, TokenInterface $token) : TokenInterface;
 }
