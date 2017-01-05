@@ -5,10 +5,13 @@
     "require": {
         "php": ">=7.0.0",
         "jms/serializer": "~1.4",
-        "guzzlehttp/guzzle": "~6.0"
+        "psr/http-message": "~1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "5.5.*"
+    },
+    "suggest": {
+        "guzzlehttp/guzzle": "Needed for sending HTTP requests using GuzzleClient"
     },
     "autoload":{
         "psr-4":{
