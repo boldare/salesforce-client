@@ -77,20 +77,21 @@ class SObjectRepository implements SObjectRepositoryInterface
      */
     public function find(string $class, string $id): AbstractSObject
     {
-        return $this->findFields($class, $id);
+        return $this->serializer->fromArray(
+            $this->getFieldValues($class, $id),
+            $class
+        );
     }
 
     /**
      * {@inheritdoc}
      */
-    public function findFields(string $class, string $id, array $fields = array()): AbstractSObject
+    public function getFieldValues(string $class, string $id, array $fields = array()): array
     {
         if (!method_exists($class, 'getSObjectName')) {
             throw new \RuntimeException(sprintf('%s should extend %s or contains static method "getSObjectName"', $class, AbstractSObject::class));
         }
 
-        $response = $this->client->doRequest(new Get($class::getSObjectName(), $id, $fields));
-
-        return $this->serializer->fromArray($response, $class);
+        return $this->client->doRequest(new Get($class::getSObjectName(), $id, $fields));
     }
 }

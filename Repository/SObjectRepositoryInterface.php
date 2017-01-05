@@ -14,5 +14,5 @@ interface SObjectRepositoryInterface
 
     public function find(string $class, string $id) : AbstractSObject;
 
-    public function findFields(string $class, string $id, array $fields = []) : AbstractSObject;
+    public function getFieldValues(string $class, string $id, array $fields = []) : array;
 }
