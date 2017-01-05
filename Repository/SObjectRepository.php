@@ -1,6 +1,6 @@
 <?php
 
-namespace Xsolve\SalesforceClient\Manager;
+namespace Xsolve\SalesforceClient\Repository;
 
 use JMS\Serializer\ {
     ArrayTransformerInterface,
@@ -8,15 +8,16 @@ use JMS\Serializer\ {
 };
 use Xsolve\SalesforceClient\ {
     Client\SalesforceClient,
-    Manager\SObjectManagerInterface,
     Model\AbstractSObject,
+    Repository\SObjectRepositoryInterface,
     Request\Object\Create,
     Request\Object\Delete,
     Request\Object\Get,
     Request\Object\Update
 };
 
-class SObjectManager implements SObjectManagerInterface
+
+class SObjectRepository implements SObjectRepositoryInterface
 {
     /**
      * @var SalesforceClient
@@ -34,6 +35,9 @@ class SObjectManager implements SObjectManagerInterface
         $this->serializer = $serializer;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function create(AbstractSObject $object)
     {
         $response = $this->client->doRequest(new Create(
@@ -48,11 +52,17 @@ class SObjectManager implements SObjectManagerInterface
         $object->setId($response['id']);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function delete(AbstractSObject $object)
     {
         $this->client->doRequest(new Delete($object::getSObjectName(), $object->getId()));
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function update(AbstractSObject $object)
     {
         $this->client->doRequest(new Update(
@@ -62,19 +72,25 @@ class SObjectManager implements SObjectManagerInterface
         ));
     }
 
-    public function get(string $sObject, string $id) : AbstractSObject
+    /**
+     * {@inheritdoc}
+     */
+    public function find(string $class, string $id): AbstractSObject
     {
-        return $this->getFields($sObject, $id);
+        return $this->findFields($class, $id);
     }
 
-    public function getFields(string $sObject, string $id, array $fields = []) : AbstractSObject
+    /**
+     * {@inheritdoc}
+     */
+    public function findFields(string $class, string $id, array $fields = array()): AbstractSObject
     {
-        if (!method_exists($sObject, 'getSObjectName')) {
-            throw new \RuntimeException(sprintf('%s should extend %s or contains static method "getSObjectName"', $sObject, AbstractSObject::class));
+        if (!method_exists($class, 'getSObjectName')) {
+            throw new \RuntimeException(sprintf('%s should extend %s or contains static method "getSObjectName"', $class, AbstractSObject::class));
         }
 
-        $response = $this->client->doRequest(new Get($sObject::getSObjectName(), $id, $fields));
+        $response = $this->client->doRequest(new Get($class::getSObjectName(), $id, $fields));
 
-        return $this->serializer->fromArray($response, $sObject);
+        return $this->serializer->fromArray($response, $class);
     }
 }
