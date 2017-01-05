@@ -399,7 +399,7 @@ class Account extends AbstractSObject
     }
 
     /**
-     * @return Address|null
+     * @return ValueObject\Address|null
      */
     public function getBillingAddress()
     {
@@ -407,7 +407,7 @@ class Account extends AbstractSObject
     }
 
     /**
-     * @return Address|null
+     * @return ValueObject\Address|null
      */
     public function getShippingAddress()
     {
@@ -674,14 +674,14 @@ class Account extends AbstractSObject
         return $this;
     }
 
-    public function setBillingAddress(Address $billingAddress) : Account
+    public function setBillingAddress(ValueObject\Address $billingAddress) : Account
     {
         $this->billingAddress = $billingAddress;
 
         return $this;
     }
 
-    public function setShippingAddress(Address $shippingAddress) : Account
+    public function setShippingAddress(ValueObject\Address $shippingAddress) : Account
     {
         $this->shippingAddress = $shippingAddress;
 
@@ -898,7 +898,7 @@ class Account extends AbstractSObject
      */
     public function updateBillingAddress()
     {
-        if (!$this->shippingAddress instanceof Address) {
+        if (!$this->shippingAddress instanceof ValueObject\Address) {
             return;
         }
 
@@ -918,7 +918,7 @@ class Account extends AbstractSObject
      */
     public function updateShippingAddress()
     {
-        if (!$this->shippingAddress instanceof Address) {
+        if (!$this->shippingAddress instanceof ValueObject\Address) {
             return;
         }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Xsolve\SalesforceClient\Model;
+namespace Xsolve\SalesforceClient\Model\ValueObject;
 
 use JMS\Serializer\Annotation\Type;
 
