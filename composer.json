@@ -18,7 +18,12 @@
     },
     "autoload":{
         "psr-4":{
-            "Xsolve\\SalesforceClient\\": ""
+            "Xsolve\\SalesforceClient\\": "src/"
+        }
+    },
+    "autoload-dev":{
+        "psr-4":{
+            "Xsolve\\SalesforceClient\\": ["src/", "tests/"]
         }
     }
 }
