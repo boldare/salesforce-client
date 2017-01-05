@@ -4,7 +4,7 @@ namespace Xsolve\SalesforceClient\Generator;
 
 use Xsolve\SalesforceClient\ {
     Security\Authentication\AuthenticatorInterface,
-    Security\Authentication\CredentialsInterface,
+    Security\Authentication\Credentials,
     Security\Token\TokenInterface,
     Storage\TokenStorageInterface
 };
@@ -32,7 +32,7 @@ class TokenGenerator implements TokenGeneratorInterface
      * @param TokenStorageInterface $tokenStorage
      */
     public function __construct(
-        CredentialsInterface $credentials,
+        Credentials $credentials,
         AuthenticatorInterface $authenticator,
         TokenStorageInterface $tokenStorage
     ) {
