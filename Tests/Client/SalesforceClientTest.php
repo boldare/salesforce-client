@@ -2,6 +2,7 @@
 
 namespace Xsolve\SalesforceClient\Tests\Client;
 
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Xsolve\SalesforceClient\ {
     Client\SalesforceClient,
@@ -12,7 +13,7 @@ use Xsolve\SalesforceClient\ {
     Security\Token\TokenInterface
 };
 
-class SalesforceClientTest extends \PHPUnit_Framework_TestCase
+class SalesforceClientTest extends TestCase
 {
     /**
      * @var \PHPUnit_Framework_MockObject_MockObject|ClientInterface
@@ -29,8 +30,6 @@ class SalesforceClientTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        parent::setUp();
-
         $token = $this->createMock(TokenInterface::class);
 
         $tokenManager = $this->createMock(TokenManagerInterface::class);

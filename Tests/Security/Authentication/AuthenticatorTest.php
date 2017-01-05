@@ -2,6 +2,7 @@
 
 namespace Xsolve\SalesforceClient\Tests\Security\Authentication;
 
+use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Xsolve\SalesforceClient\ {
     Http\ClientInterface,
@@ -11,7 +12,7 @@ use Xsolve\SalesforceClient\ {
     Security\Token\TokenInterface
 };
 
-class AuthenticatorTest extends \PHPUnit_Framework_TestCase
+class AuthenticatorTest extends TestCase
 {
 
     /**
@@ -57,8 +58,6 @@ class AuthenticatorTest extends \PHPUnit_Framework_TestCase
 
         $this->client->method('request')->willReturn($this->response);
         $this->authenticator = new Authenticator($this->client, [$this->regenerateStrategy]);
-
-        parent::setUp();
     }
 
     /**
