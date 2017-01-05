@@ -1,17 +1,20 @@
 <?php
 
-namespace Xsolve\SalesforceClient\Request\Object;
+namespace Xsolve\SalesforceClient\Request;
 
-use Xsolve\SalesforceClient\Request\SalesforceRequestInterface;
-
-class Create implements SalesforceRequestInterface
+class Get implements RequestInterface
 {
-    const ENDPOINT = '/sobjects/%s/';
+    const ENDPOINT = '/sobjects/%s/%s/';
 
     /**
      * @var string
      */
     protected $objectType;
+
+    /**
+     * @var string
+     */
+    protected $id;
 
     /**
      * @var array
@@ -20,11 +23,13 @@ class Create implements SalesforceRequestInterface
 
     /**
      * @param string $objectType
+     * @param string $id
      * @param array $params
      */
-    public function __construct(string $objectType, array $params = [])
+    public function __construct(string $objectType, string $id, array $params = [])
     {
         $this->objectType = $objectType;
+        $this->id = $id;
         $this->params = $params;
     }
 
@@ -33,7 +38,7 @@ class Create implements SalesforceRequestInterface
      */
     public function getEndpoint(): string
     {
-        return sprintf(self::ENDPOINT, $this->objectType);
+        return sprintf(self::ENDPOINT, $this->objectType, $this->id);
     }
 
     /**
@@ -41,7 +46,7 @@ class Create implements SalesforceRequestInterface
      */
     public function getMethod(): string
     {
-        return self::METHOD_POST;
+        return self::METHOD_GET;
     }
 
     /**
@@ -49,8 +54,14 @@ class Create implements SalesforceRequestInterface
      */
     public function getParams(): array
     {
+        if (empty($this->params)) {
+            return [];
+        }
+
         return [
-            'json' => $this->params,
+            'query' => [
+                'fields' => implode(',', $this->params),
+            ],
         ];
     }
 }

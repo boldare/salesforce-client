@@ -1,22 +1,15 @@
 <?php
 
-namespace Xsolve\SalesforceClient\Request\Object;
+namespace Xsolve\SalesforceClient\Request;
 
-use Xsolve\SalesforceClient\Request\SalesforceRequestInterface;
-
-class Update implements SalesforceRequestInterface
+class Create implements RequestInterface
 {
-    const ENDPOINT = '/sobjects/%s/%s/';
+    const ENDPOINT = '/sobjects/%s/';
 
     /**
      * @var string
      */
     protected $objectType;
-
-    /**
-     * @var string
-     */
-    protected $id;
 
     /**
      * @var array
@@ -25,13 +18,11 @@ class Update implements SalesforceRequestInterface
 
     /**
      * @param string $objectType
-     * @param string $id
      * @param array $params
      */
-    public function __construct(string $objectType, string $id, array $params = [])
+    public function __construct(string $objectType, array $params = [])
     {
         $this->objectType = $objectType;
-        $this->id = $id;
         $this->params = $params;
     }
 
@@ -40,7 +31,7 @@ class Update implements SalesforceRequestInterface
      */
     public function getEndpoint(): string
     {
-        return sprintf(self::ENDPOINT, $this->objectType, $this->id);
+        return sprintf(self::ENDPOINT, $this->objectType);
     }
 
     /**
@@ -48,7 +39,7 @@ class Update implements SalesforceRequestInterface
      */
     public function getMethod(): string
     {
-        return self::METHOD_PATCH;
+        return self::METHOD_POST;
     }
 
     /**

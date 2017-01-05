@@ -5,7 +5,7 @@ namespace Xsolve\SalesforceClient\Security\Authentication;
 use Xsolve\SalesforceClient\ {
     Http\ClientInterface,
     Http\HttpException,
-    Request\SalesforceRequestInterface,
+    Request\RequestInterface,
     Security\Authentication\Strategy\RegenerateStrategyInterface,
     Security\Token\Token,
     Security\Token\TokenInterface
@@ -41,7 +41,7 @@ class Authenticator implements AuthenticatorInterface
     public function authenticate(Credentials $credentials) : TokenInterface
     {
         try {
-            $response = $this->client->request(SalesforceRequestInterface::METHOD_POST, self::ENDPOINT, [
+            $response = $this->client->request(RequestInterface::METHOD_POST, self::ENDPOINT, [
                 'form_params' => $credentials->getParameters()
             ])->getBody();
         } catch (HttpException $e) {

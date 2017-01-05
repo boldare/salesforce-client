@@ -10,10 +10,10 @@ use Xsolve\SalesforceClient\ {
     Client\SalesforceClient,
     Model\AbstractSObject,
     Repository\SObjectRepositoryInterface,
-    Request\Object\Create,
-    Request\Object\Delete,
-    Request\Object\Get,
-    Request\Object\Update
+    Request\Create,
+    Request\Delete,
+    Request\Get,
+    Request\Update
 };
 
 
