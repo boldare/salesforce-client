@@ -3,13 +3,11 @@
 namespace Xsolve\SalesforceClient\Client;
 
 use Psr\Http\Message\ResponseInterface;
-use Xsolve\SalesforceClient\ {
-    Generator\TokenGeneratorInterface,
-    Http\ClientInterface,
-    Http\HttpException,
-    Request\RequestInterface,
-    Security\Token\TokenInterface
-};
+use Xsolve\SalesforceClient\Generator\TokenGeneratorInterface;
+use Xsolve\SalesforceClient\Http\ClientInterface;
+use Xsolve\SalesforceClient\Http\HttpException;
+use Xsolve\SalesforceClient\Request\RequestInterface;
+use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 
 class SalesforceClient
 {
@@ -41,7 +39,7 @@ class SalesforceClient
         $this->version = $version;
     }
 
-    public function doRequest(RequestInterface $request) : array
+    public function doRequest(RequestInterface $request): array
     {
         $token = $this->tokenManager->getToken();
 
@@ -61,7 +59,7 @@ class SalesforceClient
         return !$responseBody ? [] : $responseBody;
     }
 
-    protected function sendRequest(TokenInterface $token, RequestInterface $request) : ResponseInterface
+    protected function sendRequest(TokenInterface $token, RequestInterface $request): ResponseInterface
     {
         return $this->client->request(
             $request->getMethod(),
@@ -73,7 +71,7 @@ class SalesforceClient
             array_merge([
                 'headers' => [
                     'authorization' => sprintf('%s %s', $token->getTokenType(), $token->getAccessToken()),
-                ]
+                ],
             ], $request->getParams())
         );
     }

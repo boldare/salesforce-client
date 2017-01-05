@@ -9,5 +9,5 @@ interface ClientInterface
     /**
      * @throws HttpException
      */
-    public function request(string $method, string $uri = '', array $options = []) : ResponseInterface;
+    public function request(string $method, string $uri = '', array $options = []): ResponseInterface;
 }

@@ -4,14 +4,12 @@ namespace Xsolve\SalesforceClient\Tests\Client;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
-use Xsolve\SalesforceClient\ {
-    Client\SalesforceClient,
-    Generator\TokenGeneratorInterface,
-    Http\ClientInterface,
-    Http\HttpException,
-    Request\RequestInterface,
-    Security\Token\TokenInterface
-};
+use Xsolve\SalesforceClient\Client\SalesforceClient;
+use Xsolve\SalesforceClient\Generator\TokenGeneratorInterface;
+use Xsolve\SalesforceClient\Http\ClientInterface;
+use Xsolve\SalesforceClient\Http\HttpException;
+use Xsolve\SalesforceClient\Request\RequestInterface;
+use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 
 class SalesforceClientTest extends TestCase
 {

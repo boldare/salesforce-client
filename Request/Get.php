@@ -26,7 +26,7 @@ class Get implements RequestInterface
     /**
      * @param string $objectType
      * @param string $id
-     * @param array $params
+     * @param array  $params
      */
     public function __construct(AbstractSObjectType $objectType, string $id, array $params = [])
     {

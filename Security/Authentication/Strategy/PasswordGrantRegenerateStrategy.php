@@ -2,10 +2,8 @@
 
 namespace Xsolve\SalesforceClient\Security\Authentication\Strategy;
 
-use Xsolve\SalesforceClient\Security\ {
-    Authentication\Credentials,
-    Token\TokenInterface
-};
+use Xsolve\SalesforceClient\Security\Authentication\Credentials;
+use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 
 class PasswordGrantRegenerateStrategy implements RegenerateStrategyInterface
 {

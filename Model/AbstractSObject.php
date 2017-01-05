@@ -7,8 +7,6 @@ use Xsolve\SalesforceClient\Enum\AbstractSObjectType;
 
 abstract class AbstractSObject
 {
-    public static abstract function getSObjectName() : AbstractSObjectType;
-
     /**
      * @var string
      * @Type("string")
@@ -44,6 +42,8 @@ abstract class AbstractSObject
      * @Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
      */
     protected $systemModstamp;
+
+    abstract public static function getSObjectName(): AbstractSObjectType;
 
     /**
      * @return string
@@ -93,7 +93,7 @@ abstract class AbstractSObject
         return $this->systemModstamp;
     }
 
-    public function setId(string $id) : AbstractSObject
+    public function setId(string $id): AbstractSObject
     {
         $this->id = $id;
 

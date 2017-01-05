@@ -2,20 +2,14 @@
 
 namespace Xsolve\SalesforceClient\Repository;
 
-use JMS\Serializer\ {
-    ArrayTransformerInterface,
-    SerializationContext
-};
-use Xsolve\SalesforceClient\ {
-    Client\SalesforceClient,
-    Model\AbstractSObject,
-    Repository\SObjectRepositoryInterface,
-    Request\Create,
-    Request\Delete,
-    Request\Get,
-    Request\Update
-};
-
+use JMS\Serializer\ArrayTransformerInterface;
+use JMS\Serializer\SerializationContext;
+use Xsolve\SalesforceClient\Client\SalesforceClient;
+use Xsolve\SalesforceClient\Model\AbstractSObject;
+use Xsolve\SalesforceClient\Request\Create;
+use Xsolve\SalesforceClient\Request\Delete;
+use Xsolve\SalesforceClient\Request\Get;
+use Xsolve\SalesforceClient\Request\Update;
 
 class SObjectRepository implements SObjectRepositoryInterface
 {

@@ -2,14 +2,12 @@
 
 namespace Xsolve\SalesforceClient\Security\Authentication;
 
-use Xsolve\SalesforceClient\ {
-    Http\ClientInterface,
-    Http\HttpException,
-    Request\RequestInterface,
-    Security\Authentication\Strategy\RegenerateStrategyInterface,
-    Security\Token\Token,
-    Security\Token\TokenInterface
-};
+use Xsolve\SalesforceClient\Http\ClientInterface;
+use Xsolve\SalesforceClient\Http\HttpException;
+use Xsolve\SalesforceClient\Request\RequestInterface;
+use Xsolve\SalesforceClient\Security\Authentication\Strategy\RegenerateStrategyInterface;
+use Xsolve\SalesforceClient\Security\Token\Token;
+use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 
 class Authenticator implements AuthenticatorInterface
 {
@@ -26,7 +24,7 @@ class Authenticator implements AuthenticatorInterface
     protected $regenerateStrategies;
 
     /**
-     * @param ClientInterface $client
+     * @param ClientInterface               $client
      * @param RegenerateStrategyInterface[] $regenerateStrategies
      */
     public function __construct(ClientInterface $client, array $regenerateStrategies = [])
@@ -38,11 +36,11 @@ class Authenticator implements AuthenticatorInterface
     /**
      * {@inheritdoc}
      */
-    public function authenticate(Credentials $credentials) : TokenInterface
+    public function authenticate(Credentials $credentials): TokenInterface
     {
         try {
             $response = $this->client->request(RequestInterface::METHOD_POST, self::ENDPOINT, [
-                'form_params' => $credentials->getParameters()
+                'form_params' => $credentials->getParameters(),
             ])->getBody();
         } catch (HttpException $e) {
             throw new Exception\AuthenticationRequestException('Authentication request failed.', 400, $e);
@@ -80,7 +78,7 @@ class Authenticator implements AuthenticatorInterface
         throw new Exception\UnsupportedCredentialsException('Strategy not found for given credentials and token.');
     }
 
-    protected function hasRequiredFields(array $array) : bool
+    protected function hasRequiredFields(array $array): bool
     {
         if (!isset($array['token_type'])) {
             return false;

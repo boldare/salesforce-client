@@ -2,10 +2,7 @@
 
 namespace Xsolve\SalesforceClient\Security\Authentication;
 
-use Xsolve\SalesforceClient\Security\ {
-    Authentication\Credentials,
-    Token\TokenInterface
-};
+use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 
 interface AuthenticatorInterface
 {
@@ -14,13 +11,13 @@ interface AuthenticatorInterface
      *
      * @throws Exception\AuthenticationFailedException
      */
-    public function authenticate(Credentials $credentials) : TokenInterface;
+    public function authenticate(Credentials $credentials): TokenInterface;
 
     /**
      * @param CredentialsInterface $credentials
-     * @param TokenInterface $token
+     * @param TokenInterface       $token
      *
      * @throws Exception\AuthenticationFailedException
      */
-    public function regenerate(Credentials $credentials, TokenInterface $token) : TokenInterface;
+    public function regenerate(Credentials $credentials, TokenInterface $token): TokenInterface;
 }
