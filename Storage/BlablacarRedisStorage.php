@@ -5,12 +5,18 @@ namespace Xsolve\SalesforceClient\Storage;
 use Blablacar\Redis\Client;
 use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 
-class RedisTokenStorage implements TokenStorageInterface
+class BlablacarRedisStorage implements TokenStorageInterface
 {
     const DEFAULT_KEY = 'salesforce_token';
 
+    /**
+     * @var Client
+     */
     protected $client;
 
+    /**
+     * @var string
+     */
     protected $key;
 
     public function __construct(Client $client, string $key = self::DEFAULT_KEY)
