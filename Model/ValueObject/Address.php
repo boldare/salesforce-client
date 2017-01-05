@@ -2,67 +2,77 @@
 
 namespace Xsolve\SalesforceClient\Model\ValueObject;
 
-use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation as JMS;
 
 class Address
 {
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
+     * @JMS\SerializedName("city")
      */
     protected $city;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
+     * @JMS\SerializedName("country")
      */
     protected $country;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
+     * @JMS\SerializedName("countryCode")
      */
     protected $countryCode;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
+     * @JMS\SerializedName("geocodeAccuracy")
      */
     protected $geocodeAccuracy;
 
     /**
      * @var float|null
-     * @Type("float")
+     * @JMS\Type("float")
+     * @JMS\SerializedName("latitude")
      */
     protected $latitude;
 
     /**
      * @var float|null
-     * @Type("float")
+     * @JMS\Type("float")
+     * @JMS\SerializedName("longitude")
      */
     protected $longitude;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
+     * @JMS\SerializedName("postalCode")
      */
     protected $postalCode;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
+     * @JMS\SerializedName("state")
      */
     protected $state;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
+     * @JMS\SerializedName("stateCode")
      */
     protected $stateCode;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
+     * @JMS\SerializedName("street")
      */
     protected $street;
 
