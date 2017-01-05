@@ -1,46 +1,52 @@
 ```
-use Xsolve\SalesforceClient\ {
-    Client\SalesforceClient,
-    Http\GuzzleClient,
-    Manager\SObjectManager,
-    Manager\TokenManager,
-    Model\Account,
-    Request\Create,
-    Security\Authentication\ArrayCredentials,
-    Security\Authentication\Authenticator,
-    Security\Authentication\Strategy\PasswordGrantRegenerateStrategy,
-    Serializer\CamelCaseNamingStrategy,
-    Storage\RedisTokenStorage
-};
+require_once __DIR__.'/vendor/autoload.php';
+
+use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Client;
-use Blablacar\Redis\Client as RedisClient;
+use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\SerializerBuilder;
+use Xsolve\SalesforceClient\Client\SalesforceClient;
+use Xsolve\SalesforceClient\Enum\SObjectType;
+use Xsolve\SalesforceClient\Generator\TokenGenerator;
+use Xsolve\SalesforceClient\Http\GuzzleClient;
+use Xsolve\SalesforceClient\Model\Account;
+use Xsolve\SalesforceClient\Repository\SObjectRepository;
+use Xsolve\SalesforceClient\Request\Create;
+use Xsolve\SalesforceClient\Security\Authentication\Authenticator;
+use Xsolve\SalesforceClient\Security\Authentication\Credentials;
+use Xsolve\SalesforceClient\Security\Authentication\Strategy\PasswordGrantRegenerateStrategy;
+use Xsolve\SalesforceClient\Serializer\CamelCaseNamingStrategy;
+use Xsolve\SalesforceClient\Storage\RequestTokenStorage;
 
-        $client = new GuzzleClient(new Client());
-        $credentials = new ArrayCredentials([
-            'grant_type' => 'password',
-            'client_id' => 'CLIENT_ID',
-            'client_secret' => 'CLIENT_SECRET',
-            'username' => 'USERNAME',
-            'password' => 'PASSWORD',
-        ]);
+AnnotationRegistry::registerAutoloadNamespace(
+    'JMS\Serializer\Annotation',
+    __DIR__.'/vendor/jms/serializer/src'
+);
 
-        $tokenManager = new TokenManager($credentials, $authenticator,  new RedisTokenStorage(new RedisClient('127.0.0.1', 6379)));
-        $authenticator = new Authenticator($client, [new PasswordGrantRegenerateStrategy()]);
-        $salesforceClient = new SalesforceClient($client, $tokenManager, 'v37.0');
+$client = new GuzzleClient(new Client());
+$credentials = new Credentials(
+    'CLIENT_ID',
+    'CLIENT_SECRET',
+    'password',
+    [
+        'username' => 'USERNAME',
+        'password' => 'PASSWORD',
+    ]
+);
 
-        // Example requests:
-        $salesforceClient->doRequest(new Create('Account', ['Name' => 'New account created with Xsolve Client'])
+$authenticator = new Authenticator($client, [new PasswordGrantRegenerateStrategy()]);
+$tokenGenerator = new TokenGenerator($credentials, $authenticator, new RequestTokenStorage());
+$salesforceClient = new SalesforceClient($client, $tokenGenerator, 'v37.0');
 
-        // Sobject Manager
-        $sObjectManager = new SObjectManager(
-            $salesforceClient,
-            SerializerBuilder::create()->setPropertyNamingStrategy(new CamelCaseNamingStrategy())->build()
-        );
+$salesforceClient->doRequest(new Create(SObjectType::ACCOUNT(), ['Name' => 'New account created with Xsolve Client']));
+$serializer = SerializerBuilder::create()
+    ->setPropertyNamingStrategy(new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy()))
+    ->build();
+$sObjectRepository = new SObjectRepository($salesforceClient, $serializer);
 
-        $account = $sObjectManager->get(Account::class, '0010Y00000AcoTA');
+$account = $sObjectRepository->find(Account::class, '0010Y00000AcoTA');
 
-        $account->setName('New Name');
+$account->setName('New Name');
 
-        $sObjectManager->update($account);
+$sObjectRepository->update($account);
 ```
