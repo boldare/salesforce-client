@@ -93,7 +93,7 @@ abstract class AbstractSObject
         return $this->systemModstamp;
     }
 
-    public function setId(string $id) : AbstractSObjectType
+    public function setId(string $id) : AbstractSObject
     {
         $this->id = $id;
 
