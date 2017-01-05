@@ -2,7 +2,7 @@
 
 namespace Xsolve\SalesforceClient\Request;
 
-interface SalesforceRequestInterface
+interface RequestInterface
 {
     const METHOD_GET = 'GET';
     const METHOD_POST = 'POST';

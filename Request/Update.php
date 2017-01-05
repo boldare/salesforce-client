@@ -1,10 +1,8 @@
 <?php
 
-namespace Xsolve\SalesforceClient\Request\Object;
+namespace Xsolve\SalesforceClient\Request;
 
-use Xsolve\SalesforceClient\Request\SalesforceRequestInterface;
-
-class Get implements SalesforceRequestInterface
+class Update implements RequestInterface
 {
     const ENDPOINT = '/sobjects/%s/%s/';
 
@@ -48,7 +46,7 @@ class Get implements SalesforceRequestInterface
      */
     public function getMethod(): string
     {
-        return self::METHOD_GET;
+        return self::METHOD_PATCH;
     }
 
     /**
@@ -56,14 +54,8 @@ class Get implements SalesforceRequestInterface
      */
     public function getParams(): array
     {
-        if (empty($this->params)) {
-            return [];
-        }
-
         return [
-            'query' => [
-                'fields' => implode(',', $this->params),
-            ],
+            'json' => $this->params,
         ];
     }
 }

@@ -10,10 +10,10 @@ use Xsolve\SalesforceClient\ {
     Client\SalesforceClient,
     Manager\SObjectManagerInterface,
     Model\AbstractSObject,
-    Request\Object\Create,
-    Request\Object\Delete,
-    Request\Object\Get,
-    Request\Object\Update
+    Request\Create,
+    Request\Delete,
+    Request\Get,
+    Request\Update
 };
 
 class SObjectManager implements SObjectManagerInterface

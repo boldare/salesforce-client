@@ -1,10 +1,8 @@
 <?php
 
-namespace Xsolve\SalesforceClient\Request\Object;
+namespace Xsolve\SalesforceClient\Request;
 
-use Xsolve\SalesforceClient\Request\SalesforceRequestInterface;
-
-class Delete implements SalesforceRequestInterface
+class Delete implements RequestInterface
 {
     const ENDPOINT = '/sobjects/%s/%s/';
 
