@@ -61,7 +61,7 @@ class AuthenticatorTest extends TestCase
     }
 
     /**
-     * @expectedException Xsolve\SalesforceClient\Security\Authentication\AuthorizationFailedException
+     * @expectedException Xsolve\SalesforceClient\Security\Authentication\Exception\InvalidAuthenticationResponseException
      */
     public function testEmptyResponse()
     {
@@ -69,7 +69,7 @@ class AuthenticatorTest extends TestCase
     }
 
     /**
-     * @expectedException Xsolve\SalesforceClient\Security\Authentication\AuthorizationFailedException
+     * @expectedException Xsolve\SalesforceClient\Security\Authentication\Exception\InvalidAuthenticationResponseException
      */
     public function testBadResponse()
     {
@@ -93,7 +93,7 @@ class AuthenticatorTest extends TestCase
     }
 
     /**
-     * @expectedException \Xsolve\SalesforceClient\Security\Authentication\Strategy\NotFoundException
+     * @expectedException \Xsolve\SalesforceClient\Security\Authentication\Exception\UnsupportedCredentialsException
      */
     public function testRegenerateStrategyNotFound()
     {
