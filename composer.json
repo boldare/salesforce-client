@@ -10,7 +10,8 @@
         "phpunit/phpunit": "5.5.*"
     },
     "suggest": {
-        "guzzlehttp/guzzle": "Needed for http requests"
+        "guzzlehttp/guzzle": "Needed for http requests",
+        "blablacar/redis-client": "Needed if Redis will be used as the storage for tokens"
     },
     "autoload":{
         "psr-4":{
