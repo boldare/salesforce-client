@@ -3,7 +3,7 @@
 namespace Xsolve\SalesforceClient\Security\Token;
 
 /**
- * Basic implementation of TokenInterace
+ * Basic implementation of TokenInterace.
  */
 class Token implements TokenInterface
 {
@@ -44,7 +44,7 @@ class Token implements TokenInterface
     /**
      * {@inheritdoc}
      */
-    public function getTokenType() : string
+    public function getTokenType(): string
     {
         return $this->tokenType;
     }
@@ -52,7 +52,7 @@ class Token implements TokenInterface
     /**
      * {@inheritdoc}
      */
-    public function getAccessToken() : string
+    public function getAccessToken(): string
     {
         return $this->accessToken;
     }
@@ -60,7 +60,7 @@ class Token implements TokenInterface
     /**
      * {@inheritdoc}
      */
-    public function getRefreshToken() : string
+    public function getRefreshToken(): string
     {
         return $this->refreshToken;
     }

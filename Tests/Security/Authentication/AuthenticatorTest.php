@@ -4,17 +4,14 @@ namespace Xsolve\SalesforceClient\Tests\Security\Authentication;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
-use Xsolve\SalesforceClient\ {
-    Http\ClientInterface,
-    Security\Authentication\Authenticator,
-    Security\Authentication\Credentials,
-    Security\Authentication\Strategy\RegenerateStrategyInterface,
-    Security\Token\TokenInterface
-};
+use Xsolve\SalesforceClient\Http\ClientInterface;
+use Xsolve\SalesforceClient\Security\Authentication\Authenticator;
+use Xsolve\SalesforceClient\Security\Authentication\Credentials;
+use Xsolve\SalesforceClient\Security\Authentication\Strategy\RegenerateStrategyInterface;
+use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 
 class AuthenticatorTest extends TestCase
 {
-
     /**
      * @var Authenticator
      */
@@ -61,7 +58,7 @@ class AuthenticatorTest extends TestCase
     }
 
     /**
-     * @expectedException Xsolve\SalesforceClient\Security\Authentication\Exception\InvalidAuthenticationResponseException
+     * @expectedException \Xsolve\SalesforceClient\Security\Authentication\Exception\InvalidAuthenticationResponseException
      */
     public function testEmptyResponse()
     {
@@ -69,7 +66,7 @@ class AuthenticatorTest extends TestCase
     }
 
     /**
-     * @expectedException Xsolve\SalesforceClient\Security\Authentication\Exception\InvalidAuthenticationResponseException
+     * @expectedException \Xsolve\SalesforceClient\Security\Authentication\Exception\InvalidAuthenticationResponseException
      */
     public function testBadResponse()
     {
@@ -112,7 +109,7 @@ class AuthenticatorTest extends TestCase
         $this->assertInstanceOf(TokenInterface::class, $token);
     }
 
-    protected function getValidResponse() : string
+    protected function getValidResponse(): string
     {
         return '{"token_type":"Type","access_token":"Token","instance_url":"http:\/\/example.com\/"}';
     }

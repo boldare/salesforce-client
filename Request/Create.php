@@ -20,7 +20,7 @@ class Create implements RequestInterface
 
     /**
      * @param string $objectType
-     * @param array $params
+     * @param array  $params
      */
     public function __construct(AbstractSObjectType $objectType, array $params = [])
     {

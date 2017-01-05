@@ -2,11 +2,8 @@
 
 namespace Xsolve\SalesforceClient\Http;
 
-use Xsolve\SalesforceClient\Http\HttpException;
-use GuzzleHttp\ {
-    ClientInterface as GuzzleClientInterface,
-    Exception\TransferException
-};
+use GuzzleHttp\ClientInterface as GuzzleClientInterface;
+use GuzzleHttp\Exception\TransferException;
 use Psr\Http\Message\ResponseInterface;
 
 class GuzzleClient implements ClientInterface

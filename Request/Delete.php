@@ -31,7 +31,7 @@ class Delete implements SalesforceRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getMethod() : string
+    public function getMethod(): string
     {
         return self::METHOD_DELETE;
     }
