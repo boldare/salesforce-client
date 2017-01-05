@@ -2,10 +2,15 @@
 
 namespace Xsolve\SalesforceClient\Model;
 
-use JMS\Serializer\Annotation\Groups;
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\PreSerialize;
-use Xsolve\SalesforceClient\Enum\SObject;
+use JMS\Serializer\Annotation\ {
+    Groups,
+    PreSerialize,
+    Type
+};
+use Xsolve\SalesforceClient\Enum\ {
+    AbstractSObjectType,
+    SObjectType
+};
 
 class Account extends AbstractSObject
 {
@@ -353,9 +358,9 @@ class Account extends AbstractSObject
     /**
      * {@inheritdoc}
      */
-    public static function getSObjectName(): string
+    public static function getSObjectName(): AbstractSObjectType
     {
-        return SObject::ACCOUNT;
+        return SObjectType::ACCOUNT();
     }
 
     /**

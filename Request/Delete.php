@@ -2,7 +2,9 @@
 
 namespace Xsolve\SalesforceClient\Request;
 
-class Delete implements RequestInterface
+use Xsolve\SalesforceClient\Enum\AbstractSObjectType;
+
+class Delete implements SalesforceRequestInterface
 {
     const ENDPOINT = '/sobjects/%s/%s/';
 
@@ -20,7 +22,7 @@ class Delete implements RequestInterface
      * @param string $objectType
      * @param string $id
      */
-    public function __construct(string $objectType, string $id)
+    public function __construct(AbstractSObjectType $objectType, string $id)
     {
         $this->objectType = $objectType;
         $this->id = $id;

@@ -2,6 +2,8 @@
 
 namespace Xsolve\SalesforceClient\Request;
 
+use Xsolve\SalesforceClient\Enum\AbstractSObjectType;
+
 class Create implements RequestInterface
 {
     const ENDPOINT = '/sobjects/%s/';
@@ -20,7 +22,7 @@ class Create implements RequestInterface
      * @param string $objectType
      * @param array $params
      */
-    public function __construct(string $objectType, array $params = [])
+    public function __construct(AbstractSObjectType $objectType, array $params = [])
     {
         $this->objectType = $objectType;
         $this->params = $params;

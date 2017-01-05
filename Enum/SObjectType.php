@@ -2,7 +2,6 @@
 
 namespace Xsolve\SalesforceClient\Enum;
 
-class AccountSource
+class SObjectType extends AbstractSObjectType
 {
-    
 }
