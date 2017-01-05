@@ -2,22 +2,6 @@
 
 namespace Xsolve\SalesforceClient\Enum;
 
-final class Rating
+class Rating extends AbstractRating
 {
-    const HOT = 'Hot';
-    const WARM = 'Warm';
-    const COLD = 'Cold';
-
-    private function __construct()
-    {
-    }
-
-    public function getRatings() : array
-    {
-        return [
-            self::COLD,
-            self::WARM,
-            self::HOT,
-        ];
-    }
 }

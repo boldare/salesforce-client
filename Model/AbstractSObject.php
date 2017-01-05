@@ -3,10 +3,11 @@
 namespace Xsolve\SalesforceClient\Model;
 
 use JMS\Serializer\Annotation\Type;
+use Xsolve\SalesforceClient\Enum\AbstractSObjectType;
 
 abstract class AbstractSObject
 {
-    public static abstract function getSObjectName() : string;
+    public static abstract function getSObjectName() : AbstractSObjectType;
 
     /**
      * @var string
@@ -92,7 +93,7 @@ abstract class AbstractSObject
         return $this->systemModstamp;
     }
 
-    public function setId(string $id) : AbstractSObject
+    public function setId(string $id) : AbstractSObjectType
     {
         $this->id = $id;
 
