@@ -2,6 +2,6 @@
 
 namespace Xsolve\SalesforceClient\Http;
 
-class HttpException extends \Exception
+class HttpException extends \RuntimeException
 {
 }
