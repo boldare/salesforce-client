@@ -6,9 +6,9 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Xsolve\SalesforceClient\ {
     Client\SalesforceClient,
+    Generator\TokenGeneratorInterface,
     Http\ClientInterface,
     Http\HttpException,
-    Manager\TokenManagerInterface,
     Request\RequestInterface,
     Security\Token\TokenInterface
 };
@@ -32,7 +32,7 @@ class SalesforceClientTest extends TestCase
     {
         $token = $this->createMock(TokenInterface::class);
 
-        $tokenManager = $this->createMock(TokenManagerInterface::class);
+        $tokenManager = $this->createMock(TokenGeneratorInterface::class);
         $tokenManager->method('getToken')->willReturn($token);
         $tokenManager->method('regenerateToken')->willReturn($token);
 

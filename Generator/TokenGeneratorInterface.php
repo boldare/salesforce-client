@@ -1,10 +1,10 @@
 <?php
 
-namespace Xsolve\SalesforceClient\Manager;
+namespace Xsolve\SalesforceClient\Generator;
 
 use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 
-interface TokenManagerInterface
+interface TokenGeneratorInterface
 {
     /**
      * @return TokenInterface
