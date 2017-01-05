@@ -7,7 +7,7 @@ use Psr\Http\Message\ResponseInterface;
 use Xsolve\SalesforceClient\ {
     Http\ClientInterface,
     Security\Authentication\Authenticator,
-    Security\Authentication\CredentialsInterface,
+    Security\Authentication\Credentials,
     Security\Authentication\Strategy\RegenerateStrategyInterface,
     Security\Token\TokenInterface
 };
@@ -51,7 +51,7 @@ class AuthenticatorTest extends TestCase
     public function setUp()
     {
         $this->client = $this->createMock(ClientInterface::class);
-        $this->credentials = $this->createMock(CredentialsInterface::class);
+        $this->credentials = $this->createMock(Credentials::class);
         $this->response = $this->createMock(ResponseInterface::class);
         $this->regenerateStrategy = $this->createMock(RegenerateStrategyInterface::class);
         $this->token = $this->createMock(TokenInterface::class);
