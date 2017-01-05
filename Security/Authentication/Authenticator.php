@@ -6,7 +6,6 @@ use Xsolve\SalesforceClient\ {
     Http\ClientInterface,
     Http\HttpException,
     Request\SalesforceRequestInterface,
-    Security\Authentication\Strategy\NotFoundException,
     Security\Authentication\Strategy\RegenerateStrategyInterface,
     Security\Token\Token,
     Security\Token\TokenInterface
@@ -46,17 +45,17 @@ class Authenticator implements AuthenticatorInterface
                 'form_params' => $credentials->getCredentials()
             ])->getBody();
         } catch (HttpException $e) {
-            throw new AuthorizationFailedException('Authentication request failed.', 400, $e);
+            throw new Exception\AuthenticationRequestException('Authentication request failed.', 400, $e);
         }
 
         $parsedBody = json_decode($response, true);
 
         if (!$parsedBody) {
-            throw new AuthorizationFailedException(sprintf('Cannot decode response: %s', $response));
+            throw new Exception\InvalidAuthenticationResponseException(sprintf('Cannot decode response: %s', $response));
         }
 
         if (!$this->hasRequiredFields($parsedBody)) {
-            throw new AuthorizationFailedException(sprintf('Response do not contains required fields: token_type, access_token, instance_url.'));
+            throw new Exception\InvalidAuthenticationResponseException(sprintf('Response do not contains required fields: token_type, access_token, instance_url.'));
         }
 
         return new Token(
@@ -78,7 +77,7 @@ class Authenticator implements AuthenticatorInterface
             }
         }
 
-        throw new NotFoundException('Strategy not found for given credentials and token.', 404);
+        throw new Exception\UnsupportedCredentialsException('Strategy not found for given credentials and token.');
     }
 
     protected function hasRequiredFields(array $array) : bool
