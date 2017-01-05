@@ -12,7 +12,7 @@ interface SObjectRepositoryInterface
 
     public function delete(AbstractSObject $object);
 
-    public function find(string $class, string $id) : AbstractSObject;
+    public function find(string $class, string $id): AbstractSObject;
 
-    public function getFieldValues(string $class, string $id, array $fields = []) : array;
+    public function getFieldValues(string $class, string $id, array $fields = []): array;
 }

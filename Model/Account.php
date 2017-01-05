@@ -645,168 +645,168 @@ class Account extends AbstractSObject
         return $this->dandbCompanyId;
     }
 
-    public function setMasterRecordId(string $masterRecordId) : Account
+    public function setMasterRecordId(string $masterRecordId): Account
     {
         $this->masterRecordId = $masterRecordId;
 
         return $this;
     }
 
-    public function setName(string $name) : Account
+    public function setName(string $name): Account
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function setType(string $type) : Account
+    public function setType(string $type): Account
     {
         $this->type = $type;
 
         return $this;
     }
 
-    public function setParentId(string $parentId) : Account
+    public function setParentId(string $parentId): Account
     {
         $this->parentId = $parentId;
 
         return $this;
     }
 
-    public function setBillingAddress(ValueObject\Address $billingAddress) : Account
+    public function setBillingAddress(ValueObject\Address $billingAddress): Account
     {
         $this->billingAddress = $billingAddress;
 
         return $this;
     }
 
-    public function setShippingAddress(ValueObject\Address $shippingAddress) : Account
+    public function setShippingAddress(ValueObject\Address $shippingAddress): Account
     {
         $this->shippingAddress = $shippingAddress;
 
         return $this;
     }
 
-    public function setPhone(string $phone) : Account
+    public function setPhone(string $phone): Account
     {
         $this->phone = $phone;
 
         return $this;
     }
 
-    public function setFax(string $fax) : Account
+    public function setFax(string $fax): Account
     {
         $this->fax = $fax;
 
         return $this;
     }
 
-    public function setAccountNumber(string $accountNumber) : Account
+    public function setAccountNumber(string $accountNumber): Account
     {
         $this->accountNumber = $accountNumber;
 
         return $this;
     }
 
-    public function setWebsite(string $website) : Account
+    public function setWebsite(string $website): Account
     {
         $this->website = $website;
 
         return $this;
     }
 
-    public function setPhotoUrl(string $photoUrl) : Account
+    public function setPhotoUrl(string $photoUrl): Account
     {
         $this->photoUrl = $photoUrl;
 
         return $this;
     }
 
-    public function setSic(string $sic) : Account
+    public function setSic(string $sic): Account
     {
         $this->sic = $sic;
 
         return $this;
     }
 
-    public function setIndustry(string $industry) : Account
+    public function setIndustry(string $industry): Account
     {
         $this->industry = $industry;
 
         return $this;
     }
 
-    public function setAnnualRevenue(string $annualRevenue) : Account
+    public function setAnnualRevenue(string $annualRevenue): Account
     {
         $this->annualRevenue = $annualRevenue;
 
         return $this;
     }
 
-    public function setNumberOfEmployees(int $numberOfEmployees) : Account
+    public function setNumberOfEmployees(int $numberOfEmployees): Account
     {
         $this->numberOfEmployees = $numberOfEmployees;
 
         return $this;
     }
 
-    public function setOwnership(string $ownership) : Account
+    public function setOwnership(string $ownership): Account
     {
         $this->ownership = $ownership;
 
         return $this;
     }
 
-    public function setTickerSymbol(string $tickerSymbol) : Account
+    public function setTickerSymbol(string $tickerSymbol): Account
     {
         $this->tickerSymbol = $tickerSymbol;
 
         return $this;
     }
 
-    public function setDescription(string $description) : Account
+    public function setDescription(string $description): Account
     {
         $this->description = $description;
 
         return $this;
     }
 
-    public function setRating(string $rating) : Account
+    public function setRating(string $rating): Account
     {
         $this->rating = $rating;
 
         return $this;
     }
 
-    public function setSite(string $site) : Account
+    public function setSite(string $site): Account
     {
         $this->site = $site;
 
         return $this;
     }
 
-    public function setOwnerId(string $ownerId) : Account
+    public function setOwnerId(string $ownerId): Account
     {
         $this->ownerId = $ownerId;
 
         return $this;
     }
 
-    public function setLastActivityDate(\DateTime $lastActivityDate) : Account
+    public function setLastActivityDate(\DateTime $lastActivityDate): Account
     {
         $this->lastActivityDate = $lastActivityDate;
 
         return $this;
     }
 
-    public function setLastViewedDate(\DateTime $lastViewedDate) : Account
+    public function setLastViewedDate(\DateTime $lastViewedDate): Account
     {
         $this->lastViewedDate = $lastViewedDate;
 
         return $this;
     }
 
-    public function setLastReferencedDate(\DateTime $lastReferencedDate) : Account
+    public function setLastReferencedDate(\DateTime $lastReferencedDate): Account
     {
         $this->lastReferencedDate = $lastReferencedDate;
 
@@ -820,70 +820,70 @@ class Account extends AbstractSObject
         return $this;
     }
 
-    public function setJigsawCompanyId(string $jigsawCompanyId) : Account
+    public function setJigsawCompanyId(string $jigsawCompanyId): Account
     {
         $this->jigsawCompanyId = $jigsawCompanyId;
 
         return $this;
     }
 
-    public function setCleanStatus(string $cleanStatus) : Account
+    public function setCleanStatus(string $cleanStatus): Account
     {
         $this->cleanStatus = $cleanStatus;
 
         return $this;
     }
 
-    public function setAccountSource(string $accountSource) : Account
+    public function setAccountSource(string $accountSource): Account
     {
         $this->accountSource = $accountSource;
 
         return $this;
     }
 
-    public function setDunsNumber(string $dunsNumber) : Account
+    public function setDunsNumber(string $dunsNumber): Account
     {
         $this->dunsNumber = $dunsNumber;
 
         return $this;
     }
 
-    public function setTradestyle(string $tradestyle) : Account
+    public function setTradestyle(string $tradestyle): Account
     {
         $this->tradestyle = $tradestyle;
 
         return $this;
     }
 
-    public function setNaicsCode(string $naicsCode) : Account
+    public function setNaicsCode(string $naicsCode): Account
     {
         $this->naicsCode = $naicsCode;
 
         return $this;
     }
 
-    public function setNaicsDesc(string $naicsDesc) : Account
+    public function setNaicsDesc(string $naicsDesc): Account
     {
         $this->naicsDesc = $naicsDesc;
 
         return $this;
     }
 
-    public function setYearStarted(string $yearStarted) : Account
+    public function setYearStarted(string $yearStarted): Account
     {
         $this->yearStarted = $yearStarted;
 
         return $this;
     }
 
-    public function setSicDesc(string $sicDesc) : Account
+    public function setSicDesc(string $sicDesc): Account
     {
         $this->sicDesc = $sicDesc;
 
         return $this;
     }
 
-    public function setDandbCompanyId(string $dandbCompanyId) : Account
+    public function setDandbCompanyId(string $dandbCompanyId): Account
     {
         $this->dandbCompanyId = $dandbCompanyId;
 
@@ -891,7 +891,7 @@ class Account extends AbstractSObject
     }
 
     /**
-     * Because BillingAddress is not writtable
+     * Because BillingAddress is not writtable.
      *
      * @JMS\PreSerialize
      */
@@ -911,7 +911,7 @@ class Account extends AbstractSObject
     }
 
     /**
-     * Because ShippingAddress is not writable
+     * Because ShippingAddress is not writable.
      *
      * @JMS\PreSerialize
      */

@@ -12,15 +12,15 @@ interface RequestInterface
     /**
      * @return string
      */
-    public function getMethod() : string;
+    public function getMethod(): string;
 
     /**
      * @return array
      */
-    public function getParams() : array;
+    public function getParams(): array;
 
     /**
      * @return string
      */
-    public function getEndpoint() : string;
+    public function getEndpoint(): string;
 }
