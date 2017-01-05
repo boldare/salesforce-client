@@ -4,9 +4,9 @@ namespace Xsolve\SalesforceClient\Client;
 
 use Psr\Http\Message\ResponseInterface;
 use Xsolve\SalesforceClient\ {
+    Generator\TokenGeneratorInterface,
     Http\ClientInterface,
     Http\HttpException,
-    Manager\TokenManagerInterface,
     Request\SalesforceRequestInterface,
     Security\Token\TokenInterface
 };
@@ -22,7 +22,7 @@ class SalesforceClient
     protected $client;
 
     /**
-     * @var TokenManagerInterface
+     * @var TokenGeneratorInterface
      */
     protected $tokenManager;
 
@@ -33,7 +33,7 @@ class SalesforceClient
 
     public function __construct(
         ClientInterface $client,
-        TokenManagerInterface $tokenManager,
+        TokenGeneratorInterface $tokenManager,
         string $version
     ) {
         $this->client = $client;

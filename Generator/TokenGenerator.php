@@ -1,6 +1,6 @@
 <?php
 
-namespace Xsolve\SalesforceClient\Manager;
+namespace Xsolve\SalesforceClient\Generator;
 
 use Xsolve\SalesforceClient\ {
     Security\Authentication\AuthenticatorInterface,
@@ -9,7 +9,7 @@ use Xsolve\SalesforceClient\ {
     Storage\TokenStorageInterface
 };
 
-class TokenManager implements TokenManagerInterface
+class TokenGenerator implements TokenGeneratorInterface
 {
     /**
      * @var CredentialsInterface
