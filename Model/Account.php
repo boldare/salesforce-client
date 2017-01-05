@@ -2,9 +2,7 @@
 
 namespace Xsolve\SalesforceClient\Model;
 
-use JMS\Serializer\Annotation\Groups;
-use JMS\Serializer\Annotation\PreSerialize;
-use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation as JMS;
 use Xsolve\SalesforceClient\Enum\AbstractSObjectType;
 use Xsolve\SalesforceClient\Enum\SObjectType;
 
@@ -12,342 +10,342 @@ class Account extends AbstractSObject
 {
     /**
      * @var bool
-     * @Type("boolean")
+     * @JMS\Type("boolean")
      */
     protected $isDeleted;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $masterRecordId;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $name;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $type;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $parentId;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $billingStreet;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $billingCity;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $billingState;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $billingPostalCode;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $billingCountry;
 
     /**
      * @var float|null
-     * @Type("float")
-     * @Groups({"update"})
+     * @JMS\Type("float")
+     * @JMS\Groups({"update"})
      */
     protected $billingLatitude;
 
     /**
      * @var float|null
-     * @Type("float")
-     * @Groups({"update"})
+     * @JMS\Type("float")
+     * @JMS\Groups({"update"})
      */
     protected $billingLongitude;
 
     /**
      * @var string|null
-     * @Type("Xsolve\SalesforceClient\Model\Address")
+     * @JMS\Type("Xsolve\SalesforceClient\Model\ValueObject\Address")
      */
     protected $billingAddress;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $shippingStreet;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $shippingCity;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $shippingState;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $shippingPostalCode;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $shippingCountry;
 
     /**
      * @var float|null
-     * @Type("float")
-     * @Groups({"update"})
+     * @JMS\Type("float")
+     * @JMS\Groups({"update"})
      */
     protected $shippingLatitude;
 
     /**
      * @var float|null
-     * @Type("float")
-     * @Groups({"update"})
+     * @JMS\Type("float")
+     * @JMS\Groups({"update"})
      */
     protected $shippingLongitude;
 
     /**
      * @var string|null
-     * @Type("Xsolve\SalesforceClient\Model\Address")
-     * @Groups({"update"})
+     * @JMS\Type("Xsolve\SalesforceClient\Model\ValueObject\Address")
+     * @JMS\Groups({"update"})
      */
     protected $shippingAddress;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $phone;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $fax;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $accountNumber;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $website;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
      */
     protected $photoUrl;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $sic;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $industry;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $annualRevenue;
 
     /**
      * @var int|null
-     * @Type("int")
-     * @Groups({"update"})
+     * @JMS\Type("int")
+     * @JMS\Groups({"update"})
      */
     protected $numberOfEmployees;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $ownership;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $tickerSymbol;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $description;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $rating;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $site;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $ownerId;
 
     /**
      * @var \DateTime
-     * @Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
+     * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
      */
     protected $lastActivityDate;
 
     /**
      * @var \DateTime
-     * @Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
+     * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
      */
     protected $lastViewedDate;
 
     /**
      * @var \DateTime
-     * @Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
+     * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
      */
     protected $lastReferencedDate;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
      */
     protected $jigsaw;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
      */
     protected $jigsawCompanyId;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $cleanStatus;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $accountSource;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
      */
     protected $dunsNumber;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $tradestyle;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $naicsCode;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $naicsDesc;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $yearStarted;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $sicDesc;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $dandbCompanyId;
 
@@ -400,7 +398,7 @@ class Account extends AbstractSObject
     }
 
     /**
-     * @return Address|null
+     * @return ValueObject\Address|null
      */
     public function getBillingAddress()
     {
@@ -408,7 +406,7 @@ class Account extends AbstractSObject
     }
 
     /**
-     * @return Address|null
+     * @return ValueObject\Address|null
      */
     public function getShippingAddress()
     {
@@ -675,14 +673,14 @@ class Account extends AbstractSObject
         return $this;
     }
 
-    public function setBillingAddress(Address $billingAddress): Account
+    public function setBillingAddress(ValueObject\Address $billingAddress): Account
     {
         $this->billingAddress = $billingAddress;
 
         return $this;
     }
 
-    public function setShippingAddress(Address $shippingAddress): Account
+    public function setShippingAddress(ValueObject\Address $shippingAddress): Account
     {
         $this->shippingAddress = $shippingAddress;
 
@@ -895,11 +893,11 @@ class Account extends AbstractSObject
     /**
      * Because BillingAddress is not writtable.
      *
-     * @PreSerialize
+     * @JMS\PreSerialize
      */
     public function updateBillingAddress()
     {
-        if (!$this->shippingAddress instanceof Address) {
+        if (!$this->shippingAddress instanceof ValueObject\Address) {
             return;
         }
 
@@ -915,11 +913,11 @@ class Account extends AbstractSObject
     /**
      * Because ShippingAddress is not writable.
      *
-     * @PreSerialize
+     * @JMS\PreSerialize
      */
     public function updateShippingAddress()
     {
-        if (!$this->shippingAddress instanceof Address) {
+        if (!$this->shippingAddress instanceof ValueObject\Address) {
             return;
         }
 
