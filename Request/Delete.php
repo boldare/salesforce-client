@@ -1,11 +1,8 @@
 <?php
 
-namespace Xsolve\SalesforceClient\Request\Object;
+namespace Xsolve\SalesforceClient\Request;
 
-use Xsolve\SalesforceClient\ {
-    Enum\AbstractSObjectType,
-    Request\SalesforceRequestInterface
-};
+use Xsolve\SalesforceClient\Enum\AbstractSObjectType;
 
 class Delete implements SalesforceRequestInterface
 {

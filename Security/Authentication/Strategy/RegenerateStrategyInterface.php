@@ -3,13 +3,13 @@
 namespace Xsolve\SalesforceClient\Security\Authentication\Strategy;
 
 use Xsolve\SalesforceClient\Security\ {
-    Authentication\CredentialsInterface,
+    Authentication\Credentials,
     Token\TokenInterface
 };
 
 interface RegenerateStrategyInterface
 {
-    public function getCredentials(CredentialsInterface $credentials, TokenInterface $token) : CredentialsInterface;
+    public function getCredentials(Credentials $credentials, TokenInterface $token) : Credentials;
 
-    public function support(CredentialsInterface $credentials, TokenInterface $token) : bool;
+    public function support(Credentials $credentials, TokenInterface $token) : bool;
 }

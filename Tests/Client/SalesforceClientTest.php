@@ -6,11 +6,11 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Xsolve\SalesforceClient\ {
     Client\SalesforceClient,
+    Generator\TokenGeneratorInterface,
     Http\ClientInterface,
     Http\HttpException,
-    Request\SalesforceRequestInterface,
-    Security\Token\TokenInterface,
-    Generator\TokenGeneratorInterface
+    Request\RequestInterface,
+    Security\Token\TokenInterface
 };
 
 class SalesforceClientTest extends TestCase
@@ -46,7 +46,7 @@ class SalesforceClientTest extends TestCase
         $this->httpClient->expects($this->at(0))->method('request')->will($this->throwException(new HttpException('', SalesforceClient::UNAUTHORIZED)));
         $this->httpClient->expects($this->at(1))->method('request')->willReturn($this->createMock(ResponseInterface::class));
 
-        $response = $this->salesforceClient->doRequest($this->createMock(SalesforceRequestInterface::class));
+        $response = $this->salesforceClient->doRequest($this->createMock(RequestInterface::class));
 
         $this->assertInternalType('array', $response);
     }
@@ -58,12 +58,12 @@ class SalesforceClientTest extends TestCase
     {
         $this->httpClient->expects($this->at(0))->method('request')->will($this->throwException(new HttpException('', 404)));
 
-        $this->salesforceClient->doRequest($this->createMock(SalesforceRequestInterface::class));
+        $this->salesforceClient->doRequest($this->createMock(RequestInterface::class));
     }
 
     public function testValidToken()
     {
-        $response = $this->salesforceClient->doRequest($this->createMock(SalesforceRequestInterface::class));
+        $response = $this->salesforceClient->doRequest($this->createMock(RequestInterface::class));
 
         $this->assertInternalType('array', $response);
     }

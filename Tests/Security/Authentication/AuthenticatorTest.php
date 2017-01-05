@@ -7,7 +7,7 @@ use Psr\Http\Message\ResponseInterface;
 use Xsolve\SalesforceClient\ {
     Http\ClientInterface,
     Security\Authentication\Authenticator,
-    Security\Authentication\CredentialsInterface,
+    Security\Authentication\Credentials,
     Security\Authentication\Strategy\RegenerateStrategyInterface,
     Security\Token\TokenInterface
 };
@@ -51,7 +51,7 @@ class AuthenticatorTest extends TestCase
     public function setUp()
     {
         $this->client = $this->createMock(ClientInterface::class);
-        $this->credentials = $this->createMock(CredentialsInterface::class);
+        $this->credentials = $this->createMock(Credentials::class);
         $this->response = $this->createMock(ResponseInterface::class);
         $this->regenerateStrategy = $this->createMock(RegenerateStrategyInterface::class);
         $this->token = $this->createMock(TokenInterface::class);
@@ -61,7 +61,7 @@ class AuthenticatorTest extends TestCase
     }
 
     /**
-     * @expectedException Xsolve\SalesforceClient\Security\Authentication\AuthorizationFailedException
+     * @expectedException Xsolve\SalesforceClient\Security\Authentication\Exception\InvalidAuthenticationResponseException
      */
     public function testEmptyResponse()
     {
@@ -69,7 +69,7 @@ class AuthenticatorTest extends TestCase
     }
 
     /**
-     * @expectedException Xsolve\SalesforceClient\Security\Authentication\AuthorizationFailedException
+     * @expectedException Xsolve\SalesforceClient\Security\Authentication\Exception\InvalidAuthenticationResponseException
      */
     public function testBadResponse()
     {
@@ -93,7 +93,7 @@ class AuthenticatorTest extends TestCase
     }
 
     /**
-     * @expectedException \Xsolve\SalesforceClient\Security\Authentication\Strategy\NotFoundException
+     * @expectedException \Xsolve\SalesforceClient\Security\Authentication\Exception\UnsupportedCredentialsException
      */
     public function testRegenerateStrategyNotFound()
     {

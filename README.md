@@ -5,7 +5,7 @@ use Xsolve\SalesforceClient\ {
     Manager\SObjectManager,
     Manager\TokenManager,
     Model\Account,
-    Request\Object\Create,
+    Request\Create,
     Security\Authentication\ArrayCredentials,
     Security\Authentication\Authenticator,
     Security\Authentication\Strategy\PasswordGrantRegenerateStrategy,

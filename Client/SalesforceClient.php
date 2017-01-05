@@ -7,7 +7,7 @@ use Xsolve\SalesforceClient\ {
     Generator\TokenGeneratorInterface,
     Http\ClientInterface,
     Http\HttpException,
-    Request\SalesforceRequestInterface,
+    Request\RequestInterface,
     Security\Token\TokenInterface
 };
 
@@ -41,7 +41,7 @@ class SalesforceClient
         $this->version = $version;
     }
 
-    public function doRequest(SalesforceRequestInterface $request) : array
+    public function doRequest(RequestInterface $request) : array
     {
         $token = $this->tokenManager->getToken();
 
@@ -61,7 +61,7 @@ class SalesforceClient
         return !$responseBody ? [] : $responseBody;
     }
 
-    protected function sendRequest(TokenInterface $token, SalesforceRequestInterface $request) : ResponseInterface
+    protected function sendRequest(TokenInterface $token, RequestInterface $request) : ResponseInterface
     {
         return $this->client->request(
             $request->getMethod(),

@@ -5,20 +5,29 @@ namespace Xsolve\SalesforceClient\Storage;
 use Blablacar\Redis\Client;
 use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 
-class RedisTokenStorage implements TokenStorageInterface
+class BlablacarRedisStorage implements TokenStorageInterface
 {
-    const KEY = 'salesforce_token';
+    const DEFAULT_KEY = 'salesforce_token';
 
+    /**
+     * @var Client
+     */
     protected $client;
 
-    public function __construct(Client $client)
+    /**
+     * @var string
+     */
+    protected $key;
+
+    public function __construct(Client $client, string $key = self::DEFAULT_KEY)
     {
         $this->client = $client;
+        $this->key = $key;
     }
 
     public function get(): TokenInterface
     {
-        $token = $this->client->get(self::KEY);
+        $token = $this->client->get($this->key);
 
         if ($token === null) {
             return;
@@ -29,11 +38,11 @@ class RedisTokenStorage implements TokenStorageInterface
 
     public function has(): bool
     {
-        return (bool) $this->client->exists(self::KEY);
+        return (bool) $this->client->exists($this->key);
     }
 
     public function save(TokenInterface $token)
     {
-        $this->client->set(self::KEY, serialize($token));
+        $this->client->set($this->key, serialize($token));
     }
 }
