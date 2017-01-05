@@ -1,12 +1,10 @@
 <?php
 
-namespace Xsolve\SalesforceClient\Tests\Security\Authentication;
+namespace Xsolve\SalesforceClient\Security\Authentication;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Xsolve\SalesforceClient\Http\ClientInterface;
-use Xsolve\SalesforceClient\Security\Authentication\Authenticator;
-use Xsolve\SalesforceClient\Security\Authentication\Credentials;
 use Xsolve\SalesforceClient\Security\Authentication\Strategy\RegenerateStrategyInterface;
 use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 
@@ -23,7 +21,7 @@ class AuthenticatorTest extends TestCase
     protected $client;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|CredentialsInterface
+     * @var \PHPUnit_Framework_MockObject_MockObject|Credentials
      */
     protected $credentials;
 
