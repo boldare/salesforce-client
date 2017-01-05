@@ -11,7 +11,8 @@
         "phpunit/phpunit": "5.5.*"
     },
     "suggest": {
-        "guzzlehttp/guzzle": "Needed for sending HTTP requests using GuzzleClient"
+        "guzzlehttp/guzzle": "Needed for sending HTTP requests using GuzzleClient",
+        "blablacar/redis-client": "Needed if Redis will be used as the storage for tokens"
     },
     "autoload":{
         "psr-4":{
