@@ -22,14 +22,14 @@ class Credentials
     /**
      * @var array
      */
-    private $parameters;
+    private $extraParams;
 
-    public function __construct(string $clientId, string $clientSecret, string $grantType, array $parameters)
+    public function __construct(string $clientId, string $clientSecret, string $grantType, array $extraParams = [])
     {
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
         $this->grantType = $grantType;
-        $this->parameters = $parameters;
+        $this->extraParams = $extraParams;
     }
 
     public function getClientId(): string
@@ -49,6 +49,10 @@ class Credentials
 
     public function getParameters(): array
     {
-        return $this->parameters;
+        return [
+            'client_id' => $this->clientId,
+            'client_secret' => $this->clientSecret,
+            'grant_type' => $this->grantType,
+        ] + $this->extraParams;
     }
 }
