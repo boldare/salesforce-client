@@ -2,9 +2,7 @@
 
 namespace Xsolve\SalesforceClient\Model;
 
-use JMS\Serializer\Annotation\Groups;
-use JMS\Serializer\Annotation\PreSerialize;
-use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation as JMS;
 use Xsolve\SalesforceClient\Enum\AbstractSObjectType;
 use Xsolve\SalesforceClient\Enum\SObjectType;
 
@@ -12,305 +10,305 @@ class Lead extends AbstractSObject
 {
     /**
      * @var bool
-     * @Type("boolean")
+     * @JMS\Type("boolean")
      */
     protected $isDeleted;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $masterRecordId;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $lastName;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $firstName;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $salutation;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
      */
     protected $name;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $company;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $street;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $city;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $state;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $postalCode;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $country;
 
     /**
      * @var float|null
-     * @Type("float")
-     * @Groups({"update"})
+     * @JMS\Type("float")
+     * @JMS\Groups({"update"})
      */
     protected $latitude;
 
     /**
      * @var float|null
-     * @Type("float")
-     * @Groups({"update"})
+     * @JMS\Type("float")
+     * @JMS\Groups({"update"})
      */
     protected $longitude;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $geocodeAccuracy;
 
     /**
-     * @var array|null
-     * @Type("Xsolve\SalesforceClient\Model\Address")
+     * @var Xsolve\SalesforceClient\Model\Address|null
+     * @JMS\Type("Xsolve\SalesforceClient\Model\Address")
      */
     protected $address;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $phone;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $mobilePhone;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $fax;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $email;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $website;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
      */
     protected $photoUrl;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $description;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $leadSource;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $status;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $industry;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $rating;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $annualRevenue;
 
     /**
      * @var int|null
-     * @Type("int")
-     * @Groups({"update"})
+     * @JMS\Type("int")
+     * @JMS\Groups({"update"})
      */
     protected $numberOfEmployees;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $ownerId;
 
     /**
      * @var bool|null
-     * @Type("boolean")
+     * @JMS\Type("boolean")
      */
     protected $isConverted;
 
     /**
      * @var \DateTime|null
-     * @Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
+     * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
      */
     protected $convertedDate;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
      */
     protected $convertedAccountId;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
      */
     protected $convertedContactId;
 
     /**
      * @var string|null
-     * @Type("string")
+     * @JMS\Type("string")
      */
     protected $convertedOpportunityId;
 
     /**
      * @var bool
-     * @Type("boolean")
-     * @Groups({"update"})
+     * @JMS\Type("boolean")
+     * @JMS\Groups({"update"})
      */
     protected $isUnreadByOwner;
 
     /**
      * @var \DateTime
-     * @Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
+     * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
      */
     protected $lastViewedDate;
 
     /**
      * @var \DateTime
-     * @Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
+     * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
      */
     protected $lastReferencedDate;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $jigsaw;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $jigsawContactId;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $cleanStatus;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $companyDunsNumber;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $dandbCompanyId;
 
     /**
      * @var string|null
-     * @Type("string")
-     * @Groups({"update"})
+     * @JMS\Type("string")
+     * @JMS\Groups({"update"})
      */
     protected $emailBouncedReason;
 
     /**
      * @var \DateTime|null
-     * @Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
-     * @Groups({"update"})
+     * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
+     * @JMS\Groups({"update"})
      */
     protected $emailBouncedDate;
 
@@ -626,126 +624,126 @@ class Lead extends AbstractSObject
         return $this->emailBouncedDate;
     }
 
-    public function setMasterRecordId(string $masterRecordId)
+    public function setMasterRecordId(string $masterRecordId): Lead
     {
         $this->masterRecordId = $masterRecordId;
 
         return $this;
     }
 
-    public function setLastName(string $lastName)
+    public function setLastName(string $lastName): Lead
     {
         $this->lastName = $lastName;
 
         return $this;
     }
 
-    public function setFirstName(string $firstName)
+    public function setFirstName(string $firstName): Lead
     {
         $this->firstName = $firstName;
 
         return $this;
     }
 
-    public function setSalutation(string $salutation)
+    public function setSalutation(string $salutation): Lead
     {
         $this->salutation = $salutation;
 
         return $this;
     }
 
-    public function setCompany(string $company)
+    public function setCompany(string $company): Lead
     {
         $this->company = $company;
 
         return $this;
     }
 
-    public function setAddress(Address $address)
+    public function setAddress(Address $address): Lead
     {
         $this->address = $address;
 
         return $this;
     }
 
-    public function setPhone(string $phone)
+    public function setPhone(string $phone): Lead
     {
         $this->phone = $phone;
 
         return $this;
     }
 
-    public function setMobilePhone(string $mobilePhone)
+    public function setMobilePhone(string $mobilePhone): Lead
     {
         $this->mobilePhone = $mobilePhone;
 
         return $this;
     }
 
-    public function setFax(string $fax)
+    public function setFax(string $fax): Lead
     {
         $this->fax = $fax;
 
         return $this;
     }
 
-    public function setEmail(string $email)
+    public function setEmail(string $email): Lead
     {
         $this->email = $email;
 
         return $this;
     }
 
-    public function setWebsite(string $website)
+    public function setWebsite(string $website): Lead
     {
         $this->website = $website;
 
         return $this;
     }
 
-    public function setDescription(string $description)
+    public function setDescription(string $description): Lead
     {
         $this->description = $description;
 
         return $this;
     }
 
-    public function setLeadSource(string $leadSource)
+    public function setLeadSource(string $leadSource): Lead
     {
         $this->leadSource = $leadSource;
 
         return $this;
     }
 
-    public function setStatus(string $status)
+    public function setStatus(string $status): Lead
     {
         $this->status = $status;
 
         return $this;
     }
 
-    public function setIndustry(string $industry)
+    public function setIndustry(string $industry): Lead
     {
         $this->industry = $industry;
 
         return $this;
     }
 
-    public function setRating(string $rating)
+    public function setRating(string $rating): Lead
     {
         $this->rating = $rating;
 
         return $this;
     }
 
-    public function setAnnualRevenue(string $annualRevenue)
+    public function setAnnualRevenue(string $annualRevenue): Lead
     {
         $this->annualRevenue = $annualRevenue;
 
         return $this;
     }
 
-    public function setNumberOfEmployees(int $numberOfEmployees)
+    public function setNumberOfEmployees(int $numberOfEmployees): Lead
     {
         $this->numberOfEmployees = $numberOfEmployees;
 
@@ -759,70 +757,70 @@ class Lead extends AbstractSObject
         return $this;
     }
 
-    public function setUnreadByOwner(bool $isUnreadByOwner)
+    public function setUnreadByOwner(bool $isUnreadByOwner): Lead
     {
         $this->isUnreadByOwner = $isUnreadByOwner;
 
         return $this;
     }
 
-    public function setLastViewedDate(\DateTimeInterface $lastViewedDate)
+    public function setLastViewedDate(\DateTimeInterface $lastViewedDate): Lead
     {
         $this->lastViewedDate = $lastViewedDate;
 
         return $this;
     }
 
-    public function setLastReferencedDate(\DateTimeInterface $lastReferencedDate)
+    public function setLastReferencedDate(\DateTimeInterface $lastReferencedDate): Lead
     {
         $this->lastReferencedDate = $lastReferencedDate;
 
         return $this;
     }
 
-    public function setJigsaw(string $jigsaw)
+    public function setJigsaw(string $jigsaw): Lead
     {
         $this->jigsaw = $jigsaw;
 
         return $this;
     }
 
-    public function setJigsawContactId(string $jigsawContactId)
+    public function setJigsawContactId(string $jigsawContactId): Lead
     {
         $this->jigsawContactId = $jigsawContactId;
 
         return $this;
     }
 
-    public function setCleanStatus(string $cleanStatus)
+    public function setCleanStatus(string $cleanStatus): Lead
     {
         $this->cleanStatus = $cleanStatus;
 
         return $this;
     }
 
-    public function setCompanyDunsNumber(string $companyDunsNumber)
+    public function setCompanyDunsNumber(string $companyDunsNumber): Lead
     {
         $this->companyDunsNumber = $companyDunsNumber;
 
         return $this;
     }
 
-    public function setDandbCompanyId(string $dandbCompanyId)
+    public function setDandbCompanyId(string $dandbCompanyId): Lead
     {
         $this->dandbCompanyId = $dandbCompanyId;
 
         return $this;
     }
 
-    public function setEmailBouncedReason(string $emailBouncedReason)
+    public function setEmailBouncedReason(string $emailBouncedReason): Lead
     {
         $this->emailBouncedReason = $emailBouncedReason;
 
         return $this;
     }
 
-    public function setEmailBouncedDate(\DateTimeInterface $emailBouncedDate)
+    public function setEmailBouncedDate(\DateTimeInterface $emailBouncedDate): Lead
     {
         $this->emailBouncedDate = $emailBouncedDate;
 
@@ -832,7 +830,7 @@ class Lead extends AbstractSObject
     /**
      * Because Adrress is not writable.
      *
-     * @PreSerialize
+     * @JMS\PreSerialize
      */
     public function updateAddress()
     {
