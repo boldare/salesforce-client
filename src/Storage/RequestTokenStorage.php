@@ -16,6 +16,10 @@ class RequestTokenStorage implements TokenStorageInterface
      */
     public function get(): TokenInterface
     {
+        if (!$this->has()) {
+            throw new \LogicException('No token has been set');
+        }
+
         return $this->token;
     }
 
