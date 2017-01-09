@@ -8,4 +8,5 @@ abstract class AbstractSObjectType extends AbstractEnumeration
 {
     const LEAD = 'Lead';
     const ACCOUNT = 'Account';
+    const PRODUCT = 'Product2';
 }

@@ -33,7 +33,7 @@ class Create implements RequestInterface
      */
     public function getEndpoint(): string
     {
-        return sprintf(self::ENDPOINT, $this->objectType);
+        return sprintf(self::ENDPOINT, $this->objectType->value());
     }
 
     /**

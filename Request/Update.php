@@ -40,7 +40,7 @@ class Update implements RequestInterface
      */
     public function getEndpoint(): string
     {
-        return sprintf(self::ENDPOINT, $this->objectType, $this->id);
+        return sprintf(self::ENDPOINT, $this->objectType->value(), $this->id);
     }
 
     /**
