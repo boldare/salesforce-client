@@ -5,6 +5,7 @@ namespace Xsolve\SalesforceClient\Model;
 use JMS\Serializer\Annotation as JMS;
 use Xsolve\SalesforceClient\Enum\AbstractSObjectType;
 use Xsolve\SalesforceClient\Enum\SObjectType;
+use Xsolve\SalesforceClient\Model\ValueObject\Address;
 
 class Lead extends AbstractSObject
 {
@@ -112,8 +113,8 @@ class Lead extends AbstractSObject
     protected $geocodeAccuracy;
 
     /**
-     * @var Xsolve\SalesforceClient\Model\Address|null
-     * @JMS\Type("Xsolve\SalesforceClient\Model\Address")
+     * @var Address|null
+     * @JMS\Type("Xsolve\SalesforceClient\Model\ValueObject\Address")
      */
     protected $address;
 
