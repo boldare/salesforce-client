@@ -1,0 +1,12 @@
+language: php
+
+php:
+ - '7.0'
+
+script:
+ - vendor/bin/phpunit -c phpunit.xml
+
+before_script:
+ - composer install
+ - composer require guzzlehttp/guzzle "~6.2"
+ - composer require blablacar/redis-client "~1.0"
