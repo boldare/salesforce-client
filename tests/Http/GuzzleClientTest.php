@@ -25,7 +25,7 @@ class GuzzleClientTest extends TestCase
      */
     protected function setUp()
     {
-        if (!class_exists('GuzzleHttp\ClientInterface')) {
+        if (!interface_exists('GuzzleHttp\ClientInterface')) {
             $this->markTestSkipped('GuzzleHttp is not loaded');
         }
 
