@@ -9,7 +9,6 @@ use Xsolve\SalesforceClient\Model\ValueObject\Address;
 
 class Order extends AbstractSObject
 {
-
     /**
      * @var string|null
      * @JMS\Type("string")
@@ -583,156 +582,182 @@ class Order extends AbstractSObject
     public function setContractId(string $contractId): Order
     {
         $this->contractId = $contractId;
+
         return $this;
     }
 
     public function setAccountId(string $accountId): Order
     {
         $this->accountId = $accountId;
+
         return $this;
     }
 
     public function setPricebookId(string $pricebookId): Order
     {
         $this->pricebookId = $pricebookId;
+
         return $this;
     }
 
     public function setOriginalOrderId(string $originalOrderId): Order
     {
         $this->originalOrderId = $originalOrderId;
+
         return $this;
     }
 
     public function setEffectiveDate(\DateTimeInterface $effectiveDate): Order
     {
         $this->effectiveDate = $effectiveDate;
+
         return $this;
     }
 
     public function setEndDate(\DateTimeInterface $endDate): Order
     {
         $this->endDate = $endDate;
+
         return $this;
     }
 
     public function setStatus(string $status): Order
     {
         $this->status = $status;
+
         return $this;
     }
 
     public function setDescription(string $description): Order
     {
         $this->description = $description;
+
         return $this;
     }
 
     public function setCustomerAuthorizedById(string $customerAuthorizedById): Order
     {
         $this->customerAuthorizedById = $customerAuthorizedById;
+
         return $this;
     }
 
     public function setCustomerAuthorizedDate(\DateTimeInterface $customerAuthorizedDate): Order
     {
         $this->customerAuthorizedDate = $customerAuthorizedDate;
+
         return $this;
     }
 
     public function setCompanyAuthorizedById(string $companyAuthorizedById): Order
     {
         $this->companyAuthorizedById = $companyAuthorizedById;
+
         return $this;
     }
 
     public function setCompanyAuthorizedDate(\DateTimeInterface $companyAuthorizedDate): Order
     {
         $this->companyAuthorizedDate = $companyAuthorizedDate;
+
         return $this;
     }
 
     public function setType(string $type): Order
     {
         $this->type = $type;
+
         return $this;
     }
 
     public function setBillingAddress(Address $billingAddress): Order
     {
         $this->billingAddress = $billingAddress;
+
         return $this;
     }
 
     public function setShippingAddress(Address $shippingAddress): Order
     {
         $this->shippingAddress = $shippingAddress;
+
         return $this;
     }
 
     public function setName(string $name): Order
     {
         $this->name = $name;
+
         return $this;
     }
 
     public function setPoDate(\DateTimeInterface $poDate): Order
     {
         $this->poDate = $poDate;
+
         return $this;
     }
 
     public function setPoNumber(string $poNumber): Order
     {
         $this->poNumber = $poNumber;
+
         return $this;
     }
 
     public function setOrderReferenceNumber(string $orderReferenceNumber): Order
     {
         $this->orderReferenceNumber = $orderReferenceNumber;
+
         return $this;
     }
 
     public function setBillToContactId(string $billToContactId): Order
     {
         $this->billToContactId = $billToContactId;
+
         return $this;
     }
 
     public function setShipToContactId(string $shipToContactId): Order
     {
         $this->shipToContactId = $shipToContactId;
+
         return $this;
     }
 
     public function setActivatedDate(\DateTimeInterface $activatedDate): Order
     {
         $this->activatedDate = $activatedDate;
+
         return $this;
     }
 
     public function setActivatedById(string $activatedById): Order
     {
         $this->activatedById = $activatedById;
+
         return $this;
     }
 
     public function setStatusCode(string $statusCode): Order
     {
         $this->statusCode = $statusCode;
+
         return $this;
     }
 
     public function setLastViewedDate(\DateTimeInterface $lastViewedDate): Order
     {
         $this->lastViewedDate = $lastViewedDate;
+
         return $this;
     }
 
     public function setLastReferencedDate(\DateTimeInterface $lastReferencedDate): Order
     {
         $this->lastReferencedDate = $lastReferencedDate;
+
         return $this;
     }
 
