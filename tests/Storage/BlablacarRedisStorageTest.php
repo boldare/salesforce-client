@@ -14,7 +14,6 @@ class BlablacarRedisStorageTest extends TestCase
     private $storage;
 
     /**
-     *
      * @var ObjectProphecy|Client
      */
     private $client;
