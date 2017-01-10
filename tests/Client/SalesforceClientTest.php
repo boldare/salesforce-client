@@ -2,21 +2,12 @@
 
 namespace Xsolve\SalesforceClient\Client;
 
-use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
-use Xsolve\SalesforceClient\Generator\TokenGeneratorInterface;
-use Xsolve\SalesforceClient\Http\ClientInterface;
 use Xsolve\SalesforceClient\Http\HttpException;
 use Xsolve\SalesforceClient\Request\RequestInterface;
-use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 
-class SalesforceClientTest extends TestCase
+class SalesforceClientTest extends AbstractSalesforceClientTest
 {
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|ClientInterface
-     */
-    protected $httpClient;
-
     /**
      * @var SalesforceClient
      */
@@ -27,15 +18,9 @@ class SalesforceClientTest extends TestCase
      */
     public function setUp()
     {
-        $token = $this->createMock(TokenInterface::class);
+        parent::setUp();
 
-        $tokenManager = $this->createMock(TokenGeneratorInterface::class);
-        $tokenManager->method('getToken')->willReturn($token);
-        $tokenManager->method('regenerateToken')->willReturn($token);
-
-        $this->httpClient = $this->createMock(ClientInterface::class);
-
-        $this->salesforceClient = new SalesforceClient($this->httpClient, $tokenManager, 'v00.0');
+        $this->salesforceClient = new SalesforceClient($this->httpClient, $this->tokenGenerator, 'v00.0');
     }
 
     public function testExpiredTokenFlow()
