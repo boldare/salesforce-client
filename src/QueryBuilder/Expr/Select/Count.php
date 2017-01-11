@@ -16,11 +16,6 @@ class Count extends AbstractSelect implements ExprInterface
         $this->countedValue = $countedValue;
     }
 
-    public function setCountedValue(string $countedValue = null)
-    {
-        $this->countedValue = $countedValue;
-    }
-
     protected function getSelectPart(): string
     {
         if ($this->countedValue) {
