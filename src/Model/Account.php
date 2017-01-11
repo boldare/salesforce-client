@@ -17,77 +17,77 @@ class Account extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $masterRecordId;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $name;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $type;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $parentId;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingStreet;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingCity;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingState;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingPostalCode;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingCountry;
 
     /**
      * @var float|null
      * @JMS\Type("float")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingLatitude;
 
     /**
      * @var float|null
      * @JMS\Type("float")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingLongitude;
 
@@ -100,84 +100,84 @@ class Account extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingStreet;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingCity;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingState;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingPostalCode;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingCountry;
 
     /**
      * @var float|null
      * @JMS\Type("float")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingLatitude;
 
     /**
      * @var float|null
      * @JMS\Type("float")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingLongitude;
 
     /**
      * @var string|null
      * @JMS\Type("Xsolve\SalesforceClient\Model\ValueObject\Address")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingAddress;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $phone;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $fax;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $accountNumber;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $website;
 
@@ -190,70 +190,70 @@ class Account extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $sic;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $industry;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $annualRevenue;
 
     /**
      * @var int|null
      * @JMS\Type("int")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $numberOfEmployees;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $ownership;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $tickerSymbol;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $description;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $rating;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $site;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $ownerId;
 
@@ -290,14 +290,14 @@ class Account extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $cleanStatus;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $accountSource;
 
@@ -310,42 +310,42 @@ class Account extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $tradestyle;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $naicsCode;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $naicsDesc;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $yearStarted;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $sicDesc;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $dandbCompanyId;
 

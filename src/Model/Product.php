@@ -11,28 +11,28 @@ class Product extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $name;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $description;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $productCode;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $family;
 
@@ -45,7 +45,7 @@ class Product extends AbstractSObject
     /**
      * @var bool
      * @JMS\Type("boolean")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $isActive;
 
