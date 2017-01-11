@@ -92,14 +92,14 @@ class AuthenticatorTest extends TestCase
      */
     public function testRegenerateStrategyNotFound()
     {
-        $this->regenerateStrategy->method('support')->willReturn(false);
+        $this->regenerateStrategy->method('supports')->willReturn(false);
 
         $this->authenticator->regenerate($this->credentials, $this->token);
     }
 
     public function testRegenerateExistingStrategy()
     {
-        $this->regenerateStrategy->method('support')->willReturn(true);
+        $this->regenerateStrategy->method('supports')->willReturn(true);
         $this->response->method('getBody')->willReturn($this->getValidResponse());
 
         $token = $this->authenticator->regenerate($this->credentials, $this->token);

@@ -70,7 +70,7 @@ class Authenticator implements AuthenticatorInterface
     public function regenerate(Credentials $credentials, TokenInterface $token): TokenInterface
     {
         foreach ($this->regenerateStrategies as $strategy) {
-            if ($strategy->support($credentials, $token)) {
+            if ($strategy->supports($credentials, $token)) {
                 return $this->authenticate($strategy->getCredentials($credentials, $token));
             }
         }

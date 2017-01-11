@@ -7,12 +7,18 @@ use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 
 class PasswordGrantRegenerateStrategy implements RegenerateStrategyInterface
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getCredentials(Credentials $credentials, TokenInterface $token): Credentials
     {
         return $credentials;
     }
 
-    public function support(Credentials $credentials, TokenInterface $token): bool
+    /**
+     * {@inheritdoc}
+     */
+    public function supports(Credentials $credentials, TokenInterface $token): bool
     {
         return 'password' === $credentials->getGrantType();
     }
