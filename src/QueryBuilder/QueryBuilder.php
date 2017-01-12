@@ -4,6 +4,7 @@ namespace Xsolve\SalesforceClient\QueryBuilder;
 
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExpressionFactory;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\From\AbstractFrom;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\OrderBy\AbstractOrderBy;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Select\AbstractSelect;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Where\AbstractWhere;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Where\CompositeWhere;
@@ -67,6 +68,13 @@ class QueryBuilder
         }
 
         $this->query->setWhere(new CompositeWhere($currentWhere, $operator, $where));
+    }
+
+    public function orderBy(AbstractOrderBy $orderBy): self
+    {
+        $this->query->setOrderBy($orderBy);
+
+        return $this;
     }
 
     public function setParameters(array $parameters): self

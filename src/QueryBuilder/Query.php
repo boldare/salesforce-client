@@ -5,6 +5,7 @@ namespace Xsolve\SalesforceClient\QueryBuilder;
 use LogicException;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\From\AbstractFrom;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\OrderBy\AbstractOrderBy;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Select\AbstractSelect;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\ParametersReplacingVisitor;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisiteeInterface;
@@ -32,8 +33,11 @@ class Query
 //    private $groupBy;
 //
 //    private $having;
-//
-//    private $orderBy;
+
+    /**
+     * @var AbstractOrderBy
+     */
+    private $orderBy;
 //
 //    private $limit;
 //
@@ -75,6 +79,11 @@ class Query
         return $this->where;
     }
 
+    public function setOrderBy(AbstractOrderBy $orderBy)
+    {
+        $this->orderBy = $orderBy;
+    }
+
     public function setParameters(array $parameters)
     {
         $this->visitors[] = new ParametersReplacingVisitor($parameters);
@@ -95,6 +104,10 @@ class Query
 
         if ($this->where) {
             $query .= sprintf('WHERE %s', $this->where->asSOQL());
+        }
+
+        if ($this->orderBy) {
+            $query .= sprintf(' ORDER BY %s', $this->orderBy->asSOQL());
         }
 
         return $query;
