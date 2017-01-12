@@ -5,6 +5,7 @@ namespace Xsolve\SalesforceClient\QueryBuilder;
 use LogicException;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\From\AbstractFrom;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\GroupBy\AbstractGroupBy;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Select\AbstractSelect;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\ParametersReplacingVisitor;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisiteeInterface;
@@ -28,9 +29,11 @@ class Query
      */
     private $where;
 
-      // @todo
-//    private $groupBy;
-//
+    /**
+     * @var AbstractGroupBy|null
+     */
+    private $groupBy;
+
 //    private $having;
 //
 //    private $orderBy;
@@ -67,6 +70,11 @@ class Query
         $this->where = $where;
     }
 
+    public function setGroupBy(AbstractGroupBy $groupBy)
+    {
+        $this->groupBy = $groupBy;
+    }
+
     /**
      * @return AbstractWhere|null
      */
@@ -95,6 +103,10 @@ class Query
 
         if ($this->where) {
             $query .= sprintf('WHERE %s', $this->where->asSOQL());
+        }
+
+        if ($this->groupBy) {
+            $query .= sprintf(' GROUP BY %s', $this->groupBy->asSOQL());
         }
 
         return $query;

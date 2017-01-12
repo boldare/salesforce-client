@@ -4,6 +4,7 @@ namespace Xsolve\SalesforceClient\QueryBuilder;
 
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExpressionFactory;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\From\AbstractFrom;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\GroupBy\AbstractGroupBy;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Select\AbstractSelect;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Where\AbstractWhere;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Where\CompositeWhere;
@@ -54,6 +55,13 @@ class QueryBuilder
     public function orWhere(AbstractWhere $where): self
     {
         $this->addOrUpdateWhere($where, Operator::DISJUNCTION());
+
+        return $this;
+    }
+
+    public function groupBy(AbstractGroupBy $groupBy): self
+    {
+        $this->query->setGroupBy($groupBy);
 
         return $this;
     }

@@ -22,6 +22,31 @@ class ExpressionFactory
         return new Select\Inner($innerQuery);
     }
 
+    public function grouping(string $source, string $target = ''): Select\Grouping
+    {
+        if (empty($target)) {
+            $target = sprintf('grp_%s', $source);
+        }
+
+        return new Select\Grouping($source, $target);
+    }
+
+    public function groupings(array $values): Select\MultipleGrouping
+    {
+        $array = [];
+
+        foreach ($values as $key => $value) {
+            if (is_int($key)) {
+                $key = $value;
+                $value = '';
+            }
+
+            $array[] = $this->grouping($key, (string) $value);
+        }
+
+        return new Select\MultipleGrouping($array);
+    }
+
     public function objectType(AbstractSObjectType $objectType): From\ObjectType
     {
         return new From\ObjectType($objectType);
@@ -70,5 +95,20 @@ class ExpressionFactory
     public function notIn(string $left, array $values): Where\NotIn
     {
         return new Where\NotIn($left, $values);
+    }
+
+    public function groupBy(string ...$fields): GroupBy\Simple
+    {
+        return new GroupBy\Simple($fields);
+    }
+
+    public function groupByRollup(string ...$fields): GroupBy\Rollup
+    {
+        return new GroupBy\Rollup($fields);
+    }
+
+    public function groupByCube(string ...$fields): GroupBy\Cube
+    {
+        return new GroupBy\Cube($fields);
     }
 }
