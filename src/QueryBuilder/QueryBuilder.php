@@ -77,6 +77,20 @@ class QueryBuilder
         return $this;
     }
 
+    public function limit(int $limit): self
+    {
+         $this->query->setLimit($limit);
+
+         return $this;
+    }
+
+    public function offset(int $offset): self
+    {
+         $this->query->setOffset($offset);
+
+         return $this;
+    }
+
     public function setParameters(array $parameters): self
     {
         $this->query->setParameters($parameters);
