@@ -52,49 +52,49 @@ class ExpressionFactory
         return new From\ObjectType($objectType);
     }
 
-    public function equals(string $left, string $right): Where\Equals
+    public function equals(string $left, string $right): Compare\Equals
     {
-        return new Where\Equals($left, $right);
+        return new Compare\Equals($left, $right);
     }
 
-    public function greaterThan(string $left, string $right): Where\GreaterThan
+    public function greaterThan(string $left, string $right): Compare\GreaterThan
     {
-        return new Where\GreaterThan($left, $right);
+        return new Compare\GreaterThan($left, $right);
     }
 
-    public function greaterThanOrEquals(string $left, string $right): Where\GreaterThanOrEquals
+    public function greaterThanOrEquals(string $left, string $right): Compare\GreaterThanOrEquals
     {
-        return new Where\GreaterThanOrEquals($left, $right);
+        return new Compare\GreaterThanOrEquals($left, $right);
     }
 
-    public function in(string $left, array $values): Where\In
+    public function in(string $left, array $values): Compare\In
     {
-        return new Where\In($left, $values);
+        return new Compare\In($left, $values);
     }
 
-    public function lessThan(string $left, string $right): Where\LessThan
+    public function lessThan(string $left, string $right): Compare\LessThan
     {
-        return new Where\LessThan($left, $right);
+        return new Compare\LessThan($left, $right);
     }
 
-    public function lessThanOrEquals(string $left, string $right): Where\LessThanOrEquals
+    public function lessThanOrEquals(string $left, string $right): Compare\LessThanOrEquals
     {
-        return new Where\LessThanOrEquals($left, $right);
+        return new Compare\LessThanOrEquals($left, $right);
     }
 
-    public function like(string $left, string $right): Where\Like
+    public function like(string $left, string $right): Compare\Like
     {
-        return new Where\Like($left, $right);
+        return new Compare\Like($left, $right);
     }
 
-    public function notEquals(string $left, string $right): Where\NotEquals
+    public function notEquals(string $left, string $right): Compare\NotEquals
     {
-        return new Where\NotEquals($left, $right);
+        return new Compare\NotEquals($left, $right);
     }
 
-    public function notIn(string $left, array $values): Where\NotIn
+    public function notIn(string $left, array $values): Compare\NotIn
     {
-        return new Where\NotIn($left, $values);
+        return new Compare\NotIn($left, $values);
     }
 
     public function groupBy(string ...$fields): GroupBy\Simple

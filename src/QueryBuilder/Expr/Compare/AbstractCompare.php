@@ -1,8 +1,11 @@
 <?php
 
-namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Where;
+namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Compare;
 
-abstract class AbstractWhere
+use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisiteeInterface;
+
+abstract class AbstractCompare implements ExprInterface, VisiteeInterface
 {
     abstract public function getLeft(): string;
 

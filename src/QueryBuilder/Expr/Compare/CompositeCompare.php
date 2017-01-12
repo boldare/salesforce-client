@@ -1,13 +1,13 @@
 <?php
 
-namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Where;
+namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Compare;
 
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
 
-class CompositeWhere implements ExprInterface
+class CompositeCompare implements ExprInterface
 {
     /**
-     * @var AbstractWhere
+     * @var ExprInterface
      */
     private $leftExpr;
 
@@ -17,11 +17,11 @@ class CompositeWhere implements ExprInterface
     private $operator;
 
     /**
-     * @var AbstractWhere
+     * @var ExprInterface
      */
     private $rightExpr;
 
-    public function __construct(AbstractWhere $leftExpr, Operator $operator, AbstractWhere $rightExpr)
+    public function __construct(ExprInterface $leftExpr, Operator $operator, ExprInterface $rightExpr)
     {
         $this->leftExpr = $leftExpr;
         $this->operator = $operator;
@@ -31,7 +31,7 @@ class CompositeWhere implements ExprInterface
     public function asSOQL(): string
     {
         return sprintf(
-            'WHERE %s %s %s',
+            'Compare %s %s %s',
             $this->leftExpr->asSOQL(),
             $this->operator->value(),
             $this->rightExpr->asSOQL()
