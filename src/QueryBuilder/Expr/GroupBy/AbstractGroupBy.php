@@ -2,9 +2,7 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\GroupBy;
 
-use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
-
-abstract class AbstractGroupBy implements ExprInterface
+abstract class AbstractGroupBy
 {
     abstract protected function getGroupByPart(): string;
 

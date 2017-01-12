@@ -34,7 +34,7 @@ abstract class AbstractSingleCompare extends AbstractCompare
 
     public function accept(VisitorInterface $visitor)
     {
-        $visitor->visitCompare($this);
+        $visitor->visitSingleCompare($this);
     }
 
     public function update(array $values)

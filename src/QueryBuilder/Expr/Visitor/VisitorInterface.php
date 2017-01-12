@@ -7,7 +7,7 @@ use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractMultiCompare;
 
 interface VisitorInterface
 {
-    public function visitCompare(AbstractSingleCompare $compare);
+    public function visitSingleCompare(AbstractSingleCompare $compare);
 
     public function visitMultiCompare(AbstractMultiCompare $multiCompare);
 }

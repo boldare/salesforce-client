@@ -4,7 +4,10 @@ namespace Xsolve\SalesforceClient\QueryBuilder;
 
 use LogicException;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractCompare;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\CompareInterface;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\From\AbstractFrom;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\GroupBy\AbstractGroupBy;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Select\AbstractSelect;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\ParametersReplacingVisitor;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisiteeInterface;
@@ -13,27 +16,27 @@ use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisitorInterface;
 class Query
 {
     /**
-     * @var ExprInterface[]
+     * @var AbstractSelect[]
      */
     private $selects = [];
 
     /**
-     * @var ExprInterface
+     * @var AbstractFrom
      */
     private $from;
 
     /**
-     * @var ExprInterface|null
+     * @var AbstractCompare|null
      */
     private $where;
 
     /**
-     * @var ExprInterface|null
+     * @var AbstractGroupBy|null
      */
     private $groupBy;
 
     /**
-     * @var ExprInterface|null
+     * @var AbstractCompare|null
      */
     private $having;
 //
@@ -56,33 +59,33 @@ class Query
         $this->visitors = $visitors;
     }
 
-    public function addSelect(ExprInterface $select)
+    public function addSelect(AbstractSelect $select)
     {
         $this->selects[] = $select;
     }
 
-    public function setFrom(ExprInterface $from)
+    public function setFrom(AbstractFrom $from)
     {
         $this->from = $from;
     }
 
-    public function setWhere(ExprInterface $where)
+    public function setWhere(AbstractCompare $where)
     {
         $this->where = $where;
     }
 
-    public function setGroupBy(ExprInterface $groupBy)
+    public function setGroupBy(AbstractGroupBy $groupBy)
     {
         $this->groupBy = $groupBy;
     }
 
-    public function setHaving(ExprInterface $having)
+    public function setHaving(AbstractCompare $having)
     {
         $this->having = $having;
     }
 
     /**
-     * @return ExprInterface|null
+     * @return CompareInterface|null
      */
     public function getWhere()
     {
@@ -90,7 +93,7 @@ class Query
     }
 
     /**
-     * @return ExprInterface|null
+     * @return CompareInterface|null
      */
     public function getHaving()
     {

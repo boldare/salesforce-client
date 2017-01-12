@@ -3,6 +3,7 @@
 namespace Xsolve\SalesforceClient\QueryBuilder;
 
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractCompare;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\CompareInterface;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\CompositeCompare;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\Operator;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExpressionFactory;

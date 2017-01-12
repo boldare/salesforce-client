@@ -2,7 +2,7 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Select;
 
-class MultipleGrouping extends AbstractSelect
+class MultipleGrouping extends AbstractSelect implements ExprInterface
 {
     /**
      * @var Grouping[]

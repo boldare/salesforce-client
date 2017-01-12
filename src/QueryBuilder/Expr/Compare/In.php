@@ -2,7 +2,10 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Compare;
 
-class In extends AbstractMultiCompare
+use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisiteeInterface;
+
+class In extends AbstractMultiCompare implements ExprInterface, VisiteeInterface
 {
     public function getComparator(): string
     {

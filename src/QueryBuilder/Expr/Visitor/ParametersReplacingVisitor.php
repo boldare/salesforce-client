@@ -18,7 +18,7 @@ class ParametersReplacingVisitor implements VisitorInterface
         $this->parameters = $parameters;
     }
 
-    public function visitCompare(AbstractSingleCompare $compare)
+    public function visitSingleCompare(AbstractSingleCompare $compare)
     {
         $compare->update([
             'left' => $this->replaceParameters($compare->getLeft()),

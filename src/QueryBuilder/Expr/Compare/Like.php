@@ -2,7 +2,10 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Compare;
 
-class Like extends AbstractSingleCompare
+use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisiteeInterface;
+
+class Like extends AbstractSingleCompare implements ExprInterface, VisiteeInterface
 {
     public function getComparator(): string
     {

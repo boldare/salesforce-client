@@ -37,11 +37,11 @@ class ExpressionFactory
 
         foreach ($values as $key => $value) {
             if (is_int($key)) {
-                $key = $value;
-                $value = '';
+                $array[] = $this->grouping($value);
+                continue;
             }
 
-            $array[] = $this->grouping($key, (string) $value);
+            $array[] = $this->grouping($key, $value);
         }
 
         return new Select\MultipleGrouping($array);
@@ -97,9 +97,9 @@ class ExpressionFactory
         return new Compare\NotIn($left, $values);
     }
 
-    public function groupBy(string ...$fields): GroupBy\Simple
+    public function groupBy(string ...$fields): GroupBy\Fields
     {
-        return new GroupBy\Simple($fields);
+        return new GroupBy\Fields($fields);
     }
 
     public function groupByRollup(string ...$fields): GroupBy\Rollup

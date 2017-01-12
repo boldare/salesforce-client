@@ -2,10 +2,7 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Compare;
 
-use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisiteeInterface;
-
-abstract class AbstractCompare implements ExprInterface, VisiteeInterface
+abstract class AbstractCompare
 {
     abstract public function getLeft(): string;
 

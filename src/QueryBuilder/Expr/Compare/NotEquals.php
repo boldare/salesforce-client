@@ -2,7 +2,10 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Compare;
 
-class NotEquals extends AbstractSingleCompare
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisiteeInterface;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
+
+class NotEquals extends AbstractSingleCompare implements ExprInterface, VisiteeInterface
 {
     public function getComparator(): string
     {

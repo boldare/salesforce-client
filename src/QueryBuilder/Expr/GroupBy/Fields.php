@@ -2,7 +2,9 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\GroupBy;
 
-class Simple extends AbstractGroupBy
+use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
+
+class Fields extends AbstractGroupBy implements ExprInterface
 {
     /**
      * @var array
