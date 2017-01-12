@@ -12,7 +12,7 @@ class Contract extends AbstractSObject
     /**
      * @var string
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $accountId;
 
@@ -20,21 +20,21 @@ class Contract extends AbstractSObject
      * @var string
      * @JMS\Type("string")
      * @JMS\SerializedName("Pricebook2Id")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $pricebookId;
 
     /**
      * @var string
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $ownerExpirationNotice;
 
     /**
      * @var \DateTimeInterface
      * @Type("DateTime<'Y-m-d'>")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $startDate;
 
@@ -50,49 +50,49 @@ class Contract extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingStreet;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingCity;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingState;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingPostalCode;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingCountry;
 
     /**
      * @var float|null
      * @JMS\Type("float")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingLatitude;
 
     /**
      * @var float|null
      * @JMS\Type("float")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingLongitude;
 
@@ -105,21 +105,21 @@ class Contract extends AbstractSObject
     /**
      * @var int
      * @JMS\Type("integer")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $contractTerm;
 
     /**
      * @var string
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $ownerId;
 
     /**
      * @var string
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $status;
 
@@ -132,14 +132,14 @@ class Contract extends AbstractSObject
     /**
      * @var string
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $companySignedId;
 
     /**
      * @var string
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $customerSignedTitle;
 
@@ -152,14 +152,14 @@ class Contract extends AbstractSObject
     /**
      * @var string
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $specialTerms;
 
     /**
      * @var string
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $activatedById;
 
@@ -172,7 +172,7 @@ class Contract extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $description;
 
@@ -185,7 +185,7 @@ class Contract extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $contractNumber;
 
