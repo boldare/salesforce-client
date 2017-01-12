@@ -71,4 +71,9 @@ class ExpressionFactory
     {
         return new Where\NotIn($left, $values);
     }
+
+    public function orderBy(array $values, OrderBy\Order $order = null, OrderBy\Strategy $strategy = null): OrderBy\OrderBy
+    {
+        return new OrderBy\OrderBy($values, $order, $strategy);
+    }
 }
