@@ -40,5 +40,4 @@ $res = (new QueryBuilder())
     ->setParameters(['leadId' => 123])
     ->getQuery();
 
-var_dump($res->parse());die;
-
+var_dump($res->parse()); die;
