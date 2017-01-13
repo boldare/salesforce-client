@@ -3,14 +3,16 @@
 namespace Xsolve\SalesforceClient\QueryBuilder;
 
 use LogicException;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractCompare;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\CompareInterface;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\From\AbstractFrom;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\GroupBy\AbstractGroupBy;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\OrderBy\AbstractOrderBy;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Select\AbstractSelect;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\ParametersReplacingVisitor;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisiteeInterface;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisitorInterface;
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Where\AbstractWhere;
 
 class Query
 {
@@ -25,20 +27,25 @@ class Query
     private $from;
 
     /**
-     * @var AbstractWhere|null
+     * @var AbstractCompare|null
      */
     private $where;
 
-      // @todo
-//    private $groupBy;
-//
-//    private $having;
+    /**
+     * @var AbstractGroupBy|null
+     */
+    private $groupBy;
+
+    /**
+     * @var AbstractCompare|null
+     */
+    private $having;
 
     /**
      * @var AbstractOrderBy
      */
     private $orderBy;
-//
+
     /**
      * @var int|null
      */
@@ -72,17 +79,35 @@ class Query
         $this->from = $from;
     }
 
-    public function setWhere(AbstractWhere $where)
+    public function setWhere(AbstractCompare $where)
     {
         $this->where = $where;
     }
 
+    public function setGroupBy(AbstractGroupBy $groupBy)
+    {
+        $this->groupBy = $groupBy;
+    }
+
+    public function setHaving(AbstractCompare $having)
+    {
+        $this->having = $having;
+    }
+
     /**
-     * @return AbstractWhere|null
+     * @return CompareInterface|null
      */
     public function getWhere()
     {
         return $this->where;
+    }
+
+    /**
+     * @return CompareInterface|null
+     */
+    public function getHaving()
+    {
+        return $this->having;
     }
 
     public function setOrderBy(AbstractOrderBy $orderBy)
@@ -105,7 +130,7 @@ class Query
         $this->visitors[] = new ParametersReplacingVisitor($parameters);
     }
 
-    public function __toString()
+    public function parse(): string
     {
         $this->validate();
         $this->visitQueryParts();
@@ -120,6 +145,14 @@ class Query
 
         if ($this->where) {
             $query .= sprintf('WHERE %s', $this->where->asSOQL());
+        }
+
+        if ($this->groupBy) {
+            $query .= sprintf(' GROUP BY %s', $this->groupBy->asSOQL());
+        }
+
+        if ($this->having) {
+            $query .= sprintf(' HAVING %s', $this->having->asSOQL());
         }
 
         if ($this->orderBy) {

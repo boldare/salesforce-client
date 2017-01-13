@@ -34,8 +34,10 @@ $res = (new QueryBuilder())
     )
     ->from($e->objectType(SObjectType::LEAD()))
     ->where($e->equals('Id', '{leadId}'))
+    ->having($e->in('Name', ['Cokolwiek', 'Jeszcze', 'Tu', 'Może', 'Byc']))
+    ->orHaving($e->like('Name', 'Cokolwiek'))
+    ->groupBy($e->groupBy('Name'))
     ->setParameters(['leadId' => 123])
     ->getQuery();
 
-var_dump((string) $res);die;
-
+var_dump($res->parse()); die;

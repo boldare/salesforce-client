@@ -1,10 +1,10 @@
 <?php
 
-namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Where;
+namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Compare;
 
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisitorInterface;
 
-abstract class AbstractCompare extends AbstractWhere
+abstract class AbstractSingleCompare extends AbstractCompare
 {
     /**
      * @var string
@@ -34,7 +34,7 @@ abstract class AbstractCompare extends AbstractWhere
 
     public function accept(VisitorInterface $visitor)
     {
-        $visitor->visitCompare($this);
+        $visitor->visitSingleCompare($this);
     }
 
     public function update(array $values)

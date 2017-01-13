@@ -4,11 +4,11 @@ namespace Xsolve\SalesforceClient\QueryBuilder\Expr\OrderBy;
 
 abstract class AbstractOrderBy
 {
-    protected abstract function getFields(): array;
+    abstract protected function getFields(): array;
 
-    protected abstract function getOrder(): Order;
+    abstract protected function getOrder(): Order;
 
-    protected abstract function getStrategy(): Strategy;
+    abstract protected function getStrategy(): Strategy;
 
     public function asSOQL(): string
     {

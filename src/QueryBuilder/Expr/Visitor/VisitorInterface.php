@@ -2,12 +2,12 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor;
 
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Where\AbstractCompare;
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Where\AbstractMultiCompare;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractSingleCompare;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractMultiCompare;
 
 interface VisitorInterface
 {
-    public function visitCompare(AbstractCompare $compare);
+    public function visitSingleCompare(AbstractSingleCompare $compare);
 
     public function visitMultiCompare(AbstractMultiCompare $multiCompare);
 }

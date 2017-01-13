@@ -1,10 +1,10 @@
 <?php
 
-namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Where;
+namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Compare;
 
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisitorInterface;
 
-abstract class AbstractMultiCompare extends AbstractWhere
+abstract class AbstractMultiCompare extends AbstractCompare
 {
     /**
      * @var string
