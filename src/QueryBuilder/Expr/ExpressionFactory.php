@@ -77,13 +77,8 @@ class ExpressionFactory
         return new OrderBy\OrderBy($values, $order, $strategy);
     }
 
-    public function typeof(string $field, array $whenClauses, Select\Typeof\ElseClause $elseClause): Select\Typeof
+    public function typeof(string $field): Select\Typeof
     {
-        return new Select\Typeof($field, $whenClauses, $elseClause);
-    }
-
-    public function typeofBuilder(string $field): Select\Typeof\TypeofBuilder
-    {
-        return new Select\Typeof\TypeofBuilder($this, $field);
+        return new Select\Typeof($field);
     }
 }

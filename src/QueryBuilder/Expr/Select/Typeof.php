@@ -22,13 +22,26 @@ class Typeof extends AbstractSelect implements ExprInterface
     /**
      * @var ElseClause|null
      */
-    protected $elseClauses;
+    protected $elseClause;
 
-    public function __construct(string $field, array $whenClauses, ElseClause $elseClauses = null)
+    public function __construct(string $field)
     {
         $this->field = $field;
-        $this->whenClauses = $whenClauses;
-        $this->elseClauses = $elseClauses;
+        $this->whenClauses = [];
+    }
+
+    public function when(string $field, Fields $fields): self
+    {
+        $this->whenClauses[] = new WhenClause($field, $fields);
+
+        return $this;
+    }
+
+    public function else(Fields $fields): self
+    {
+        $this->elseClauses = new ElseClause($fields);
+
+        return $this;
     }
 
     /**
@@ -38,11 +51,11 @@ class Typeof extends AbstractSelect implements ExprInterface
     {
         $result = sprintf('TYPEOF %s%s', $this->field, $this->getWhen());
 
-        if (null === $this->elseClauses) {
+        if (null === $this->elseClause) {
             return sprintf('%s END', $result);
         }
 
-        return sprintf('%s%s END', $result, $this->elseClauses->asSOQL());
+        return sprintf('%s%s END', $result, $this->elseClause->asSOQL());
     }
 
     protected function getWhen(): string
