@@ -12,28 +12,28 @@ class Order extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $ownerId;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $contractId;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $accountId;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      * @JMS\SerializedName("Pricebook2Id")
      */
     protected $pricebookId;
@@ -41,21 +41,21 @@ class Order extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $originalOrderId;
 
     /**
      * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d'>")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $effectiveDate;
 
     /**
      * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d'>")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $endDate;
 
@@ -68,98 +68,98 @@ class Order extends AbstractSObject
     /**
      * @var string
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $status;
 
     /**
      * @var string
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $description;
 
     /**
      * @var string
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $customerAuthorizedById;
 
     /**
      * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d'>")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $customerAuthorizedDate;
 
     /**
      * @var string
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $companyAuthorizedById;
 
     /**
      * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d'>")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $companyAuthorizedDate;
 
     /**
      * @var string
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $type;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingStreet;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingCity;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingState;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingPostalCode;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingCountry;
 
     /**
      * @var float|null
      * @JMS\Type("float")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingLatitude;
 
     /**
      * @var float|null
      * @JMS\Type("float")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billingLongitude;
 
@@ -172,49 +172,49 @@ class Order extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingStreet;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingCity;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingState;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingPostalCode;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingCountry;
 
     /**
      * @var float|null
      * @JMS\Type("float")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingLatitude;
 
     /**
      * @var float|null
      * @JMS\Type("float")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shippingLongitude;
 
@@ -227,42 +227,42 @@ class Order extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $name;
 
     /**
      * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d'>")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $poDate;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $poNumber;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $orderReferenceNumber;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $billToContactId;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $shipToContactId;
 
@@ -275,14 +275,14 @@ class Order extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $activatedById;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $statusCode;
 

@@ -36,7 +36,7 @@ class SObjectRepository implements SObjectRepositoryInterface
     {
         $response = $this->client->doRequest(new Create(
             $object::getSObjectName(),
-            $this->serializer->toArray($object, SerializationContext::create()->setGroups(['update']))
+            $this->serializer->toArray($object, SerializationContext::create()->setGroups(['create']))
         ));
 
         if (!$response['success']) {

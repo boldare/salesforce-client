@@ -18,28 +18,28 @@ class Lead extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $masterRecordId;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $lastName;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $firstName;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $salutation;
 
@@ -52,63 +52,63 @@ class Lead extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $company;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $street;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $city;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $state;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $postalCode;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $country;
 
     /**
      * @var float|null
      * @JMS\Type("float")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $latitude;
 
     /**
      * @var float|null
      * @JMS\Type("float")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $longitude;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $geocodeAccuracy;
 
@@ -121,35 +121,35 @@ class Lead extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $phone;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $mobilePhone;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $fax;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $email;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $website;
 
@@ -162,56 +162,56 @@ class Lead extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $description;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $leadSource;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $status;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $industry;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $rating;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $annualRevenue;
 
     /**
      * @var int|null
      * @JMS\Type("int")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $numberOfEmployees;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $ownerId;
 
@@ -248,7 +248,7 @@ class Lead extends AbstractSObject
     /**
      * @var bool
      * @JMS\Type("boolean")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $isUnreadByOwner;
 
@@ -267,49 +267,49 @@ class Lead extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $jigsaw;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $jigsawContactId;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $cleanStatus;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $companyDunsNumber;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $dandbCompanyId;
 
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $emailBouncedReason;
 
     /**
      * @var \DateTime|null
      * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
-     * @JMS\Groups({"update"})
+     * @JMS\Groups({"update", "create"})
      */
     protected $emailBouncedDate;
 
