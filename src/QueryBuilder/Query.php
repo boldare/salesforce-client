@@ -39,9 +39,15 @@ class Query
      */
     private $orderBy;
 //
-//    private $limit;
-//
-//    private $offset;
+    /**
+     * @var int|null
+     */
+    private $limit;
+
+    /**
+     * @var int|null
+     */
+    private $offset;
 
     /**
      * @var VisitorInterface[]
@@ -84,6 +90,16 @@ class Query
         $this->orderBy = $orderBy;
     }
 
+    public function setLimit(int $limit)
+    {
+        $this->limit = $limit;
+    }
+
+    public function setOffset(int $offset)
+    {
+        $this->offset = $offset;
+    }
+
     public function setParameters(array $parameters)
     {
         $this->visitors[] = new ParametersReplacingVisitor($parameters);
@@ -108,6 +124,14 @@ class Query
 
         if ($this->orderBy) {
             $query .= sprintf(' ORDER BY %s', $this->orderBy->asSOQL());
+        }
+
+        if (is_int($this->limit)) {
+            $query .= sprintf(' LIMIT %d', $this->limit);
+        }
+
+        if (is_int($this->offset)) {
+            $query .= sprintf(' OFFSET %d', $this->offset);
         }
 
         return $query;
