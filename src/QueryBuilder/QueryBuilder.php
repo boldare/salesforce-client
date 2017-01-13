@@ -2,13 +2,14 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder;
 
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractCompare;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\CompositeCompare;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\Operator;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExpressionFactory;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\From\AbstractFrom;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\GroupBy\AbstractGroupBy;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\OrderBy\AbstractOrderBy;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Select\AbstractSelect;
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Where\AbstractWhere;
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Where\CompositeWhere;
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Where\Operator;
 
 class QueryBuilder
 {
@@ -38,36 +39,79 @@ class QueryBuilder
         return $this;
     }
 
-    public function where(AbstractWhere $where): self
+    public function where(AbstractCompare $where): self
     {
         $this->query->setWhere($where);
 
         return $this;
     }
 
-    public function andWhere(AbstractWhere $where): self
+    public function andWhere(AbstractCompare $where): self
     {
         $this->addOrUpdateWhere($where, Operator::CONJUNCTION());
 
         return $this;
     }
 
-    public function orWhere(AbstractWhere $where): self
+    public function orWhere(AbstractCompare $where): self
     {
         $this->addOrUpdateWhere($where, Operator::DISJUNCTION());
 
         return $this;
     }
 
-    private function addOrUpdateWhere(AbstractWhere $where, Operator $operator)
+    public function groupBy(AbstractGroupBy $groupBy): self
+    {
+        $this->query->setGroupBy($groupBy);
+
+        return $this;
+    }
+
+    public function having(AbstractCompare $having): self
+    {
+        $this->query->setHaving($having);
+
+        return $this;
+    }
+
+    public function andHaving(AbstractCompare $having): self
+    {
+        $this->addOrUpdateHaving($having, Operator::CONJUNCTION());
+
+        return $this;
+    }
+
+    public function orHaving(AbstractCompare $having): self
+    {
+        $this->addOrUpdateHaving($having, Operator::DISJUNCTION());
+
+        return $this;
+    }
+
+    private function addOrUpdateWhere(AbstractCompare $where, Operator $operator)
     {
         $currentWhere = $this->query->getWhere();
 
         if (!$currentWhere) {
             $this->query->setWhere($where);
+
+            return;
         }
 
-        $this->query->setWhere(new CompositeWhere($currentWhere, $operator, $where));
+        $this->query->setWhere(new CompositeCompare($currentWhere, $operator, $where));
+    }
+
+    private function addOrUpdateHaving(AbstractCompare $having, Operator $operator)
+    {
+        $currentHaving = $this->query->getHaving();
+
+        if (!$currentHaving) {
+            $this->query->setHaving($having);
+
+            return;
+        }
+
+        $this->query->setHaving(new CompositeCompare($currentHaving, $operator, $having));
     }
 
     public function orderBy(AbstractOrderBy $orderBy): self

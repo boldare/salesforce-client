@@ -1,14 +1,14 @@
 <?php
 
-namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Where;
+namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Compare;
 
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisiteeInterface;
 
-class GreaterThanOrEquals extends AbstractCompare implements ExprInterface, VisiteeInterface
+class NotIn extends AbstractMultiCompare implements ExprInterface, VisiteeInterface
 {
     public function getComparator(): string
     {
-        return '>=';
+        return 'NOT IN';
     }
 }
