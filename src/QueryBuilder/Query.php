@@ -45,7 +45,7 @@ class Query
      * @var AbstractOrderBy
      */
     private $orderBy;
-//
+
     /**
      * @var int|null
      */
@@ -130,7 +130,7 @@ class Query
         $this->visitors[] = new ParametersReplacingVisitor($parameters);
     }
 
-    public function __toString()
+    public function parse(): string
     {
         $this->validate();
         $this->visitQueryParts();

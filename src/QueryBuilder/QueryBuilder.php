@@ -123,16 +123,16 @@ class QueryBuilder
 
     public function limit(int $limit): self
     {
-         $this->query->setLimit($limit);
+        $this->query->setLimit($limit);
 
-         return $this;
+        return $this;
     }
 
     public function offset(int $offset): self
     {
-         $this->query->setOffset($offset);
+        $this->query->setOffset($offset);
 
-         return $this;
+        return $this;
     }
 
     public function setParameters(array $parameters): self
