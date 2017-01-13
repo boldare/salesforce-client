@@ -111,4 +111,9 @@ class ExpressionFactory
     {
         return new GroupBy\Cube($fields);
     }
+
+    public function orderBy(array $values, OrderBy\Order $order = null, OrderBy\Strategy $strategy = null): OrderBy\OrderBy
+    {
+        return new OrderBy\OrderBy($values, $order, $strategy);
+    }
 }

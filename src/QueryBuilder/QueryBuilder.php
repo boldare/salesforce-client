@@ -3,12 +3,12 @@
 namespace Xsolve\SalesforceClient\QueryBuilder;
 
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractCompare;
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\CompareInterface;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\CompositeCompare;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\Operator;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExpressionFactory;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\From\AbstractFrom;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\GroupBy\AbstractGroupBy;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\OrderBy\AbstractOrderBy;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Select\AbstractSelect;
 
 class QueryBuilder
@@ -112,6 +112,27 @@ class QueryBuilder
         }
 
         $this->query->setHaving(new CompositeCompare($currentHaving, $operator, $having));
+    }
+
+    public function orderBy(AbstractOrderBy $orderBy): self
+    {
+        $this->query->setOrderBy($orderBy);
+
+        return $this;
+    }
+
+    public function limit(int $limit): self
+    {
+         $this->query->setLimit($limit);
+
+         return $this;
+    }
+
+    public function offset(int $offset): self
+    {
+         $this->query->setOffset($offset);
+
+         return $this;
     }
 
     public function setParameters(array $parameters): self

@@ -8,6 +8,7 @@ use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\CompareInterface;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\From\AbstractFrom;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\GroupBy\AbstractGroupBy;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\OrderBy\AbstractOrderBy;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Select\AbstractSelect;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\ParametersReplacingVisitor;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisiteeInterface;
@@ -39,12 +40,21 @@ class Query
      * @var AbstractCompare|null
      */
     private $having;
+
+    /**
+     * @var AbstractOrderBy
+     */
+    private $orderBy;
 //
-//    private $orderBy;
-//
-//    private $limit;
-//
-//    private $offset;
+    /**
+     * @var int|null
+     */
+    private $limit;
+
+    /**
+     * @var int|null
+     */
+    private $offset;
 
     /**
      * @var VisitorInterface[]
@@ -100,6 +110,21 @@ class Query
         return $this->having;
     }
 
+    public function setOrderBy(AbstractOrderBy $orderBy)
+    {
+        $this->orderBy = $orderBy;
+    }
+
+    public function setLimit(int $limit)
+    {
+        $this->limit = $limit;
+    }
+
+    public function setOffset(int $offset)
+    {
+        $this->offset = $offset;
+    }
+
     public function setParameters(array $parameters)
     {
         $this->visitors[] = new ParametersReplacingVisitor($parameters);
@@ -128,6 +153,18 @@ class Query
 
         if ($this->having) {
             $query .= sprintf(' HAVING %s', $this->having->asSOQL());
+        }
+
+        if ($this->orderBy) {
+            $query .= sprintf(' ORDER BY %s', $this->orderBy->asSOQL());
+        }
+
+        if (is_int($this->limit)) {
+            $query .= sprintf(' LIMIT %d', $this->limit);
+        }
+
+        if (is_int($this->offset)) {
+            $query .= sprintf(' OFFSET %d', $this->offset);
         }
 
         return $query;
