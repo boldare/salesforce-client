@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <phpunit bootstrap="vendor/autoload.php">
-  <testsuites>
-    <testsuite name="AllTests">
-      <directory>tests</directory>
-    </testsuite>
-  </testsuites>
+    <testsuites>
+        <testsuite name="AllTests">
+            <directory>tests/</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>src/</directory>
+            <exclude>
+                <directory>src/Model/</directory>
+                <directory>src/Enum/</directory>
+                <directory suffix="Exception.php">**/</directory>
+            </exclude>
+        </whitelist>
+    </filter>
 </phpunit>

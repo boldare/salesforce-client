@@ -4,7 +4,8 @@ php:
  - '7.0'
 
 script:
- - vendor/bin/phpunit -c phpunit.xml
+ - vendor/bin/phpunit -c phpunit.xml --coverage-text
+ - vendor/bin/php-cs-fixer fix . --rules=@Symfony --diff --dry-run -v
 
 before_script:
  - composer install
