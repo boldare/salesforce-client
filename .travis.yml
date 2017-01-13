@@ -4,7 +4,7 @@ php:
  - '7.0'
 
 script:
- - vendor/bin/phpunit -c phpunit.xml
+ - vendor/bin/phpunit -c phpunit.xml --coverage-text
 
 before_script:
  - composer install
