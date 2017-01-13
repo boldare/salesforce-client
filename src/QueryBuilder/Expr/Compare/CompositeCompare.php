@@ -2,7 +2,9 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Compare;
 
-class CompositeCompare extends AbstractCompare
+use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
+
+class CompositeCompare extends AbstractCompare implements ExprInterface
 {
     /**
      * @var AbstractCompare
