@@ -2,8 +2,9 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor;
 
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Where\AbstractCompare;
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Where\AbstractMultiCompare;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractMultiCompare;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractSingleCompare;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisitorInterface;
 
 class ParametersReplacingVisitor implements VisitorInterface
 {
@@ -17,7 +18,7 @@ class ParametersReplacingVisitor implements VisitorInterface
         $this->parameters = $parameters;
     }
 
-    public function visitCompare(AbstractCompare $compare)
+    public function visitSingleCompare(AbstractSingleCompare $compare)
     {
         $compare->update([
             'left' => $this->replaceParameters($compare->getLeft()),

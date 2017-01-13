@@ -8,6 +8,6 @@ abstract class AbstractFrom
 
     public function asSOQL(): string
     {
-        return sprintf('FROM %s', $this->getFromPart());
+        return $this->getFromPart();
     }
 }
