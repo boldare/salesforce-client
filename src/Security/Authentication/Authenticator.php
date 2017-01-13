@@ -11,7 +11,7 @@ use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 
 class Authenticator implements AuthenticatorInterface
 {
-    const ENDPOINT = 'https://login.salesforce.com/services/oauth2/token';
+    const ENDPOINT = '/services/oauth2/token';
 
     /**
      * @var ClientInterface
@@ -23,10 +23,6 @@ class Authenticator implements AuthenticatorInterface
      */
     protected $regenerateStrategies;
 
-    /**
-     * @param ClientInterface               $client
-     * @param RegenerateStrategyInterface[] $regenerateStrategies
-     */
     public function __construct(ClientInterface $client, array $regenerateStrategies = [])
     {
         $this->client = $client;
