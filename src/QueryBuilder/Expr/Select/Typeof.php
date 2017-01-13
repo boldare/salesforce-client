@@ -8,7 +8,6 @@ use Xsolve\SalesforceClient\QueryBuilder\Expr\Select\Typeof\WhenClause;
 
 class Typeof extends AbstractSelect implements ExprInterface
 {
-
     /**
      * @var string
      */
