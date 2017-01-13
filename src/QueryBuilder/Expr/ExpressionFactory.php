@@ -116,4 +116,9 @@ class ExpressionFactory
     {
         return new OrderBy\OrderBy($values, $order, $strategy);
     }
+
+    public function typeof(string $field): Select\Typeof
+    {
+        return new Select\Typeof($field);
+    }
 }
