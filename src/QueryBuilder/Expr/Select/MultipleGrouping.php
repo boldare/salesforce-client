@@ -2,6 +2,8 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Select;
 
+use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
+
 class MultipleGrouping extends AbstractSelect implements ExprInterface
 {
     /**
@@ -25,6 +27,6 @@ class MultipleGrouping extends AbstractSelect implements ExprInterface
             $result[] = $group->asSOQL();
         }
 
-        return implode(',', $result);
+        return implode(', ', $result);
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Select;
 
+use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
+
 class Grouping extends AbstractSelect implements ExprInterface
 {
     /**

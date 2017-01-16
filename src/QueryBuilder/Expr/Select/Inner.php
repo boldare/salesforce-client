@@ -8,7 +8,7 @@ use Xsolve\SalesforceClient\QueryBuilder\Query;
 class Inner extends AbstractSelect implements ExprInterface
 {
     /**
-     * @var AbstractSelect
+     * @var Query
      */
     private $innerQuery;
 
@@ -19,6 +19,6 @@ class Inner extends AbstractSelect implements ExprInterface
 
     protected function getSelectPart(): string
     {
-        return sprintf('(%s)', (string) $this->innerQuery);
+        return sprintf('(%s)', $this->innerQuery->parse());
     }
 }

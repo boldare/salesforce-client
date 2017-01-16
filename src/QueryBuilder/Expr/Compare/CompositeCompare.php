@@ -3,8 +3,10 @@
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Compare;
 
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisiteeInterface;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisitorInterface;
 
-class CompositeCompare extends AbstractCompare implements ExprInterface
+class CompositeCompare extends AbstractCompare implements ExprInterface, VisiteeInterface
 {
     /**
      * @var AbstractCompare
@@ -50,5 +52,23 @@ class CompositeCompare extends AbstractCompare implements ExprInterface
     public function getRight(): string
     {
         return $this->rightExpr->asSOQL();
+    }
+
+    public function accept(VisitorInterface $visitor)
+    {
+        if ($this->leftExpr instanceof VisiteeInterface) {
+            $this->leftExpr->accept($visitor);
+        }
+
+        if ($this->rightExpr instanceof VisiteeInterface) {
+            $this->rightExpr->accept($visitor);
+        }
+    }
+
+    /**
+     * Inner expressions will be updated by reference
+     */
+    public function update(array $values)
+    {
     }
 }

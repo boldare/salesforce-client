@@ -2,8 +2,8 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor;
 
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractSingleCompare;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractMultiCompare;
+use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractSingleCompare;
 
 interface VisitorInterface
 {

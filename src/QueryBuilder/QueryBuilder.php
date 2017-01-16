@@ -5,7 +5,6 @@ namespace Xsolve\SalesforceClient\QueryBuilder;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractCompare;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\CompositeCompare;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\Operator;
-use Xsolve\SalesforceClient\QueryBuilder\Expr\ExpressionFactory;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\From\AbstractFrom;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\GroupBy\AbstractGroupBy;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\OrderBy\AbstractOrderBy;
@@ -20,7 +19,7 @@ class QueryBuilder
 
     public function __construct()
     {
-        $this->reset();
+        $this->query = new Query();
     }
 
     public function select(AbstractSelect ...$selects): self
@@ -145,15 +144,5 @@ class QueryBuilder
     public function getQuery(): Query
     {
         return $this->query;
-    }
-
-    public function getExprFactory(): ExpressionFactory
-    {
-        return new ExpressionFactory();
-    }
-
-    private function reset()
-    {
-        $this->query = new Query();
     }
 }

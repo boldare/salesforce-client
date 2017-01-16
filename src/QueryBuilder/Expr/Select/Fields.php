@@ -21,6 +21,6 @@ class Fields extends AbstractSelect implements ExprInterface
 
     protected function getSelectPart(): string
     {
-        return implode(',', $this->fields);
+        return implode(', ', $this->fields);
     }
 }
