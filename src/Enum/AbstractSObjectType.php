@@ -11,4 +11,5 @@ abstract class AbstractSObjectType extends AbstractEnumeration
     const PRODUCT = 'Product2';
     const CONTRACT = 'Contract';
     const ORDER = 'Order';
+    const PRICEBOOK = 'Pricebook2';
 }
