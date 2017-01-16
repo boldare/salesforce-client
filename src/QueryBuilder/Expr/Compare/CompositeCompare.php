@@ -66,7 +66,7 @@ class CompositeCompare extends AbstractCompare implements ExprInterface, Visitee
     }
 
     /**
-     * Inner expressions will be updated by reference
+     * Inner expressions will be updated by reference.
      */
     public function update(array $values)
     {
