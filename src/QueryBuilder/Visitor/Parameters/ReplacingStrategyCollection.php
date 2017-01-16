@@ -49,7 +49,7 @@ class ReplacingStrategyCollection implements \ArrayAccess
         return $this->findApplicableStrategy($offset);
     }
 
-    public function offsetSet($offset, $value): void
+    public function offsetSet($offset, $value)
     {
         if (!$value instanceof ReplacingStrategyInterface) {
             throw new \InvalidArgumentException(
@@ -67,7 +67,7 @@ class ReplacingStrategyCollection implements \ArrayAccess
         $this->strategies[] = $value;
     }
 
-    public function offsetUnset($offset): void
+    public function offsetUnset($offset)
     {
         if (!$offset instanceof Type) {
             return;
@@ -83,14 +83,17 @@ class ReplacingStrategyCollection implements \ArrayAccess
         unset($this->strategies[$index]);
     }
 
-    private function findApplicableStrategy(Type $type): ReplacingStrategyInterface
+    /**
+     * @param Type $type
+     *
+     * @return ReplacingStrategyInterface|null
+     */
+    private function findApplicableStrategy(Type $type)
     {
         foreach ($this->strategies as $strategy) {
             if ($strategy->isApplicable($type)) {
                 return $strategy;
             }
         }
-
-        throw new \DomainException(sprintf('No applicable replacing strategy found for type: %s', $type->value()));
     }
 }

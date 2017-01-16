@@ -11,6 +11,10 @@ class BoolReplacingStrategy implements ReplacingStrategyInterface
 
     public function replace($value): string
     {
+        if (in_array($value, ['true', 'false'], true)) {
+            return $value;
+        }
+
         $boolValue = (bool) $value;
 
         return $boolValue ? 'true' : 'false';
