@@ -31,7 +31,7 @@ class ParametersReplacingVisitor implements VisitorInterface
         $multiCompare->update($replacedValues);
     }
 
-    protected function replaceParameters($subject)
+    protected function replaceParameters(string $subject): string
     {
         foreach ($this->parameters as $name => $value) {
             $subject = preg_replace(sprintf('/(\{%s\})/', preg_quote($name, '/')), $value, $subject);

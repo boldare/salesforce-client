@@ -2,7 +2,6 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder;
 
-use LogicException;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractCompare;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\CompareInterface;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
@@ -173,7 +172,7 @@ class Query
     private function validate()
     {
         if (!$this->selects || !$this->from) {
-            throw new LogicException('At least SELECT and FROM must be defined');
+            throw new \LogicException('At least SELECT and FROM must be defined');
         }
     }
 
