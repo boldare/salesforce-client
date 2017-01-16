@@ -1,6 +1,6 @@
 <?php
 
-namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor;
+namespace Xsolve\SalesforceClient\QueryBuilder\Visitor;
 
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractMultiCompare;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractSingleCompare;

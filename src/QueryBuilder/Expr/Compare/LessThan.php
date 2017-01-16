@@ -3,7 +3,7 @@
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Compare;
 
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisiteeInterface;
+use Xsolve\SalesforceClient\QueryBuilder\Visitor\VisiteeInterface;
 
 class LessThan extends AbstractSingleCompare implements ExprInterface, VisiteeInterface
 {
