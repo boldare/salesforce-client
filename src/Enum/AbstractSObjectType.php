@@ -16,4 +16,5 @@ abstract class AbstractSObjectType extends AbstractEnumeration
     const OPPORTUNITY = 'Opportunity';
     const CONTACT = 'Contact';
     const CASE_SO = 'Case';
+    const SOLUTION = 'Solution';
 }
