@@ -1,6 +1,6 @@
 <?php
 
-namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor;
+namespace Xsolve\SalesforceClient\QueryBuilder\Visitor;
 
 interface VisiteeInterface
 {

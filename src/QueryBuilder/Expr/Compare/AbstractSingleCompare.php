@@ -2,7 +2,7 @@
 
 namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Compare;
 
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisitorInterface;
+use Xsolve\SalesforceClient\QueryBuilder\Visitor\VisitorInterface;
 
 abstract class AbstractSingleCompare extends AbstractCompare
 {

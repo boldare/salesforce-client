@@ -1,9 +1,10 @@
 <?php
 
-namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor;
+namespace Xsolve\SalesforceClient\QueryBuilder\Visitor\Parameters;
 
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractMultiCompare;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractSingleCompare;
+use Xsolve\SalesforceClient\QueryBuilder\Visitor\VisitorInterface;
 
 class ParametersReplacingVisitor implements VisitorInterface
 {
@@ -12,9 +13,15 @@ class ParametersReplacingVisitor implements VisitorInterface
      */
     private $parameters;
 
+    /**
+     * @var ReplacingStrategyCollection
+     */
+    private $replacingStrategies;
+
     public function __construct(array $parameters)
     {
         $this->parameters = $parameters;
+        $this->replacingStrategies = new ReplacingStrategyCollection();
     }
 
     public function visitSingleCompare(AbstractSingleCompare $compare)
@@ -34,7 +41,18 @@ class ParametersReplacingVisitor implements VisitorInterface
     protected function replaceParameters(string $subject): string
     {
         foreach ($this->parameters as $name => $value) {
-            $subject = preg_replace(sprintf('/(\{%s\})/', preg_quote($name, '/')), $value, $subject);
+            $type = null;
+
+            if (is_array($value)) {
+                $type = $value['type'];
+                $value = $value['value'];
+            }
+
+            $subject = preg_replace(
+                sprintf('/(\{%s\})/', preg_quote($name, '/')),
+                $this->replacingStrategies[$type]->replace($value),
+                $subject
+            );
         }
 
         return $subject;

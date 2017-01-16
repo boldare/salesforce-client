@@ -9,9 +9,9 @@ use Xsolve\SalesforceClient\QueryBuilder\Expr\From\AbstractFrom;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\GroupBy\AbstractGroupBy;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\OrderBy\AbstractOrderBy;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Select\AbstractSelect;
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\ParametersReplacingVisitor;
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisiteeInterface;
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Visitor\VisitorInterface;
+use Xsolve\SalesforceClient\QueryBuilder\Visitor\Parameters\ParametersReplacingVisitor;
+use Xsolve\SalesforceClient\QueryBuilder\Visitor\VisiteeInterface;
+use Xsolve\SalesforceClient\QueryBuilder\Visitor\VisitorInterface;
 
 class Query
 {
@@ -140,10 +140,10 @@ class Query
             $this->selects
         ));
 
-        $query = sprintf('SELECT %s FROM %s ', $selects, $this->from->asSOQL());
+        $query = sprintf('SELECT %s FROM %s', $selects, $this->from->asSOQL());
 
         if ($this->where) {
-            $query .= sprintf('WHERE %s', $this->where->asSOQL());
+            $query .= sprintf(' WHERE %s', $this->where->asSOQL());
         }
 
         if ($this->groupBy) {
