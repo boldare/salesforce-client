@@ -59,5 +59,7 @@ class CustomGet implements RequestInterface
 Salesforce REST API doesn't provide all the functionalities known from the SOAP API, e.g. converting a lead. In order to do such operation, you should create a REST endpoint in Apex and create custom request class. More about Apex REST endpoint you can find in [official documentation of Salesforce](https://developer.salesforce.com/page/Creating_REST_APIs_using_Apex_REST)
 
 [↑ Table of contents ↑](doc/README.md)
+
 [← QueryBuilder and QueryExecutor ←](query-builder-executor.md)
+
 [→ Custom SObject →](custom-sobject.md)

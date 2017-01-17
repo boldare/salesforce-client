@@ -55,4 +55,5 @@ class QueryBuilder
 }
 ```
 [↑ Table of contents ↑](doc/README.md)
+
 [← Expression factory ←](expression-factory.md)

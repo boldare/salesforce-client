@@ -64,5 +64,7 @@ foreach ($records as $record) {
 * [Query builder](query-builder.md)
 
 [↑ Table of contents ↑](doc/README.md)
+
 [← SObject repository ←](sobject-repository.md)
+
 [→ Custom request →](custom-request.md)

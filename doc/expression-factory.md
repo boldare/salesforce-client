@@ -95,5 +95,7 @@ class ExpressionFactory
 ```
 
 [↑ Table of contents ↑](doc/README.md)
+
 [← Custom SObject ←](custom-sobject.md)
+
 [→ Query builder →](query-builder.md)

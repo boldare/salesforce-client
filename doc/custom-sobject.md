@@ -48,5 +48,7 @@ class MyNewClass extends AbstractSObject
 That's it! Now you are able to use `MyNewClass` in `SObjectRepository`.
 
 [↑ Table of contents ↑](doc/README.md)
+
 [← Custom request ←](custom-request.md)
+
 [→ Expression factory →](expression-factory.md)
