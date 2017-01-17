@@ -23,11 +23,17 @@ class CompositeCompare extends AbstractCompare implements ExprInterface, Visitee
      */
     private $rightExpr;
 
-    public function __construct(AbstractCompare $leftExpr, Operator $operator, AbstractCompare $rightExpr)
+    /**
+     * @var bool
+     */
+    private $wrapPrevious;
+
+    public function __construct(AbstractCompare $leftExpr, Operator $operator, AbstractCompare $rightExpr, bool $wrapPrevious = false)
     {
         $this->leftExpr = $leftExpr;
         $this->operator = $operator;
         $this->rightExpr = $rightExpr;
+        $this->wrapPrevious = $wrapPrevious;
     }
 
     /**
@@ -43,6 +49,10 @@ class CompositeCompare extends AbstractCompare implements ExprInterface, Visitee
      */
     public function getLeft(): string
     {
+        if ($this->wrapPrevious && $this->leftExpr instanceof self) {
+            return sprintf('(%s)', $this->leftExpr->asSOQL());
+        }
+
         return $this->leftExpr->asSOQL();
     }
 
