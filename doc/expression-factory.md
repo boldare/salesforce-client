@@ -93,3 +93,7 @@ class ExpressionFactory
     public function typeof(string $field): Select\Typeof;
 }
 ```
+
+[↑ Table of contents ↑](doc/README.md)
+[← Custom SObject ←](custom-sobject.md)
+[→ Query builder →](query-builder.md)
