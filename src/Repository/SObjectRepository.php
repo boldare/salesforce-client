@@ -62,7 +62,7 @@ class SObjectRepository implements SObjectRepositoryInterface
         $this->client->doRequest(new Update(
             $object::getSObjectName(),
             $object->getId(),
-            $this->serializer->toArray($object, SerializationContext::create()->setGroups(['update']))
+            $this->serializer->toArray($object, SerializationContext::create()->setGroups(['update'])->setSerializeNull(true))
         ));
     }
 
