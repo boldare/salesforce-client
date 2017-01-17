@@ -652,7 +652,7 @@ class Contact extends AbstractSObject
     /**
      * @return ValueObject\Address|null
      */
-    public function getMailingAddress(): ValueObject\Address
+    public function getMailingAddress()
     {
         return $this->mailingAddress;
     }
@@ -660,7 +660,7 @@ class Contact extends AbstractSObject
     /**
      * @return ValueObject\Address|null
      */
-    public function getOtherAddress(): ValueObject\Address
+    public function getOtherAddress()
     {
         return $this->otherAddress;
     }
