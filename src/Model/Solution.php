@@ -70,27 +70,6 @@ class Solution extends AbstractSObject
      * @JMS\Type("string")
      * @JMS\Groups({"create", "update"})
      */
-    protected $parentId;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"create", "update"})
-     */
-    protected $recordTypeId;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"create", "update"})
-     */
-    protected $solutionLanguage;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"create", "update"})
-     */
     protected $solutionName;
 
     /**
@@ -202,30 +181,6 @@ class Solution extends AbstractSObject
     /**
      * @return string|null
      */
-    public function getParentId()
-    {
-        return $this->parentId;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getRecordTypeId()
-    {
-        return $this->recordTypeId;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getSolutionLanguage()
-    {
-        return $this->solutionLanguage;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getSolutionName()
     {
         return $this->solutionName;
@@ -284,27 +239,6 @@ class Solution extends AbstractSObject
         return $this;
     }
 
-    public function setParentId(string $parentId): self
-    {
-        $this->parentId = $parentId;
-
-        return $this;
-    }
-
-    public function setRecordTypeId(string $recordTypeId): self
-    {
-        $this->recordTypeId = $recordTypeId;
-
-        return $this;
-    }
-
-    public function setSolutionLanguage(string $solutionLanguage): self
-    {
-        $this->solutionLanguage = $solutionLanguage;
-
-        return $this;
-    }
-
     public function setSolutionName(string $solutionName): self
     {
         $this->solutionName = $solutionName;
@@ -312,7 +246,7 @@ class Solution extends AbstractSObject
         return $this;
     }
 
-    public function setSolutionNote(string $solutionNote): self
+    public function setSolutionNote(string $solutionNote = null): self
     {
         $this->solutionNote = $solutionNote;
 
