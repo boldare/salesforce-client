@@ -33,7 +33,7 @@ class Contract extends AbstractSObject
 
     /**
      * @var \DateTimeInterface
-     * @Type("DateTime<'Y-m-d'>")
+     * @JMS\Type("DateTime<'Y-m-d'>")
      * @JMS\Groups({"update", "create"})
      */
     protected $startDate;
@@ -43,7 +43,7 @@ class Contract extends AbstractSObject
      * This value is calculated by adding the ContractTerm to the StartDate.
      *
      * @var \DateTimeInterface
-     * @Type("DateTime<'Y-m-d'>")
+     * @JMS\Type("DateTime<'Y-m-d'>")
      */
     protected $endDate;
 
@@ -141,11 +141,25 @@ class Contract extends AbstractSObject
      * @JMS\Type("string")
      * @JMS\Groups({"update", "create"})
      */
+    protected $companySignedDate;
+
+    /**
+     * @var string
+     * @JMS\Type("string")
+     * @JMS\Groups({"update", "create"})
+     */
+    protected $customerSignedId;
+
+    /**
+     * @var string
+     * @JMS\Type("string")
+     * @JMS\Groups({"update", "create"})
+     */
     protected $customerSignedTitle;
 
     /**
      * @var \DateTimeInterface
-     * @Type("DateTime<'Y-m-d'>")
+     * @JMS\Type("DateTime<'Y-m-d'>")
      */
     protected $customerSignedDate;
 
@@ -185,7 +199,6 @@ class Contract extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
      */
     protected $contractNumber;
 
@@ -397,6 +410,7 @@ class Contract extends AbstractSObject
         return $this->lastViewedDate;
     }
 
+
     /**
      * @return \DateTimeInterface|null
      */
@@ -405,147 +419,147 @@ class Contract extends AbstractSObject
         return $this->lastReferencedDate;
     }
 
-    public function setAccountId(string $accountId): Contract
+    public function setAccountId(string $accountId): self
     {
         $this->accountId = $accountId;
 
         return $this;
     }
 
-    public function setPricebookId(string $pricebookId): Contract
+    public function setPricebookId(string $pricebookId = null): self
     {
         $this->pricebookId = $pricebookId;
 
         return $this;
     }
 
-    public function setOwnerExpirationNotice(string $ownerExpirationNotice): Contract
+    public function setOwnerExpirationNotice(string $ownerExpirationNotice = null): self
     {
         $this->ownerExpirationNotice = $ownerExpirationNotice;
 
         return $this;
     }
 
-    public function setStartDate(\DateTimeInterface $startDate): Contract
+    public function setStartDate(\DateTimeInterface $startDate = null): self
     {
         $this->startDate = $startDate;
 
         return $this;
     }
 
-    public function setEndDate(\DateTimeInterface $endDate): Contract
-    {
-        $this->endDate = $endDate;
-
-        return $this;
-    }
-
-    public function setBillingAddress(Address $billingAddress): Contract
+    public function setBillingAddress(Address $billingAddress): self
     {
         $this->billingAddress = $billingAddress;
 
         return $this;
     }
 
-    public function setContractTerm(int $contractTerm): Contract
+    public function setContractTerm(int $contractTerm = null): self
     {
         $this->contractTerm = $contractTerm;
 
         return $this;
     }
 
-    public function setOwnerId(string $ownerId): Contract
+    public function setOwnerId(string $ownerId): self
     {
         $this->ownerId = $ownerId;
 
         return $this;
     }
 
-    public function setStatus(string $status): Contract
+    public function setStatus(string $status): self
     {
         $this->status = $status;
 
         return $this;
     }
 
-    public function setCompanySignedId(string $companySignedId): Contract
+    public function setCompanySignedId(string $companySignedId = null): self
     {
         $this->companySignedId = $companySignedId;
 
         return $this;
     }
 
-    public function setCustomerSignedTitle(string $customerSignedTitle): Contract
+    public function setCompanySignedDate(\DateTimeInterface $companySignedDate = null): self
+    {
+        $this->companySignedDate = $companySignedDate;
+
+        return $this;
+    }
+
+    public function setCustomerSignedId(string $customerSignedId = null): self
+    {
+        $this->customerSignedId = $customerSignedId;
+
+        return $this;
+    }
+
+    public function setCustomerSignedTitle(string $customerSignedTitle = null): self
     {
         $this->customerSignedTitle = $customerSignedTitle;
 
         return $this;
     }
 
-    public function setCustomerSignedDate(\DateTimeInterface $customerSignedDate): Contract
+    public function setCustomerSignedDate(\DateTimeInterface $customerSignedDate = null): self
     {
         $this->customerSignedDate = $customerSignedDate;
 
         return $this;
     }
 
-    public function setSpecialTerms(string $specialTerms): Contract
+    public function setSpecialTerms(string $specialTerms): self
     {
         $this->specialTerms = $specialTerms;
 
         return $this;
     }
 
-    public function setActivatedById(string $activatedById): Contract
+    public function setActivatedById(string $activatedById): self
     {
         $this->activatedById = $activatedById;
 
         return $this;
     }
 
-    public function setActivatedDate(\DateTimeInterface $activatedDate): Contract
+    public function setActivatedDate(\DateTimeInterface $activatedDate): self
     {
         $this->activatedDate = $activatedDate;
 
         return $this;
     }
 
-    public function setDescription(string $description): Contract
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
         return $this;
     }
 
-    public function setContractNumber(string $contractNumber): Contract
-    {
-        $this->contractNumber = $contractNumber;
-
-        return $this;
-    }
-
-    public function setLastApprovedDate(\DateTimeInterface $lastApprovedDate): Contract
+    public function setLastApprovedDate(\DateTimeInterface $lastApprovedDate): self
     {
         $this->lastApprovedDate = $lastApprovedDate;
 
         return $this;
     }
 
-    public function setLastActivityDate(\DateTimeInterface $lastActivityDate): Contract
+    public function setLastActivityDate(\DateTimeInterface $lastActivityDate): self
     {
         $this->lastActivityDate = $lastActivityDate;
 
         return $this;
     }
 
-    public function setLastViewedDate(\DateTimeInterface $lastViewedDate): Contract
+    public function setLastViewedDate(\DateTimeInterface $lastViewedDate): self
     {
         $this->lastViewedDate = $lastViewedDate;
 
         return $this;
     }
 
-    public function setLastReferencedDate(\DateTimeInterface $lastReferencedDate): Contract
+    public function setLastReferencedDate(\DateTimeInterface $lastReferencedDate): self
     {
         $this->lastReferencedDate = $lastReferencedDate;
 
@@ -559,7 +573,7 @@ class Contract extends AbstractSObject
      */
     public function updateBillingAddress()
     {
-        if (!$this->shippingAddress instanceof Address) {
+        if (!$this->billingCity instanceof Address) {
             return;
         }
 
