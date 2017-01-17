@@ -37,13 +37,6 @@ class Contact extends AbstractSObject
     protected $birthdate;
 
     /**
-     * @var bool|null
-     * @JMS\Type("boolean")
-     * @JMS\Groups({"create", "update"})
-     */
-    protected $canAllowPortalSelfReg;
-
-    /**
      * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"create", "update"})
@@ -63,13 +56,6 @@ class Contact extends AbstractSObject
      * @JMS\Groups({"create", "update"})
      */
     protected $description;
-
-    /**
-     * @var bool|null
-     * @JMS\Type("boolean")
-     * @JMS\Groups({"create", "update"})
-     */
-    protected $doNotCall;
 
     /**
      * @var string|null
@@ -117,27 +103,6 @@ class Contact extends AbstractSObject
      * @JMS\Groups({"create", "update"})
      */
     protected $lastName;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"create", "update"})
-     */
-    protected $middleName;
-
-    /**
-     * @var bool|null
-     * @JMS\Type("boolean")
-     * @JMS\Groups({"create", "update"})
-     */
-    protected $hasOptedOutOfEmail;
-
-    /**
-     * @var bool|null
-     * @JMS\Type("boolean")
-     * @JMS\Groups({"create", "update"})
-     */
-    protected $hasOptedOutOfFax;
 
     /**
      * @var string|null
@@ -363,13 +328,6 @@ class Contact extends AbstractSObject
      * @JMS\Type("string")
      * @JMS\Groups({"create", "update"})
      */
-    protected $recordTypeId;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"create", "update"})
-     */
     protected $reportsToId;
 
     /**
@@ -378,13 +336,6 @@ class Contact extends AbstractSObject
      * @JMS\Groups({"create", "update"})
      */
     protected $salutation;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"create", "update"})
-     */
-    protected $suffix;
 
     /**
      * @var string|null
@@ -436,14 +387,6 @@ class Contact extends AbstractSObject
     /**
      * @return string|null
      */
-    public function getCanAllowPortalSelfReg()
-    {
-        return $this->canAllowPortalSelfReg;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getCleanStatus()
     {
         return $this->cleanStatus;
@@ -463,14 +406,6 @@ class Contact extends AbstractSObject
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function doNotCall()
-    {
-        return $this->doNotCall;
     }
 
     /**
@@ -527,30 +462,6 @@ class Contact extends AbstractSObject
     public function getLastName()
     {
         return $this->lastName;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getMiddleName()
-    {
-        return $this->middleName;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function hasOptedOutOfEmail()
-    {
-        return $this->hasOptedOutOfEmail;
-    }
-
-    /**
-     * @return bool|null
-     */
-    public function hasOptedOutOfFax()
-    {
-        return $this->hasOptedOutOfFax;
     }
 
     /**
@@ -700,14 +611,6 @@ class Contact extends AbstractSObject
     /**
      * @return string|null
      */
-    public function getRecordTypeId()
-    {
-        return $this->recordTypeId;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getReportsToId()
     {
         return $this->reportsToId;
@@ -737,98 +640,85 @@ class Contact extends AbstractSObject
         return $this->title;
     }
 
-    public function setAccountId(string $accountId): self
+    public function setAccountId(string $accountId = null): self
     {
         $this->accountId = $accountId;
 
         return $this;
     }
 
-    public function setAssistantName(string $assistantName): self
+    public function setAssistantName(string $assistantName = null): self
     {
         $this->assistantName = $assistantName;
 
         return $this;
     }
 
-    public function setAssistantPhone(string $assistantPhone): self
+    public function setAssistantPhone(string $assistantPhone = null): self
     {
         $this->assistantPhone = $assistantPhone;
 
         return $this;
     }
 
-    public function setBirthdate(\DateTimeInterface $birthdate): self
+    public function setBirthdate(\DateTimeInterface $birthdate = null): self
     {
         $this->birthdate = $birthdate;
 
         return $this;
     }
 
-    public function setCanAllowPortalSelfReg(bool $canAllowPortalSelfReg): self
-    {
-        $this->canAllowPortalSelfReg = $canAllowPortalSelfReg;
-
-        return $this;
-    }
-
-    public function setCleanStatus(string $cleanStatus): self
+    public function setCleanStatus(string $cleanStatus = null): self
     {
         $this->cleanStatus = $cleanStatus;
 
         return $this;
     }
 
-    public function setDepartment(string $department): self
+    public function setDepartment(string $department = null): self
     {
         $this->department = $department;
 
         return $this;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(string $description = null): self
     {
         $this->description = $description;
 
         return $this;
     }
 
-    public function setDoNotCall(bool $doNotCall): self
-    {
-        $this->doNotCall = $doNotCall;
 
-        return $this;
-    }
-
-    public function setEmail(string $email): self
+    public function setEmail(string $email = null): self
     {
         $this->email = $email;
 
         return $this;
     }
 
-    public function setEmailBouncedDate(\DateTimeInterface $emailBouncedDate): self
+    public function setEmailBouncedDate(\DateTimeInterface $emailBouncedDate = null): self
     {
         $this->emailBouncedDate = $emailBouncedDate;
 
         return $this;
     }
 
-    public function setEmailBouncedReason(string $emailBouncedReason): self
+    public function setEmailBouncedReason(string $emailBouncedReason = null): self
     {
         $this->emailBouncedReason = $emailBouncedReason;
 
         return $this;
     }
 
-    public function setFax(string $fax): self
+    public function setFax(string $fax = null): self
     {
         $this->fax = $fax;
 
         return $this;
     }
 
-    public function setFirstName(string $firstName): self
+    public function setFirstName(string $firstName = null): self
     {
         $this->firstName = $firstName;
 
@@ -842,35 +732,14 @@ class Contact extends AbstractSObject
         return $this;
     }
 
-    public function setMiddleName(string $middleName): self
-    {
-        $this->middleName = $middleName;
-
-        return $this;
-    }
-
-    public function setHasOptedOutOfEmail(bool $hasOptedOutOfEmail): self
-    {
-        $this->hasOptedOutOfEmail = $hasOptedOutOfEmail;
-
-        return $this;
-    }
-
-    public function setHasOptedOutOfFax(bool $hasOptedOutOfFax): self
-    {
-        $this->hasOptedOutOfFax = $hasOptedOutOfFax;
-
-        return $this;
-    }
-
-    public function setHomePhone(string $homePhone): self
+    public function setHomePhone(string $homePhone = null): self
     {
         $this->homePhone = $homePhone;
 
         return $this;
     }
 
-    public function setJigsaw(string $jigsaw): self
+    public function setJigsaw(string $jigsaw = null): self
     {
         $this->jigsaw = $jigsaw;
 
@@ -891,14 +760,14 @@ class Contact extends AbstractSObject
         return $this;
     }
 
-    public function setLeadSource(string $leadSource): self
+    public function setLeadSource(string $leadSource = null): self
     {
         $this->leadSource = $leadSource;
 
         return $this;
     }
 
-    public function setMobilePhone(string $mobilePhone): self
+    public function setMobilePhone(string $mobilePhone = null): self
     {
         $this->mobilePhone = $mobilePhone;
 
@@ -919,14 +788,14 @@ class Contact extends AbstractSObject
         return $this;
     }
 
-    public function setOtherPhone(string $otherPhone): self
+    public function setOtherPhone(string $otherPhone = null): self
     {
         $this->otherPhone = $otherPhone;
 
         return $this;
     }
 
-    public function setPhone(string $phone): self
+    public function setPhone(string $phone = null): self
     {
         $this->phone = $phone;
 
@@ -940,35 +809,28 @@ class Contact extends AbstractSObject
         return $this;
     }
 
-    public function setRecordTypeId(string $recordTypeId): self
-    {
-        $this->recordTypeId = $recordTypeId;
-
-        return $this;
-    }
-
-    public function setReportsToId(string $reportsToId): self
+    public function setReportsToId(string $reportsToId = null): self
     {
         $this->reportsToId = $reportsToId;
 
         return $this;
     }
 
-    public function setSalutation(string $salutation): self
+    public function setSalutation(string $salutation = null): self
     {
         $this->salutation = $salutation;
 
         return $this;
     }
 
-    public function setSuffix(string $suffix): self
+    public function setSuffix(string $suffix = null): self
     {
         $this->suffix = $suffix;
 
         return $this;
     }
 
-    public function setTitle(string $title): self
+    public function setTitle(string $title = null): self
     {
         $this->title = $title;
 
