@@ -557,7 +557,6 @@ class QueryBuilderIntegrationTest extends TestCase
         ];
     }
 
-
     public function orderByProvider(): array
     {
         $ef = $this->createExpressionFactory();
