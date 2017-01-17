@@ -4,7 +4,7 @@ namespace Xsolve\SalesforceClient\Request;
 
 use Xsolve\SalesforceClient\Enum\AbstractSObjectType;
 
-class Delete implements SalesforceRequestInterface
+class Delete implements RequestInterface
 {
     const ENDPOINT = '/sobjects/%s/%s/';
 
