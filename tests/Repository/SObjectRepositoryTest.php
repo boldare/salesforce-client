@@ -102,7 +102,7 @@ class SObjectRepositoryTest extends TestCase
      */
     public function testFindUnsupported()
     {
-        $this->repository->find(stdClass::class, 'test id');
+        $this->repository->find(\stdClass::class, 'test id');
     }
 
     private function createSObjectMock(AbstractSObjectType $type): SObjectMock
