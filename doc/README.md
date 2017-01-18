@@ -1,4 +1,4 @@
-Table of content
+Table of contents
 ==
 * [Basic client](salesforce-client.md)
 * [SObject repository](sobject-repository.md)
@@ -9,4 +9,4 @@ Table of content
 * [Query builder](query-builder.md)
 
 ## Note
-For enums we are using [eloquent/enumeration](https://github.com/eloquent/enumeration). See it for more details.
+For enums we use [eloquent/enumeration](https://github.com/eloquent/enumeration). Check the repository for more details.
