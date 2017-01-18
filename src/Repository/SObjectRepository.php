@@ -13,6 +13,9 @@ use Xsolve\SalesforceClient\Request\Update;
 
 class SObjectRepository implements SObjectRepositoryInterface
 {
+    const GROUP_UPDATE = 'update';
+    const GROUP_CREATE = 'create';
+
     /**
      * @var SalesforceClient
      */
@@ -36,7 +39,7 @@ class SObjectRepository implements SObjectRepositoryInterface
     {
         $response = $this->client->doRequest(new Create(
             $object::getSObjectName(),
-            $this->serializer->toArray($object, SerializationContext::create()->setGroups(['create']))
+            $this->serializer->toArray($object, SerializationContext::create()->setGroups([self::GROUP_CREATE]))
         ));
 
         if (!$response['success']) {
@@ -62,7 +65,7 @@ class SObjectRepository implements SObjectRepositoryInterface
         $this->client->doRequest(new Update(
             $object::getSObjectName(),
             $object->getId(),
-            $this->serializer->toArray($object, SerializationContext::create()->setGroups(['update'])->setSerializeNull(true))
+            $this->serializer->toArray($object, SerializationContext::create()->setGroups([self::GROUP_UPDATE])->setSerializeNull(true))
         ));
     }
 
