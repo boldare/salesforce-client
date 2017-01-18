@@ -410,7 +410,6 @@ class Contract extends AbstractSObject
         return $this->lastViewedDate;
     }
 
-
     /**
      * @return \DateTimeInterface|null
      */
@@ -573,7 +572,7 @@ class Contract extends AbstractSObject
      */
     public function updateBillingAddress()
     {
-        if (!$this->billingCity instanceof Address) {
+        if (!$this->billingAddress instanceof Address) {
             return;
         }
 

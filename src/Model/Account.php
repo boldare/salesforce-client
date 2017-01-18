@@ -797,7 +797,7 @@ class Account extends AbstractSObject
         return $this;
     }
 
-    public function setJigsaw(string $jigsaw = null)
+    public function setJigsaw(string $jigsaw = null): self
     {
         $this->jigsaw = $jigsaw;
 
@@ -867,7 +867,7 @@ class Account extends AbstractSObject
         return $this;
     }
 
-    public function setDandbCompanyId(string $dandbCompanyId): self
+    public function setDandbCompanyId(string $dandbCompanyId = null): self
     {
         $this->dandbCompanyId = $dandbCompanyId;
 

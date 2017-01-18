@@ -689,7 +689,6 @@ class Contact extends AbstractSObject
         return $this;
     }
 
-
     public function setEmail(string $email = null): self
     {
         $this->email = $email;
