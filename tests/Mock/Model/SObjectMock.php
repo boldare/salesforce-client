@@ -7,6 +7,9 @@ use Xsolve\SalesforceClient\Model\AbstractSObject;
 
 class SObjectMock extends AbstractSObject
 {
+    /**
+     * @var AbstractSObjectType
+     */
     private static $sObjectName;
 
     public static function getSObjectName(): AbstractSObjectType
