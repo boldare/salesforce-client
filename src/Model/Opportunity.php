@@ -41,13 +41,6 @@ class Opportunity extends AbstractSObject
      * @JMS\Type("string")
      * @JMS\Groups({"create", "update"})
      */
-    protected $contractId;
-
-    /**
-     * @var string
-     * @JMS\Type("string")
-     * @JMS\Groups({"create", "update"})
-     */
     protected $description;
 
     /**
@@ -189,13 +182,6 @@ class Opportunity extends AbstractSObject
      * @JMS\Type("string")
      * @JMS\Groups({"create", "update"})
      */
-    protected $recordTypeId;
-
-    /**
-     * @var string
-     * @JMS\Type("string")
-     * @JMS\Groups({"create", "update"})
-     */
     protected $stageName;
 
     /**
@@ -250,14 +236,6 @@ class Opportunity extends AbstractSObject
     public function getCloseDate()
     {
         return $this->closeDate;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getContractId()
-    {
-        return $this->contractId;
     }
 
     /**
@@ -431,14 +409,6 @@ class Opportunity extends AbstractSObject
     /**
      * @return string|null
      */
-    public function getRecordTypeId()
-    {
-        return $this->recordTypeId;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getStageName()
     {
         return $this->stageName;
@@ -460,21 +430,21 @@ class Opportunity extends AbstractSObject
         return $this->type;
     }
 
-    public function setAccountId(string $accountId): self
+    public function setAccountId(string $accountId = null): self
     {
         $this->accountId = $accountId;
 
         return $this;
     }
 
-    public function setAmount(float $amount): self
+    public function setAmount(float $amount = null): self
     {
         $this->amount = $amount;
 
         return $this;
     }
 
-    public function setCampaignId(string $campaignId): self
+    public function setCampaignId(string $campaignId = null): self
     {
         $this->campaignId = $campaignId;
 
@@ -488,35 +458,21 @@ class Opportunity extends AbstractSObject
         return $this;
     }
 
-    public function setContractId(string $contractId): self
-    {
-        $this->contractId = $contractId;
-
-        return $this;
-    }
-
-    public function setDescription(string $description): self
+    public function setDescription(string $description = null): self
     {
         $this->description = $description;
 
         return $this;
     }
 
-    public function setExpectedRevenue(float $expectedRevenue): self
-    {
-        $this->expectedRevenue = $expectedRevenue;
-
-        return $this;
-    }
-
-    public function setForecastCategoryName(string $forecastCategoryName): self
+    public function setForecastCategoryName(string $forecastCategoryName = null): self
     {
         $this->forecastCategoryName = $forecastCategoryName;
 
         return $this;
     }
 
-    public function setLeadSource(string $leadSource): self
+    public function setLeadSource(string $leadSource = null): self
     {
         $this->leadSource = $leadSource;
 
@@ -530,7 +486,7 @@ class Opportunity extends AbstractSObject
         return $this;
     }
 
-    public function setNextStep(string $nextStep): self
+    public function setNextStep(string $nextStep = null): self
     {
         $this->nextStep = $nextStep;
 
@@ -544,23 +500,16 @@ class Opportunity extends AbstractSObject
         return $this;
     }
 
-    public function setPricebookId(string $pricebookId): self
+    public function setPricebookId(string $pricebookId = null): self
     {
         $this->pricebookId = $pricebookId;
 
         return $this;
     }
 
-    public function setProbability(float $probability): self
+    public function setProbability(float $probability = null): self
     {
         $this->probability = $probability;
-
-        return $this;
-    }
-
-    public function setRecordTypeId(string $recordTypeId): self
-    {
-        $this->recordTypeId = $recordTypeId;
 
         return $this;
     }
@@ -572,14 +521,14 @@ class Opportunity extends AbstractSObject
         return $this;
     }
 
-    public function setTotalOpportunityQuantity(float $totalOpportunityQuantity): self
+    public function setTotalOpportunityQuantity(float $totalOpportunityQuantity = null): self
     {
         $this->totalOpportunityQuantity = $totalOpportunityQuantity;
 
         return $this;
     }
 
-    public function setType(string $type): self
+    public function setType(string $type = null): self
     {
         $this->type = $type;
 

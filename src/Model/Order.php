@@ -41,7 +41,7 @@ class Order extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
+     * @JMS\Groups({"create"})
      */
     protected $originalOrderId;
 
@@ -572,191 +572,177 @@ class Order extends AbstractSObject
         return $this->isDeleted;
     }
 
-    public function setOwnerId(string $ownerId): Order
+    public function setOwnerId(string $ownerId): self
     {
         $this->ownerId = $ownerId;
 
         return $this;
     }
 
-    public function setContractId(string $contractId): Order
+    public function setContractId(string $contractId = null): self
     {
         $this->contractId = $contractId;
 
         return $this;
     }
 
-    public function setAccountId(string $accountId): Order
+    public function setAccountId(string $accountId = null): self
     {
         $this->accountId = $accountId;
 
         return $this;
     }
 
-    public function setPricebookId(string $pricebookId): Order
+    public function setPricebookId(string $pricebookId = null): self
     {
         $this->pricebookId = $pricebookId;
 
         return $this;
     }
 
-    public function setOriginalOrderId(string $originalOrderId): Order
+    public function setOriginalOrderId(string $originalOrderId = null): self
     {
         $this->originalOrderId = $originalOrderId;
 
         return $this;
     }
 
-    public function setEffectiveDate(\DateTimeInterface $effectiveDate): Order
+    public function setEffectiveDate(\DateTimeInterface $effectiveDate): self
     {
         $this->effectiveDate = $effectiveDate;
 
         return $this;
     }
 
-    public function setEndDate(\DateTimeInterface $endDate): Order
+    public function setEndDate(\DateTimeInterface $endDate): self
     {
         $this->endDate = $endDate;
 
         return $this;
     }
 
-    public function setStatus(string $status): Order
+    public function setStatus(string $status): self
     {
         $this->status = $status;
 
         return $this;
     }
 
-    public function setDescription(string $description): Order
+    public function setDescription(string $description = null): self
     {
         $this->description = $description;
 
         return $this;
     }
 
-    public function setCustomerAuthorizedById(string $customerAuthorizedById): Order
+    public function setCustomerAuthorizedById(string $customerAuthorizedById = null): self
     {
         $this->customerAuthorizedById = $customerAuthorizedById;
 
         return $this;
     }
 
-    public function setCustomerAuthorizedDate(\DateTimeInterface $customerAuthorizedDate): Order
+    public function setCustomerAuthorizedDate(\DateTimeInterface $customerAuthorizedDate = null): self
     {
         $this->customerAuthorizedDate = $customerAuthorizedDate;
 
         return $this;
     }
 
-    public function setCompanyAuthorizedById(string $companyAuthorizedById): Order
+    public function setCompanyAuthorizedById(string $companyAuthorizedById = null): self
     {
         $this->companyAuthorizedById = $companyAuthorizedById;
 
         return $this;
     }
 
-    public function setCompanyAuthorizedDate(\DateTimeInterface $companyAuthorizedDate): Order
+    public function setCompanyAuthorizedDate(\DateTimeInterface $companyAuthorizedDate = null): self
     {
         $this->companyAuthorizedDate = $companyAuthorizedDate;
 
         return $this;
     }
 
-    public function setType(string $type): Order
+    public function setType(string $type = null): self
     {
         $this->type = $type;
 
         return $this;
     }
 
-    public function setBillingAddress(Address $billingAddress): Order
+    public function setBillingAddress(Address $billingAddress): self
     {
         $this->billingAddress = $billingAddress;
 
         return $this;
     }
 
-    public function setShippingAddress(Address $shippingAddress): Order
+    public function setShippingAddress(Address $shippingAddress): self
     {
         $this->shippingAddress = $shippingAddress;
 
         return $this;
     }
 
-    public function setName(string $name): Order
+    public function setName(string $name = null): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function setPoDate(\DateTimeInterface $poDate): Order
+    public function setPoDate(\DateTimeInterface $poDate = null): self
     {
         $this->poDate = $poDate;
 
         return $this;
     }
 
-    public function setPoNumber(string $poNumber): Order
+    public function setPoNumber(string $poNumber = null): self
     {
         $this->poNumber = $poNumber;
 
         return $this;
     }
 
-    public function setOrderReferenceNumber(string $orderReferenceNumber): Order
+    public function setOrderReferenceNumber(string $orderReferenceNumber = null): self
     {
         $this->orderReferenceNumber = $orderReferenceNumber;
 
         return $this;
     }
 
-    public function setBillToContactId(string $billToContactId): Order
+    public function setBillToContactId(string $billToContactId = null): self
     {
         $this->billToContactId = $billToContactId;
 
         return $this;
     }
 
-    public function setShipToContactId(string $shipToContactId): Order
+    public function setShipToContactId(string $shipToContactId = null): self
     {
         $this->shipToContactId = $shipToContactId;
 
         return $this;
     }
 
-    public function setActivatedDate(\DateTimeInterface $activatedDate): Order
+    public function setActivatedDate(\DateTimeInterface $activatedDate = null): self
     {
         $this->activatedDate = $activatedDate;
 
         return $this;
     }
 
-    public function setActivatedById(string $activatedById): Order
+    public function setActivatedById(string $activatedById = null): self
     {
         $this->activatedById = $activatedById;
 
         return $this;
     }
 
-    public function setStatusCode(string $statusCode): Order
+    public function setStatusCode(string $statusCode): self
     {
         $this->statusCode = $statusCode;
-
-        return $this;
-    }
-
-    public function setLastViewedDate(\DateTimeInterface $lastViewedDate): Order
-    {
-        $this->lastViewedDate = $lastViewedDate;
-
-        return $this;
-    }
-
-    public function setLastReferencedDate(\DateTimeInterface $lastReferencedDate): Order
-    {
-        $this->lastReferencedDate = $lastReferencedDate;
 
         return $this;
     }
