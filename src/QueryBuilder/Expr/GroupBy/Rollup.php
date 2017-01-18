@@ -21,6 +21,6 @@ class Rollup extends AbstractGroupBy implements ExprInterface
      */
     protected function getGroupByPart(): string
     {
-        return sprintf('ROLLUP(%s)', implode(',', $this->fields));
+        return sprintf('ROLLUP(%s)', implode(', ', $this->fields));
     }
 }
