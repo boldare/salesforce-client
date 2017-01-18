@@ -18,7 +18,6 @@ class Lead extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
      */
     protected $masterRecordId;
 
@@ -195,8 +194,8 @@ class Lead extends AbstractSObject
     protected $rating;
 
     /**
-     * @var string|null
-     * @JMS\Type("string")
+     * @var float|null
+     * @JMS\Type("float")
      * @JMS\Groups({"update", "create"})
      */
     protected $annualRevenue;
@@ -274,7 +273,6 @@ class Lead extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
      */
     protected $jigsawContactId;
 
@@ -482,7 +480,7 @@ class Lead extends AbstractSObject
     }
 
     /**
-     * @return string|null
+     * @return float|null
      */
     public function getAnnualRevenue()
     {
@@ -625,126 +623,119 @@ class Lead extends AbstractSObject
         return $this->emailBouncedDate;
     }
 
-    public function setMasterRecordId(string $masterRecordId): Lead
-    {
-        $this->masterRecordId = $masterRecordId;
-
-        return $this;
-    }
-
-    public function setLastName(string $lastName): Lead
+    public function setLastName(string $lastName): self
     {
         $this->lastName = $lastName;
 
         return $this;
     }
 
-    public function setFirstName(string $firstName): Lead
+    public function setFirstName(string $firstName = null): self
     {
         $this->firstName = $firstName;
 
         return $this;
     }
 
-    public function setSalutation(string $salutation): Lead
+    public function setSalutation(string $salutation = null): self
     {
         $this->salutation = $salutation;
 
         return $this;
     }
 
-    public function setCompany(string $company): Lead
+    public function setCompany(string $company): self
     {
         $this->company = $company;
 
         return $this;
     }
 
-    public function setAddress(Address $address): Lead
+    public function setAddress(Address $address): self
     {
         $this->address = $address;
 
         return $this;
     }
 
-    public function setPhone(string $phone): Lead
+    public function setPhone(string $phone = null): self
     {
         $this->phone = $phone;
 
         return $this;
     }
 
-    public function setMobilePhone(string $mobilePhone): Lead
+    public function setMobilePhone(string $mobilePhone = null): self
     {
         $this->mobilePhone = $mobilePhone;
 
         return $this;
     }
 
-    public function setFax(string $fax): Lead
+    public function setFax(string $fax = null): self
     {
         $this->fax = $fax;
 
         return $this;
     }
 
-    public function setEmail(string $email): Lead
+    public function setEmail(string $email = null): self
     {
         $this->email = $email;
 
         return $this;
     }
 
-    public function setWebsite(string $website): Lead
+    public function setWebsite(string $website = null): self
     {
         $this->website = $website;
 
         return $this;
     }
 
-    public function setDescription(string $description): Lead
+    public function setDescription(string $description = null): self
     {
         $this->description = $description;
 
         return $this;
     }
 
-    public function setLeadSource(string $leadSource): Lead
+    public function setLeadSource(string $leadSource = null): self
     {
         $this->leadSource = $leadSource;
 
         return $this;
     }
 
-    public function setStatus(string $status): Lead
+    public function setStatus(string $status): self
     {
         $this->status = $status;
 
         return $this;
     }
 
-    public function setIndustry(string $industry): Lead
+    public function setIndustry(string $industry = null): self
     {
         $this->industry = $industry;
 
         return $this;
     }
 
-    public function setRating(string $rating): Lead
+    public function setRating(string $rating = null): self
     {
         $this->rating = $rating;
 
         return $this;
     }
 
-    public function setAnnualRevenue(string $annualRevenue): Lead
+    public function setAnnualRevenue(float $annualRevenue = null): self
     {
         $this->annualRevenue = $annualRevenue;
 
         return $this;
     }
 
-    public function setNumberOfEmployees(int $numberOfEmployees): Lead
+    public function setNumberOfEmployees(int $numberOfEmployees = null): self
     {
         $this->numberOfEmployees = $numberOfEmployees;
 
@@ -758,70 +749,63 @@ class Lead extends AbstractSObject
         return $this;
     }
 
-    public function setUnreadByOwner(bool $isUnreadByOwner): Lead
+    public function setUnreadByOwner(bool $isUnreadByOwner): self
     {
         $this->isUnreadByOwner = $isUnreadByOwner;
 
         return $this;
     }
 
-    public function setLastViewedDate(\DateTimeInterface $lastViewedDate): Lead
+    public function setLastViewedDate(\DateTimeInterface $lastViewedDate = null): self
     {
         $this->lastViewedDate = $lastViewedDate;
 
         return $this;
     }
 
-    public function setLastReferencedDate(\DateTimeInterface $lastReferencedDate): Lead
+    public function setLastReferencedDate(\DateTimeInterface $lastReferencedDate = null): self
     {
         $this->lastReferencedDate = $lastReferencedDate;
 
         return $this;
     }
 
-    public function setJigsaw(string $jigsaw): Lead
+    public function setJigsaw(string $jigsaw = null): self
     {
         $this->jigsaw = $jigsaw;
 
         return $this;
     }
 
-    public function setJigsawContactId(string $jigsawContactId): Lead
-    {
-        $this->jigsawContactId = $jigsawContactId;
-
-        return $this;
-    }
-
-    public function setCleanStatus(string $cleanStatus): Lead
+    public function setCleanStatus(string $cleanStatus = null): self
     {
         $this->cleanStatus = $cleanStatus;
 
         return $this;
     }
 
-    public function setCompanyDunsNumber(string $companyDunsNumber): Lead
+    public function setCompanyDunsNumber(string $companyDunsNumber = null): self
     {
         $this->companyDunsNumber = $companyDunsNumber;
 
         return $this;
     }
 
-    public function setDandbCompanyId(string $dandbCompanyId): Lead
+    public function setDandbCompanyId(string $dandbCompanyId = null): self
     {
         $this->dandbCompanyId = $dandbCompanyId;
 
         return $this;
     }
 
-    public function setEmailBouncedReason(string $emailBouncedReason): Lead
+    public function setEmailBouncedReason(string $emailBouncedReason = null): self
     {
         $this->emailBouncedReason = $emailBouncedReason;
 
         return $this;
     }
 
-    public function setEmailBouncedDate(\DateTimeInterface $emailBouncedDate): Lead
+    public function setEmailBouncedDate(\DateTimeInterface $emailBouncedDate = null): self
     {
         $this->emailBouncedDate = $emailBouncedDate;
 

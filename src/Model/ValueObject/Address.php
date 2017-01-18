@@ -156,70 +156,70 @@ class Address
         return $this->street;
     }
 
-    public function setCity(string $city): Address
+    public function setCity(string $city = null): self
     {
         $this->city = $city;
 
         return $this;
     }
 
-    public function setCountry(string $country): Address
+    public function setCountry(string $country = null): self
     {
         $this->country = $country;
 
         return $this;
     }
 
-    public function setCountryCode(string $countryCode): Address
+    public function setCountryCode(string $countryCode = null): self
     {
         $this->countryCode = $countryCode;
 
         return $this;
     }
 
-    public function setGeocodeAccuracy(string $geocodeAccuracy): Address
+    public function setGeocodeAccuracy(string $geocodeAccuracy = null): self
     {
         $this->geocodeAccuracy = $geocodeAccuracy;
 
         return $this;
     }
 
-    public function setLatitude(float $latitude): Address
+    public function setLatitude(float $latitude = null): self
     {
         $this->latitude = $latitude;
 
         return $this;
     }
 
-    public function setLongitude(float $longitude): Address
+    public function setLongitude(float $longitude = null): self
     {
         $this->longitude = $longitude;
 
         return $this;
     }
 
-    public function setPostalCode(string $postalCode): Address
+    public function setPostalCode(string $postalCode = null): self
     {
         $this->postalCode = $postalCode;
 
         return $this;
     }
 
-    public function setState(string $state): Address
+    public function setState(string $state = null): self
     {
         $this->state = $state;
 
         return $this;
     }
 
-    public function setStateCode(string $stateCode): Address
+    public function setStateCode(string $stateCode = null): self
     {
         $this->stateCode = $stateCode;
 
         return $this;
     }
 
-    public function setStreet(string $street): Address
+    public function setStreet(string $street = null): self
     {
         $this->street = $street;
 

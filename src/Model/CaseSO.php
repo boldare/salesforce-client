@@ -21,29 +21,14 @@ class CaseSO extends AbstractSObject
     /**
      * @var string|null
      * @JMS\Type("string")
-     * @JMS\Groups({"create", "update"})
-     */
-    protected $businessHoursId;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
      */
     protected $caseNumber;
 
     /**
      * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
-     * @JMS\Groups({"create", "update"})
      */
     protected $closedDate;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"create", "update"})
-     */
-    protected $communityId;
 
     /**
      * @var string|null
@@ -208,28 +193,7 @@ class CaseSO extends AbstractSObject
      * @JMS\Type("string")
      * @JMS\Groups({"create", "update"})
      */
-    protected $questionId;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"create", "update"})
-     */
     protected $reason;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"create", "update"})
-     */
-    protected $recordTypeId;
-
-    /**
-     * @var \DateTimeInterface|null
-     * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
-     * @JMS\Groups({"create", "update"})
-     */
-    protected $slaStartDate;
 
     /**
      * @var string|null
@@ -305,14 +269,6 @@ class CaseSO extends AbstractSObject
     /**
      * @return string|null
      */
-    public function getBusinessHoursId()
-    {
-        return $this->businessHoursId;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getCaseNumber()
     {
         return $this->caseNumber;
@@ -324,14 +280,6 @@ class CaseSO extends AbstractSObject
     public function getClosedDate()
     {
         return $this->closedDate;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getCommunityId()
-    {
-        return $this->communityId;
     }
 
     /**
@@ -537,33 +485,9 @@ class CaseSO extends AbstractSObject
     /**
      * @return string|null
      */
-    public function getQuestionId()
-    {
-        return $this->questionId;
-    }
-
-    /**
-     * @return string|null
-     */
     public function getReason()
     {
         return $this->reason;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getRecordTypeId()
-    {
-        return $this->recordTypeId;
-    }
-
-    /**
-     * @return \DateTimeInterface|null
-     */
-    public function getSlaStartDate()
-    {
-        return $this->slaStartDate;
     }
 
     /**
@@ -630,42 +554,28 @@ class CaseSO extends AbstractSObject
         return $this->type;
     }
 
-    public function setAccountId(string $accountId): self
+    public function setAccountId(string $accountId = null): self
     {
         $this->accountId = $accountId;
 
         return $this;
     }
 
-    public function setBusinessHoursId(string $businessHoursId): self
-    {
-        $this->businessHoursId = $businessHoursId;
-
-        return $this;
-    }
-
-    public function setCommunityId(string $communityId): self
-    {
-        $this->communityId = $communityId;
-
-        return $this;
-    }
-
-    public function setContactId($contactId)
+    public function setContactId($contactId = null)
     {
         $this->contactId = $contactId;
 
         return $this;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(string $description = null): self
     {
         $this->description = $description;
 
         return $this;
     }
 
-    public function setFeedItemId(string $feedItemId): self
+    public function setFeedItemId(string $feedItemId = null): self
     {
         $this->feedItemId = $feedItemId;
 
@@ -679,7 +589,7 @@ class CaseSO extends AbstractSObject
         return $this;
     }
 
-    public function setOrigin(string $origin): self
+    public function setOrigin(string $origin = null): self
     {
         $this->origin = $origin;
 
@@ -693,91 +603,70 @@ class CaseSO extends AbstractSObject
         return $this;
     }
 
-    public function setParentId(string $parentId): self
+    public function setParentId(string $parentId = null): self
     {
         $this->parentId = $parentId;
 
         return $this;
     }
 
-    public function setPriority(string $priority): self
+    public function setPriority(string $priority = null): self
     {
         $this->priority = $priority;
 
         return $this;
     }
 
-    public function setQuestionId(string $questionId): self
-    {
-        $this->questionId = $questionId;
-
-        return $this;
-    }
-
-    public function setReason(string $reason): self
+    public function setReason(string $reason = null): self
     {
         $this->reason = $reason;
 
         return $this;
     }
 
-    public function setRecordTypeId(string $recordTypeId): self
-    {
-        $this->recordTypeId = $recordTypeId;
-
-        return $this;
-    }
-
-    public function setSlaStartDate(\DateTimeInterface $slaStartDate): self
-    {
-        $this->slaStartDate = $slaStartDate;
-
-        return $this;
-    }
-
-    public function setStatus(string $status): self
+    public function setStatus(string $status = null): self
     {
         $this->status = $status;
 
         return $this;
     }
 
-    public function setSubject(string $subject): self
+    public function setSubject(string $subject = null): self
     {
         $this->subject = $subject;
 
         return $this;
     }
 
-    public function setSuppliedCompany(string $suppliedCompany): self
+    public function setSuppliedCompany(string $suppliedCompany = null): self
     {
         $this->suppliedCompany = $suppliedCompany;
 
         return $this;
     }
 
-    public function setSuppliedEmail(string $suppliedEmail): self
+    public function setSuppliedEmail(string $suppliedEmail = null): self
     {
         $this->suppliedEmail = $suppliedEmail;
 
         return $this;
     }
 
-    public function setSuppliedName(string $suppliedName): self
+    public function setSuppliedName(string $suppliedName = null): self
     {
         $this->suppliedName = $suppliedName;
 
         return $this;
     }
 
-    public function setSuppliedPhone(string $suppliedPhone): self
+    public function setSuppliedPhone(string $suppliedPhone = null): self
     {
         $this->suppliedPhone = $suppliedPhone;
 
         return $this;
     }
 
-    public function setType(string $type): self
+    public function setType(string $type = null): self
     {
         $this->type = $type;
 

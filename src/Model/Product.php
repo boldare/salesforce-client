@@ -105,35 +105,35 @@ class Product extends AbstractSObject
         return $this->isActive;
     }
 
-    public function setName(string $name): Product
+    public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function setDescription(string $description): Product
+    public function setDescription(string $description = null): self
     {
         $this->description = $description;
 
         return $this;
     }
 
-    public function setProductCode(string $code): Product
+    public function setProductCode(string $code = null): self
     {
         $this->productCode = $code;
 
         return $this;
     }
 
-    public function setFamily(string $family): Product
+    public function setFamily(string $family = null): self
     {
         $this->family = $family;
 
         return $this;
     }
 
-    public function setActive(bool $isActive): Product
+    public function setActive(bool $isActive): self
     {
         $this->isActive = $isActive;
 

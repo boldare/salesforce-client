@@ -1,12 +1,12 @@
 Query, QueryBuilder and QueryExecutor
 ===
 ## Introduction
-You can send request using SalesforceClient
+You can send "query" request using SalesforceClient
 ```
 $result = $salesforceClient->doRequest(new Query('SELECT Name FROM Account'));
 ```
 
-but then you need to know how to create whole SOQL, check if you received everything etc. Thanks to `QueryBuilder` and `QueryExecutor` this process is much more simpler.
+but then you need to know how to create whole SOQL, check if you have received everything etc. Thanks to `QueryBuilder` and `QueryExecutor` this process is much simpler.
 ## QueryBuilder
 `QueryBuilder` provides simple API to create SOQL query in several steps.
 
@@ -40,17 +40,31 @@ $res = (new QueryBuilder())
 ```
 
 ## QueryExecutor
-Thanks to this class you will be able easy send and iterate over response.
+QueryExecutor allows to transfer a query instance to Records and optionally fetch next results if returned query result was trimmed.
+Default implementation SalesforceClientQueryExecutor simply uses the Salesforce client to fetch the data. Feel free to create your own implementation of QueryExecutorInterface e.g. to introduce some kind of cache.
 
 ### How to create and use
 Basic implementation of query executor needs only SalesforceClient.
 ```php
 $queryExecutor = new SalesforceQueryExecutor($salesforceClient);
 
-$result = $queryExecutor->getRecords($query);
-$nextResult = $queryExecutor->getNextRecords($result);
+$records = $queryExecutor->getRecords($query);
+$nextResult = $queryExecutor->getNextRecords($records);
+```
+
+As the Records class is an implementation of iterator, you can iterate over them in foreach loops:
+```php
+foreach ($records as $record) {
+    var_dump($record);
+}
 ```
 
 ## Rererences
 * [Expression factory](expression-factory.md)
 * [Query builder](query-builder.md)
+
+[↑ Table of contents ↑](doc/README.md)
+
+[← SObject repository ←](sobject-repository.md)
+
+[→ Custom request →](custom-request.md)

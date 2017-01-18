@@ -89,7 +89,7 @@ class Pricebook extends AbstractSObject
         return $this->name;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(string $description = null): self
     {
         $this->description = $description;
 
