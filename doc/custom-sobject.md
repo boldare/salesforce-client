@@ -5,7 +5,7 @@ If you wish to use your own objects in Object Repository then this object must b
 How it should look like:
 * fields should have jms/serializer annotations:
   * `Type` - because the lib needs to know how to match fields
-  * the ones which are required when creating an should be in `create` serialization group
+  * the ones which are required when creating an object should be in `create` serialization group
   * the ones which are required when updating an object should be in `update` serialization group
 * the class should extend AbstractSObject
 
