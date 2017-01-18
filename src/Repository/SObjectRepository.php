@@ -80,10 +80,10 @@ class SObjectRepository implements SObjectRepositoryInterface
     /**
      * {@inheritdoc}
      */
-    public function getFieldValues(string $class, string $id, array $fields = array()): array
+    public function getFieldValues(string $class, string $id, array $fields = []): array
     {
-        if (!method_exists($class, 'getSObjectName')) {
-            throw new \RuntimeException(sprintf('%s should extend %s or contains static method "getSObjectName"', $class, AbstractSObject::class));
+        if (!is_a($class, AbstractSObject::class, true)) {
+            throw new \RuntimeException(sprintf('%s should extend %s', $class, AbstractSObject::class));
         }
 
         return $this->client->doRequest(new Get($class::getSObjectName(), $id, $fields));
