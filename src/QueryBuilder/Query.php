@@ -192,6 +192,13 @@ class Query
      */
     private function getQueryParts(): array
     {
-        return array_merge($this->selects, [$this->from], [$this->where]);
+        return array_merge(
+            $this->selects,
+            [$this->from],
+            [$this->where],
+            [$this->groupBy],
+            [$this->having],
+            [$this->orderBy]
+        );
     }
 }

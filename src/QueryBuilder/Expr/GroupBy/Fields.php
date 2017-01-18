@@ -21,6 +21,6 @@ class Fields extends AbstractGroupBy implements ExprInterface
      */
     protected function getGroupByPart(): string
     {
-        return implode(',', $this->fields);
+        return implode(', ', $this->fields);
     }
 }

@@ -45,16 +45,16 @@ class QueryBuilder
         return $this;
     }
 
-    public function andWhere(AbstractCompare $where): self
+    public function andWhere(AbstractCompare $where, bool $wrapPrevious = false): self
     {
-        $this->addOrUpdateWhere($where, Operator::CONJUNCTION());
+        $this->addOrUpdateWhere($where, Operator::CONJUNCTION(), $wrapPrevious);
 
         return $this;
     }
 
-    public function orWhere(AbstractCompare $where): self
+    public function orWhere(AbstractCompare $where, bool $wrapPrevious = false): self
     {
-        $this->addOrUpdateWhere($where, Operator::DISJUNCTION());
+        $this->addOrUpdateWhere($where, Operator::DISJUNCTION(), $wrapPrevious);
 
         return $this;
     }
@@ -73,21 +73,21 @@ class QueryBuilder
         return $this;
     }
 
-    public function andHaving(AbstractCompare $having): self
+    public function andHaving(AbstractCompare $having, bool $wrapPrevious = false): self
     {
-        $this->addOrUpdateHaving($having, Operator::CONJUNCTION());
+        $this->addOrUpdateHaving($having, Operator::CONJUNCTION(), $wrapPrevious);
 
         return $this;
     }
 
-    public function orHaving(AbstractCompare $having): self
+    public function orHaving(AbstractCompare $having, bool $wrapPrevious = false): self
     {
-        $this->addOrUpdateHaving($having, Operator::DISJUNCTION());
+        $this->addOrUpdateHaving($having, Operator::DISJUNCTION(), $wrapPrevious);
 
         return $this;
     }
 
-    private function addOrUpdateWhere(AbstractCompare $where, Operator $operator)
+    private function addOrUpdateWhere(AbstractCompare $where, Operator $operator, bool $wrapPrevious)
     {
         $currentWhere = $this->query->getWhere();
 
@@ -97,10 +97,10 @@ class QueryBuilder
             return;
         }
 
-        $this->query->setWhere(new CompositeCompare($currentWhere, $operator, $where));
+        $this->query->setWhere(new CompositeCompare($currentWhere, $operator, $where, $wrapPrevious));
     }
 
-    private function addOrUpdateHaving(AbstractCompare $having, Operator $operator)
+    private function addOrUpdateHaving(AbstractCompare $having, Operator $operator, bool $wrapPrevious)
     {
         $currentHaving = $this->query->getHaving();
 
@@ -110,7 +110,7 @@ class QueryBuilder
             return;
         }
 
-        $this->query->setHaving(new CompositeCompare($currentHaving, $operator, $having));
+        $this->query->setHaving(new CompositeCompare($currentHaving, $operator, $having, $wrapPrevious));
     }
 
     public function orderBy(AbstractOrderBy $orderBy): self

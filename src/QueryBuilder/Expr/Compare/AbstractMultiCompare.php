@@ -29,7 +29,7 @@ abstract class AbstractMultiCompare extends AbstractCompare
 
     public function getRight(): string
     {
-        return sprintf('(%s)', implode(',', $this->values));
+        return sprintf('(%s)', implode(', ', $this->values));
     }
 
     public function getValues(): array
