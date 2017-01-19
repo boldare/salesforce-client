@@ -13,21 +13,21 @@ use Xsolve\SalesforceClient\Request\Get;
 
 class CustomGet implements RequestInterface
 {
-	/**
-	 * @var string
-	 */
-	protected $name;
+    /**
+     * @var string
+     */
+    protected $name;
 
-	/**
-	 * @var string
-	 */
-	protected $id;
+    /**
+     * @var string
+     */
+    protected $id;
 
-	public function __construct(string $name, string $id)
-	{
-		$this->name = $name;
-		$this->id = $id;
-	}
+    public function __construct(string $name, string $id)
+    {
+        $this->name = $name;
+        $this->id = $id;
+    }
 
     /**
      * {@inheritdoc}
@@ -50,7 +50,7 @@ class CustomGet implements RequestInterface
      */
     public function getParams(): array
     {
-	    return [];
+        return [];
     }
 }
 ```

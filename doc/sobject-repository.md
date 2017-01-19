@@ -1,4 +1,3 @@
-
 SObjectRepository
 ===
 ### Introduction
@@ -15,9 +14,9 @@ AnnotationRegistry::registerAutoloadNamespace(
 );
 
 $serializer= SerializerBuilder::create()
-	->setPropertyNamingStrategy(
-		new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy())
-	)->build();
+    ->setPropertyNamingStrategy(
+        new SerializedNameAnnotationStrategy(new CamelCaseNamingStrategy())
+    )->build();
 
 
 $sobjectManager = new SObjectRepository(
