@@ -50,8 +50,8 @@ class ReplacingStrategyCollection implements \ArrayAccess
     }
 
     /**
-     * @param mixed $offset
-     * @param mixed $value
+     * @param mixed                      $offset not used here
+     * @param ReplacingStrategyInterface $value
      *
      * @throws \InvalidArgumentException if $value is not an instance of ReplacingStrategyInterface
      */

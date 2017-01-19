@@ -323,6 +323,22 @@ class Contract extends AbstractSObject
     }
 
     /**
+     * @return \DateTimeInterface|null
+     */
+    public function getCompanySignedDate()
+    {
+        return $this->companySignedDate;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCustomerSignedId()
+    {
+        return $this->customerSignedId;
+    }
+
+    /**
      * @return string|null
      */
     public function getCustomerSignedTitle()
