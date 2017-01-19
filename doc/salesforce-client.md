@@ -1,4 +1,3 @@
-
 SalesforceClient
 ===
 ###Introduction
@@ -18,8 +17,8 @@ use Xsolve\SalesforceClient\Security\Authentication\Strategy\PasswordGrantRegene
 use Xsolve\SalesforceClient\Storage\BlablacarRedisStorage;
 
 $client = new GuzzleClient(new Client([
-	'base_url' => 'https://login.salesforce.com/',
-//	'base_url' => 'https://test.salesforce.com/', // For sandbox
+    'base_uri' => 'https://login.salesforce.com/',
+//  'base_uri' => 'https://test.salesforce.com/',  // For sandbox
 ]));
 $credentials = new Credentials(
     'CLIENT_ID',
@@ -32,13 +31,13 @@ $credentials = new Credentials(
 );
 
 $authenticator = new Authenticator(
-	$client,
-	[new PasswordGrantRegenerateStrategy()]
+    $client,
+    [new PasswordGrantRegenerateStrategy()]
 );
 $tokenGenerator = new TokenGenerator(
-	$credentials,
-	$authenticator,
-	new BlablacarRedisStorage()
+    $credentials,
+    $authenticator,
+    new BlablacarRedisStorage(new Redis())
 );
 
 $salesforceClient = new SalesforceClient($client, $tokenGenerator, 'v37.0');
@@ -48,7 +47,7 @@ $salesforceClient = new SalesforceClient($client, $tokenGenerator, 'v37.0');
 ```php
 // Creating new object
 $result = $salesforceClient->doRequest(new Create(SObjectType::ACCOUNT(), [
-	'Name' => 'New account created with XSolve Client'
+    'Name' => 'New account created with XSolve Client'
 ]));
 
 // Get whole object
