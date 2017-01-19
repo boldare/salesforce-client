@@ -63,7 +63,7 @@ foreach ($records as $record) {
 * [Expression factory](expression-factory.md)
 * [Query builder](query-builder.md)
 
-[↑ Table of contents ↑](doc/README.md)
+[↑ Table of contents ↑](/doc/README.md)
 
 [← SObject repository ←](sobject-repository.md)
 

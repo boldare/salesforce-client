@@ -51,7 +51,7 @@ $account = $sobjectManager->find(Account::class, 'id');
 $array = $sobjectManager->getFieldValues(Account::class, 'id', ['Name']);
 ```
 
-[↑ Table of contents ↑](doc/README.md)
+[↑ Table of contents ↑](/doc/README.md)
 
 [← Basic client ←](salesforce-client.md)
 

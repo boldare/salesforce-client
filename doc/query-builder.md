@@ -54,6 +54,6 @@ class QueryBuilder
     public function setParameters(array $parameters): self;
 }
 ```
-[↑ Table of contents ↑](doc/README.md)
+[↑ Table of contents ↑](/doc/README.md)
 
 [← Expression factory ←](expression-factory.md)
