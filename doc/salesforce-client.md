@@ -18,8 +18,8 @@ use Xsolve\SalesforceClient\Security\Authentication\Strategy\PasswordGrantRegene
 use Xsolve\SalesforceClient\Storage\BlablacarRedisStorage;
 
 $client = new GuzzleClient(new Client([
-	'base_url' => 'https://login.salesforce.com/',
-//	'base_url' => 'https://test.salesforce.com/', // For sandbox
+	'base_uri' => 'https://login.salesforce.com/',
+//	'base_uri' => 'https://test.salesforce.com/', // For sandbox
 ]));
 $credentials = new Credentials(
     'CLIENT_ID',
@@ -38,7 +38,7 @@ $authenticator = new Authenticator(
 $tokenGenerator = new TokenGenerator(
 	$credentials,
 	$authenticator,
-	new BlablacarRedisStorage()
+	new BlablacarRedisStorage(new Redis())
 );
 
 $salesforceClient = new SalesforceClient($client, $tokenGenerator, 'v37.0');
