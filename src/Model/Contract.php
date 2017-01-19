@@ -17,7 +17,7 @@ class Contract extends AbstractSObject
     protected $accountId;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\SerializedName("Pricebook2Id")
      * @JMS\Groups({"update", "create"})
@@ -25,14 +25,14 @@ class Contract extends AbstractSObject
     protected $pricebookId;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"update", "create"})
      */
     protected $ownerExpirationNotice;
 
     /**
-     * @var \DateTimeInterface
+     * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d'>")
      * @JMS\Groups({"update", "create"})
      */
@@ -103,7 +103,7 @@ class Contract extends AbstractSObject
     protected $billingAddress;
 
     /**
-     * @var int
+     * @var int|null
      * @JMS\Type("integer")
      * @JMS\Groups({"update", "create"})
      */
@@ -130,35 +130,35 @@ class Contract extends AbstractSObject
     protected $statusCode;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"update", "create"})
      */
     protected $companySignedId;
 
     /**
-     * @var string
+     * @var \DateTimeInterface|null
      * @JMS\Type("string")
      * @JMS\Groups({"update", "create"})
      */
     protected $companySignedDate;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"update", "create"})
      */
     protected $customerSignedId;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"update", "create"})
      */
     protected $customerSignedTitle;
 
     /**
-     * @var \DateTimeInterface
+     * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d'>")
      */
     protected $customerSignedDate;
@@ -283,7 +283,7 @@ class Contract extends AbstractSObject
     }
 
     /**
-     * @return string|null
+     * @return int|null
      */
     public function getContractTerm()
     {

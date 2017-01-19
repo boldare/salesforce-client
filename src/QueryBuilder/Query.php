@@ -3,7 +3,6 @@
 namespace Xsolve\SalesforceClient\QueryBuilder;
 
 use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\AbstractCompare;
-use Xsolve\SalesforceClient\QueryBuilder\Expr\Compare\CompareInterface;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\ExprInterface;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\From\AbstractFrom;
 use Xsolve\SalesforceClient\QueryBuilder\Expr\GroupBy\AbstractGroupBy;
@@ -94,7 +93,7 @@ class Query
     }
 
     /**
-     * @return CompareInterface|null
+     * @return AbstractCompare|null
      */
     public function getWhere()
     {
@@ -102,7 +101,7 @@ class Query
     }
 
     /**
-     * @return CompareInterface|null
+     * @return AbstractCompare|null
      */
     public function getHaving()
     {
@@ -134,7 +133,7 @@ class Query
         $this->validate();
         $this->visitQueryParts();
         $selects = implode(', ', array_map(
-            function (AbstractSelect $select) {
+            function (AbstractSelect $select): string {
                 return $select->asSOQL();
             },
             $this->selects

@@ -9,7 +9,7 @@ class Delete implements RequestInterface
     const ENDPOINT = '/sobjects/%s/%s/';
 
     /**
-     * @var string
+     * @var AbstractSObjectType
      */
     protected $objectType;
 
@@ -18,10 +18,6 @@ class Delete implements RequestInterface
      */
     protected $id;
 
-    /**
-     * @param string $objectType
-     * @param string $id
-     */
     public function __construct(AbstractSObjectType $objectType, string $id)
     {
         $this->objectType = $objectType;

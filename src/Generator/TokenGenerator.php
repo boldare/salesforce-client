@@ -10,7 +10,7 @@ use Xsolve\SalesforceClient\Storage\TokenStorageInterface;
 class TokenGenerator implements TokenGeneratorInterface
 {
     /**
-     * @var CredentialsInterface
+     * @var Credentials
      */
     protected $credentials;
 
@@ -25,7 +25,7 @@ class TokenGenerator implements TokenGeneratorInterface
     protected $tokenStorage;
 
     /**
-     * @param CredentialsInterface   $credentials
+     * @param Credentials            $credentials
      * @param AuthenticatorInterface $authenticator
      * @param TokenStorageInterface  $tokenStorage
      */

@@ -7,15 +7,17 @@ use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 interface AuthenticatorInterface
 {
     /**
-     * @param CredentialsInterface $credentials
+     * @param Credentials $credentials
      *
-     * @throws Exception\AuthenticationFailedException
+     * @return TokenInterface
      */
     public function authenticate(Credentials $credentials): TokenInterface;
 
     /**
-     * @param CredentialsInterface $credentials
-     * @param TokenInterface       $token
+     * @param Credentials    $credentials
+     * @param TokenInterface $token
+     *
+     * @return TokenInterface
      *
      * @throws Exception\AuthenticationFailedException
      */

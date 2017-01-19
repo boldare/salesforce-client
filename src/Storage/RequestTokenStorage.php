@@ -12,7 +12,9 @@ class RequestTokenStorage implements TokenStorageInterface
     protected $token = null;
 
     /**
-     * {@inheritdoc}
+     * @return TokenInterface
+     *
+     * @throws \LogicException if the token is not set
      */
     public function get(): TokenInterface
     {

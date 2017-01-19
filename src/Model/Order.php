@@ -73,14 +73,14 @@ class Order extends AbstractSObject
     protected $status;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"update", "create"})
      */
     protected $description;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"update", "create"})
      */
@@ -94,7 +94,7 @@ class Order extends AbstractSObject
     protected $customerAuthorizedDate;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"update", "create"})
      */
@@ -108,7 +108,7 @@ class Order extends AbstractSObject
     protected $companyAuthorizedDate;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"update", "create"})
      */
@@ -365,7 +365,7 @@ class Order extends AbstractSObject
     }
 
     /**
-     * @return string|null
+     * @return \DateTimeInterface|null
      */
     public function getEffectiveDate()
     {
@@ -565,7 +565,7 @@ class Order extends AbstractSObject
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function isDeleted()
     {
@@ -754,7 +754,7 @@ class Order extends AbstractSObject
      */
     public function updateBillingAddress()
     {
-        if (!$this->shippingAddress instanceof Address) {
+        if (!$this->billingAddress instanceof Address) {
             return;
         }
 

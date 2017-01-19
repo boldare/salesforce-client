@@ -561,7 +561,7 @@ class CaseSO extends AbstractSObject
         return $this;
     }
 
-    public function setContactId($contactId = null)
+    public function setContactId($contactId = null): self
     {
         $this->contactId = $contactId;
 
