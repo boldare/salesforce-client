@@ -38,7 +38,7 @@ class ReplacingStrategyCollection implements \ArrayAccess
     /**
      * @param Type|null $offset
      *
-     * @return ReplacingStrategyInterface
+     * @return ReplacingStrategyInterface|null
      */
     public function offsetGet($offset)
     {
@@ -49,12 +49,17 @@ class ReplacingStrategyCollection implements \ArrayAccess
         return $this->findApplicableStrategy($offset);
     }
 
+    /**
+     * @param mixed                      $offset not used here
+     * @param ReplacingStrategyInterface $value
+     *
+     * @throws \InvalidArgumentException if $value is not an instance of ReplacingStrategyInterface
+     */
     public function offsetSet($offset, $value)
     {
         if (!$value instanceof ReplacingStrategyInterface) {
             throw new \InvalidArgumentException(
-                'Only instances of %s can be added to the collection',
-                ReplacingStrategyInterface::class
+                sprintf('Only instances of %s can be added to the collection', ReplacingStrategyInterface::class)
             );
         }
 

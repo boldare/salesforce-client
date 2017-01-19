@@ -91,7 +91,7 @@ class Account extends AbstractSObject
     protected $billingLongitude;
 
     /**
-     * @var string|null
+     * @var ValueObject\Address|null
      * @JMS\Type("Xsolve\SalesforceClient\Model\ValueObject\Address")
      */
     protected $billingAddress;
@@ -146,7 +146,7 @@ class Account extends AbstractSObject
     protected $shippingLongitude;
 
     /**
-     * @var string|null
+     * @var ValueObject\Address|null
      * @JMS\Type("Xsolve\SalesforceClient\Model\ValueObject\Address")
      */
     protected $shippingAddress;
@@ -268,7 +268,7 @@ class Account extends AbstractSObject
     protected $lastViewedDate;
 
     /**
-     * @var \DateTime
+     * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
      */
     protected $lastReferencedDate;
@@ -356,7 +356,7 @@ class Account extends AbstractSObject
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function isDeleted()
     {
@@ -881,7 +881,7 @@ class Account extends AbstractSObject
      */
     public function updateBillingAddress()
     {
-        if (!$this->shippingAddress instanceof ValueObject\Address) {
+        if (!$this->billingAddress instanceof ValueObject\Address) {
             return;
         }
 

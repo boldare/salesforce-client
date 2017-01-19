@@ -38,7 +38,7 @@ class Typeof extends AbstractSelect implements ExprInterface
 
     public function else(Fields $fields): self
     {
-        $this->elseClauses = new ElseClause($fields);
+        $this->elseClause = new ElseClause($fields);
 
         return $this;
     }

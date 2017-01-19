@@ -9,21 +9,21 @@ use JMS\Serializer\Annotation as JMS;
 class Opportunity extends AbstractSObject
 {
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"create", "update"})
      */
     protected $accountId;
 
     /**
-     * @var float
+     * @var float|null
      * @JMS\Type("float")
      * @JMS\Groups({"create", "update"})
      */
     protected $amount;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"create", "update"})
      */
@@ -37,44 +37,44 @@ class Opportunity extends AbstractSObject
     protected $closeDate;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"create", "update"})
      */
     protected $description;
 
     /**
-     * @var float
+     * @var float|null
      * @JMS\Type("float")
      */
     protected $expectedRevenue;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      */
     protected $fiscal;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      */
     protected $fiscalQuarter;
 
     /**
-     * @var int
+     * @var int|null
      * @JMS\Type("int")
      */
     protected $fiscalYear;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      */
     protected $forecastCategory;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"create", "update"})
      */
@@ -117,25 +117,25 @@ class Opportunity extends AbstractSObject
     protected $isWon;
 
     /**
-     * @var \DateTimeInterface
+     * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
      */
     protected $lastActivityDate;
 
     /**
-     * @var \DateTimeInterface
+     * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
      */
     protected $lastReferencedDate;
 
     /**
-     * @var \DateTimeInterface
+     * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
      */
     protected $lastViewedDate;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"create", "update"})
      */
@@ -149,7 +149,7 @@ class Opportunity extends AbstractSObject
     protected $name;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"create", "update"})
      */
@@ -163,7 +163,7 @@ class Opportunity extends AbstractSObject
     protected $ownerId;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"create", "update"})
      * @JMS\SerializedName("Pricebook2Id")
@@ -171,7 +171,7 @@ class Opportunity extends AbstractSObject
     protected $pricebookId;
 
     /**
-     * @var float
+     * @var float|null
      * @JMS\Type("float")
      * @JMS\Groups({"create", "update"})
      */
@@ -185,14 +185,14 @@ class Opportunity extends AbstractSObject
     protected $stageName;
 
     /**
-     * @var float
+     * @var float|null
      * @JMS\Type("float")
      * @JMS\Groups({"create", "update"})
      */
     protected $totalOpportunityQuantity;
 
     /**
-     * @var string
+     * @var string|null
      * @JMS\Type("string")
      * @JMS\Groups({"create", "update"})
      */
@@ -207,7 +207,7 @@ class Opportunity extends AbstractSObject
     }
 
     /**
-     * @return string|id
+     * @return string|null
      */
     public function getAccountId()
     {
@@ -215,7 +215,7 @@ class Opportunity extends AbstractSObject
     }
 
     /**
-     * @return string|null
+     * @return float|null
      */
     public function getAmount()
     {
@@ -231,7 +231,7 @@ class Opportunity extends AbstractSObject
     }
 
     /**
-     * @return string|null
+     * @return \DateTimeInterface
      */
     public function getCloseDate()
     {

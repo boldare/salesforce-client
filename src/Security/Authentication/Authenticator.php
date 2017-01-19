@@ -23,6 +23,10 @@ class Authenticator implements AuthenticatorInterface
      */
     protected $regenerateStrategies;
 
+    /**
+     * @param ClientInterface               $client
+     * @param RegenerateStrategyInterface[] $regenerateStrategies
+     */
     public function __construct(ClientInterface $client, array $regenerateStrategies = [])
     {
         $this->client = $client;

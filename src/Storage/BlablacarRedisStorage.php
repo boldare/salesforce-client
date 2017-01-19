@@ -25,6 +25,11 @@ class BlablacarRedisStorage implements TokenStorageInterface
         $this->key = $key;
     }
 
+    /**
+     * @return TokenInterface
+     *
+     * @throws \LogicException if the token is not set
+     */
     public function get(): TokenInterface
     {
         $token = $this->client->get($this->key);

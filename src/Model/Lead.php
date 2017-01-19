@@ -252,13 +252,13 @@ class Lead extends AbstractSObject
     protected $isUnreadByOwner;
 
     /**
-     * @var \DateTime
+     * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
      */
     protected $lastViewedDate;
 
     /**
-     * @var \DateTime
+     * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
      */
     protected $lastReferencedDate;
@@ -305,7 +305,7 @@ class Lead extends AbstractSObject
     protected $emailBouncedReason;
 
     /**
-     * @var \DateTime|null
+     * @var \DateTimeInterface|null
      * @JMS\Type("DateTime<'Y-m-d\TH:i:s.\0\0\0O'>")
      * @JMS\Groups({"update", "create"})
      */
@@ -488,7 +488,7 @@ class Lead extends AbstractSObject
     }
 
     /**
-     * @return string|null
+     * @return int|null
      */
     public function getNumberOfEmployees()
     {
@@ -552,7 +552,7 @@ class Lead extends AbstractSObject
     }
 
     /**
-     * @return \DateTimeInterface
+     * @return \DateTimeInterface|null
      */
     public function getLastViewedDate()
     {
@@ -560,7 +560,7 @@ class Lead extends AbstractSObject
     }
 
     /**
-     * @return \DateTimeInterface
+     * @return \DateTimeInterface|null
      */
     public function getLastReferencedDate()
     {
@@ -742,7 +742,7 @@ class Lead extends AbstractSObject
         return $this;
     }
 
-    public function setOwnerId(string $ownerId)
+    public function setOwnerId(string $ownerId): self
     {
         $this->ownerId = $ownerId;
 

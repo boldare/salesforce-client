@@ -2,9 +2,9 @@
 
 namespace Xsolve\SalesforceClient\Model;
 
+use JMS\Serializer\Annotation as JMS;
 use Xsolve\SalesforceClient\Enum\AbstractSObjectType;
 use Xsolve\SalesforceClient\Enum\SObjectType;
-use JMS\Serializer\Annotation as JMS;
 
 class Contact extends AbstractSObject
 {
@@ -336,6 +336,13 @@ class Contact extends AbstractSObject
      * @JMS\Groups({"create", "update"})
      */
     protected $salutation;
+
+    /**
+     * @var string|null
+     * @JMS\Type("string")
+     * @JMS\Groups({"create", "update"})
+     */
+    protected $suffix;
 
     /**
      * @var string|null
@@ -773,14 +780,14 @@ class Contact extends AbstractSObject
         return $this;
     }
 
-    public function setMailingAddress(ValueObject\Address $mailingAddress)
+    public function setMailingAddress(ValueObject\Address $mailingAddress): self
     {
         $this->mailingAddress = $mailingAddress;
 
         return $this;
     }
 
-    public function setOtherAddress(ValueObject\Address $otherAddress)
+    public function setOtherAddress(ValueObject\Address $otherAddress): self
     {
         $this->otherAddress = $otherAddress;
 

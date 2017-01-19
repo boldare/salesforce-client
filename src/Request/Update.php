@@ -9,7 +9,7 @@ class Update implements RequestInterface
     const ENDPOINT = '/sobjects/%s/%s/';
 
     /**
-     * @var string
+     * @var AbstractSObjectType
      */
     protected $objectType;
 
@@ -23,11 +23,6 @@ class Update implements RequestInterface
      */
     protected $params;
 
-    /**
-     * @param string $objectType
-     * @param string $id
-     * @param array  $params
-     */
     public function __construct(AbstractSObjectType $objectType, string $id, array $params = [])
     {
         $this->objectType = $objectType;

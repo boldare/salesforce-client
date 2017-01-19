@@ -11,6 +11,9 @@ class MultipleGrouping extends AbstractSelect implements ExprInterface
      */
     protected $groupings;
 
+    /**
+     * @param Grouping[] $groupings
+     */
     public function __construct(array $groupings)
     {
         $this->groupings = $groupings;

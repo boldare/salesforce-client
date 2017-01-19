@@ -7,6 +7,11 @@ use Xsolve\SalesforceClient\QueryBuilder\Query;
 
 class ExpressionFactory
 {
+    /**
+     * @param string[] $fields
+     *
+     * @return Select\Fields
+     */
     public function fields(array $fields): Select\Fields
     {
         return new Select\Fields($fields);

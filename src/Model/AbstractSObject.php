@@ -26,7 +26,7 @@ abstract class AbstractSObject
     protected $createdDate;
 
     /**
-     * @var strng
+     * @var string
      * @Type("string")
      */
     protected $lastModifiedById;
