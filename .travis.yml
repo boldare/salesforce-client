@@ -5,7 +5,6 @@ php:
 
 cache:
   directories:
-    - vendors/
     - $HOME/.composer/cache
 
 script:
