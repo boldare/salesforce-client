@@ -10,39 +10,41 @@ class GetTest extends TestCase
     /**
      * @dataProvider dataProvieder
      */
-    public function testGetRequest(array $params)
-    {
-        $request = new Get($params['type'], $params['id'], $params['params']);
+    public function testGetRequest(
+        SObjectType $type,
+        string $id,
+        array $params,
+        string $expectedEndpoint,
+        string $expectedMethod,
+        array $expectedParams
+    ) {
+        $request = new Get($type, $id, $params);
 
-        $this->assertSame($params['expectedEndpoint'], $request->getEndpoint());
-        $this->assertSame($params['expectedMethod'], $request->getMethod());
-        $this->assertSame($params['expectedParams'], $request->getParams());
+        $this->assertSame($expectedEndpoint, $request->getEndpoint());
+        $this->assertSame($expectedMethod, $request->getMethod());
+        $this->assertSame($expectedParams, $request->getParams());
     }
 
     public function dataProvieder()
     {
         return [
             [
-                [
-                    'type' => SObjectType::ACCOUNT(),
-                    'id' => 'id',
-                    'params' => [],
-                    'expectedEndpoint' => '/sobjects/Account/id/',
-                    'expectedMethod' => RequestInterface::METHOD_GET,
-                    'expectedParams' => [],
-                ],
+                SObjectType::ACCOUNT(),
+                'id',
+                [],
+                '/sobjects/Account/id/',
+                RequestInterface::METHOD_GET,
+                'expectedParams' => [],
             ],
             [
+                SObjectType::LEAD(),
+                'id',
+                ['AccountName', 'Id'],
+                '/sobjects/Lead/id/',
+                RequestInterface::METHOD_GET,
                 [
-                    'type' => SObjectType::LEAD(),
-                    'id' => 'id',
-                    'params' => ['AccountName', 'Id'],
-                    'expectedEndpoint' => '/sobjects/Lead/id/',
-                    'expectedMethod' => RequestInterface::METHOD_GET,
-                    'expectedParams' => [
-                        'query' => [
-                            'fields' => 'AccountName,Id',
-                        ],
+                    'query' => [
+                        'fields' => 'AccountName,Id',
                     ],
                 ],
             ],
