@@ -1,5 +1,5 @@
 ----------
-#xsolve-pl/salesforce-client
+#xsolve-pl/salesforce-client [![Build Status](https://travis-ci.com/xsolve-pl/salesforce-client.svg?token=SjQKyns8C8K1pNxxqcyw&branch=master)](https://travis-ci.com/xsolve-pl/salesforce-client)
 
 ## Introduction
 This library is for integration with Salesforce via REST API.
