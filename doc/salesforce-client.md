@@ -68,6 +68,6 @@ $result = $salesforceClient->doRequest(new Query('SELECT Name FROM Account'));
 ```
 **There is possibility to write custom Request (see: [custom request](custom-request.md)).**
 
-[↑ Table of contents ↑](doc/README.md)
+[↑ Table of contents ↑](/doc/README.md)
 
 [→ SObject repository →](sobject-repository.md)
