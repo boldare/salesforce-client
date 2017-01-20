@@ -6,12 +6,26 @@
         "force.com",
         "salesforce",
         "rest",
-        "oatuh2",
+        "oauth2",
         "api"
     ],
     "license": "MIT",
     "type": "library",
     "homepage": "https://github.com/xsolve-pl/salesforce-client",
+    "authors": [
+        {
+            "name": "Adrian Waler",
+            "email": "adrian.waler@xsolve.pl",
+            "homepage": "https://github.com/adrianwaler",
+            "role": "Developer"
+        },
+        {
+            "name": "Pawel Krynicki",
+            "email": "pawel.krynicki@xsolve.pl",
+            "homepage": "https://github.com/Kryniol",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": ">=7.0.0",
         "jms/serializer": "~1.4",
