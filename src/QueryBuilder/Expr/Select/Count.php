@@ -18,7 +18,7 @@ class Count extends AbstractSelect implements ExprInterface
 
     protected function getSelectPart(): string
     {
-        if ($this->countedValue) {
+        if (null !== $this->countedValue) {
             return sprintf('COUNT(%s)', $this->countedValue);
         }
 
