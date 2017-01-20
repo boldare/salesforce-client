@@ -14,8 +14,9 @@ class QueryTest extends TestCase
         $request = new Query($query);
 
         $this->assertSame(RequestInterface::METHOD_GET, $request->getMethod());
-        $this->assertSame([], $request->getParams());
+        $this->assertEmpty($request->getParams());
         $this->assertSame($endpoint, urldecode($request->getEndpoint()));
+        $this->assertSame(RequestInterface::TYPE_FORM, $request->getMediaType());
     }
 
     public function endpointsProvider()

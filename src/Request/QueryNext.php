@@ -26,8 +26,13 @@ class QueryNext implements RequestInterface
         return self::METHOD_GET;
     }
 
-    public function getParams(): array
+    public function getParams(): string
     {
-        return [];
+        return '';
+    }
+
+    public function getMediaType(): string
+    {
+        return self::TYPE_FORM;
     }
 }

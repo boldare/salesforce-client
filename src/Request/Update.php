@@ -49,10 +49,16 @@ class Update implements RequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getParams(): array
+    public function getParams(): string
     {
-        return [
-            'json' => $this->params,
-        ];
+        return json_encode($this->params);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMediaType(): string
+    {
+        return self::TYPE_JSON;
     }
 }

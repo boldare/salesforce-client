@@ -20,9 +20,12 @@ class GetTest extends TestCase
     ) {
         $request = new Get($type, $id, $params);
 
+        $arr = [];
+        parse_str($request->getParams(), $arr);
         $this->assertSame($expectedEndpoint, $request->getEndpoint());
         $this->assertSame($expectedMethod, $request->getMethod());
-        $this->assertSame($expectedParams, $request->getParams());
+        $this->assertSame($expectedParams, $arr);
+        $this->assertSame(RequestInterface::TYPE_FORM, $request->getMediaType());
     }
 
     public function dataProvieder()
@@ -34,7 +37,7 @@ class GetTest extends TestCase
                 [],
                 '/sobjects/Account/id/',
                 RequestInterface::METHOD_GET,
-                'expectedParams' => [],
+                [],
             ],
             [
                 SObjectType::LEAD(),
@@ -42,11 +45,7 @@ class GetTest extends TestCase
                 ['AccountName', 'Id'],
                 '/sobjects/Lead/id/',
                 RequestInterface::METHOD_GET,
-                [
-                    'query' => [
-                        'fields' => 'AccountName,Id',
-                    ],
-                ],
+                ['fields' => 'AccountName,Id'],
             ],
         ];
     }

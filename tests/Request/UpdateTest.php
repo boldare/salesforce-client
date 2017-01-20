@@ -14,6 +14,7 @@ class UpdateTest extends TestCase
 
         $this->assertSame('/sobjects/Account/id/', $request->getEndpoint());
         $this->assertSame(RequestInterface::METHOD_PATCH, $request->getMethod());
-        $this->assertSame(['json' => $params], $request->getParams());
+        $this->assertSame($params, json_decode($request->getParams(), true));
+        $this->assertSame(RequestInterface::TYPE_JSON, $request->getMediaType());
     }
 }

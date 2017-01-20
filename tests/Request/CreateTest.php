@@ -14,6 +14,7 @@ class CreateTest extends TestCase
 
         $this->assertSame('/sobjects/Account/', $request->getEndpoint());
         $this->assertSame(RequestInterface::METHOD_POST, $request->getMethod());
-        $this->assertSame(['json' => $params], $request->getParams());
+        $this->assertSame($params, json_decode($request->getParams(), true));
+        $this->assertSame(RequestInterface::TYPE_JSON, $request->getMediaType());
     }
 }

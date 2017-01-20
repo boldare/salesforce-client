@@ -43,8 +43,13 @@ class Delete implements RequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getParams(): array
+    public function getParams(): string
     {
-        return [];
+        return '';
+    }
+
+    public function getMediaType(): string
+    {
+        return self::TYPE_FORM;
     }
 }

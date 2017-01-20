@@ -14,5 +14,6 @@ class DeleteTest extends TestCase
         $this->assertSame('/sobjects/Account/id/', $request->getEndpoint());
         $this->assertSame(RequestInterface::METHOD_DELETE, $request->getMethod());
         $this->assertEmpty($request->getParams());
+        $this->assertSame(RequestInterface::TYPE_FORM, $request->getMediaType());
     }
 }

@@ -49,16 +49,20 @@ class Get implements RequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getParams(): array
+    public function getParams(): string
     {
         if (empty($this->params)) {
-            return [];
+            return '';
         }
 
-        return [
-            'query' => [
-                'fields' => implode(',', $this->params),
-            ],
-        ];
+        return http_build_query(['fields' => implode(',', $this->params)]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMediaType(): string
+    {
+        return self::TYPE_FORM;
     }
 }

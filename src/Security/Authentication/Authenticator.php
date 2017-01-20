@@ -2,8 +2,9 @@
 
 namespace Xsolve\SalesforceClient\Security\Authentication;
 
-use Xsolve\SalesforceClient\Http\ClientInterface;
-use Xsolve\SalesforceClient\Http\HttpException;
+use GuzzleHttp\Psr7\Request;
+use Http\Client\Exception\HttpException;
+use Http\Client\HttpClient;
 use Xsolve\SalesforceClient\Request\RequestInterface;
 use Xsolve\SalesforceClient\Security\Authentication\Strategy\RegenerateStrategyInterface;
 use Xsolve\SalesforceClient\Security\Token\Token;
@@ -14,7 +15,7 @@ class Authenticator implements AuthenticatorInterface
     const ENDPOINT = '/services/oauth2/token';
 
     /**
-     * @var ClientInterface
+     * @var HttpClient
      */
     protected $client;
 
@@ -24,10 +25,10 @@ class Authenticator implements AuthenticatorInterface
     protected $regenerateStrategies;
 
     /**
-     * @param ClientInterface               $client
+     * @param HttpClient                    $client
      * @param RegenerateStrategyInterface[] $regenerateStrategies
      */
-    public function __construct(ClientInterface $client, array $regenerateStrategies = [])
+    public function __construct(HttpClient $client, array $regenerateStrategies = [])
     {
         $this->client = $client;
         $this->regenerateStrategies = $regenerateStrategies;
@@ -39,9 +40,7 @@ class Authenticator implements AuthenticatorInterface
     public function authenticate(Credentials $credentials): TokenInterface
     {
         try {
-            $response = $this->client->request(RequestInterface::METHOD_POST, self::ENDPOINT, [
-                'form_params' => $credentials->getParameters(),
-            ])->getBody();
+            $response = $this->client->sendRequest($this->getRequest($credentials))->getBody();
         } catch (HttpException $e) {
             throw new Exception\AuthenticationRequestException('Authentication request failed.', 400, $e);
         }
@@ -93,5 +92,15 @@ class Authenticator implements AuthenticatorInterface
         }
 
         return true;
+    }
+
+    protected function getRequest(Credentials $credentials): Request
+    {
+        return new Request(
+            RequestInterface::METHOD_POST,
+            self::ENDPOINT,
+            ['Content-type' => RequestInterface::TYPE_FORM],
+            http_build_query($credentials->getParameters())
+        );
     }
 }

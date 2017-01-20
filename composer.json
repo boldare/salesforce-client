@@ -5,15 +5,16 @@
     "require": {
         "php": ">=7.0.0",
         "jms/serializer": "~1.4",
-        "psr/http-message": "~1.0",
-        "eloquent/enumeration": "^5.1"
+        "eloquent/enumeration": "^5.1",
+        "php-http/httplug": "^1.1",
+        "guzzlehttp/psr7": "^1.3"
     },
     "require-dev": {
         "phpunit/phpunit": "5.5.*",
         "friendsofphp/php-cs-fixer": "^2.0"
     },
     "suggest": {
-        "guzzlehttp/guzzle": "Needed for sending HTTP requests using GuzzleClient",
+        "php-http/client-implementation": "Needed for sending HTTP requests. For example php-http/guzzle6-adapter.",
         "blablacar/redis-client": "Needed if Redis will be used as the storage for tokens"
     },
     "autoload":{
