@@ -20,7 +20,7 @@ class Query
     private $selects = [];
 
     /**
-     * @var AbstractFrom
+     * @var AbstractFrom|null
      */
     private $from;
 
@@ -40,7 +40,7 @@ class Query
     private $having;
 
     /**
-     * @var AbstractOrderBy
+     * @var AbstractOrderBy|null
      */
     private $orderBy;
 
@@ -57,7 +57,7 @@ class Query
     /**
      * @var VisitorInterface[]
      */
-    private $visitors = [];
+    private $visitors;
 
     /**
      * @param VisitorInterface[] $visitors
@@ -170,7 +170,7 @@ class Query
 
     private function validate()
     {
-        if (!$this->selects || !$this->from) {
+        if (empty($this->selects) || null === $this->from) {
             throw new \LogicException('At least SELECT and FROM must be defined');
         }
     }
