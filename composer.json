@@ -1,7 +1,17 @@
 {
     "name": "xsolve-pl/salesforce-client",
+    "description": "Salesforce REST client for PHP",
+    "keywords": [
+        "crm",
+        "force.com",
+        "salesforce",
+        "rest",
+        "oatuh2",
+        "api"
+    ],
     "license": "MIT",
     "type": "library",
+    "homepage": "https://github.com/xsolve-pl/salesforce-client",
     "require": {
         "php": ">=7.0.0",
         "jms/serializer": "~1.4",
