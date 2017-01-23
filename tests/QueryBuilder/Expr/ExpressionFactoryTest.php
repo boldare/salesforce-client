@@ -85,7 +85,6 @@ class ExpressionFactoryTest extends TestCase
 
     public function testGreaterThanOrEquals()
     {
-        $this->markTestIncomplete();
         $result = $this->factory->greaterThanOrEquals('test_left', 'test_right');
         $this->assertEquals(new Compare\GreaterThanOrEquals('test_left', 'test_right'), $result);
     }
@@ -110,7 +109,6 @@ class ExpressionFactoryTest extends TestCase
 
     public function testLike()
     {
-        $this->markTestIncomplete();
         $result = $this->factory->like('test_left', 'test_right');
         $this->assertEquals(new Compare\Like('test_left', 'test_right'), $result);
     }
