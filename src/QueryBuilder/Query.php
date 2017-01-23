@@ -134,12 +134,12 @@ class Query
         $this->visitQueryParts();
 
         return $this->parseSelect()
-            . $this->parseWhere()
-            . $this->parseGroupBy()
-            . $this->parseHaving()
-            . $this->parseOrderBy()
-            . $this->parseLimit()
-            . $this->parseOffset();
+            .$this->parseWhere()
+            .$this->parseGroupBy()
+            .$this->parseHaving()
+            .$this->parseOrderBy()
+            .$this->parseLimit()
+            .$this->parseOffset();
     }
 
     private function validate()
