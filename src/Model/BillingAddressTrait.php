@@ -2,8 +2,8 @@
 
 namespace Xsolve\SalesforceClient\Model;
 
-use Xsolve\SalesforceClient\Model\ValueObject\Address;
 use JMS\Serializer\Annotation as JMS;
+use Xsolve\SalesforceClient\Model\ValueObject\Address;
 
 trait BillingAddressTrait
 {
