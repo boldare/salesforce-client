@@ -67,7 +67,7 @@ class SalesforceClientTest extends TestCase
         $this->assertInternalType('array', $response);
     }
 
-    protected function getExceptionMock(int $code)
+    protected function getExceptionMock(int $code): HttpException
     {
         $response = $this->createMock(ResponseInterface::class);
         $response->method('getStatusCode')->willReturn($code);
