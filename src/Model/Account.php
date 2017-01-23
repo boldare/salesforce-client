@@ -8,6 +8,9 @@ use Xsolve\SalesforceClient\Enum\SObjectType;
 
 class Account extends AbstractSObject
 {
+    use BillingAddressTrait;
+    use ShippingAddressTrait;
+
     /**
      * @var bool|null
      * @JMS\Type("boolean")
@@ -40,116 +43,6 @@ class Account extends AbstractSObject
      * @JMS\Groups({"update", "create"})
      */
     protected $parentId;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $billingStreet;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $billingCity;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $billingState;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $billingPostalCode;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $billingCountry;
-
-    /**
-     * @var float|null
-     * @JMS\Type("float")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $billingLatitude;
-
-    /**
-     * @var float|null
-     * @JMS\Type("float")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $billingLongitude;
-
-    /**
-     * @var ValueObject\Address|null
-     * @JMS\Type("Xsolve\SalesforceClient\Model\ValueObject\Address")
-     */
-    protected $billingAddress;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $shippingStreet;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $shippingCity;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $shippingState;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $shippingPostalCode;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $shippingCountry;
-
-    /**
-     * @var float|null
-     * @JMS\Type("float")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $shippingLatitude;
-
-    /**
-     * @var float|null
-     * @JMS\Type("float")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $shippingLongitude;
-
-    /**
-     * @var ValueObject\Address|null
-     * @JMS\Type("Xsolve\SalesforceClient\Model\ValueObject\Address")
-     */
-    protected $shippingAddress;
 
     /**
      * @var string|null
@@ -393,22 +286,6 @@ class Account extends AbstractSObject
     public function getParentId()
     {
         return $this->parentId;
-    }
-
-    /**
-     * @return ValueObject\Address|null
-     */
-    public function getBillingAddress()
-    {
-        return $this->billingAddress;
-    }
-
-    /**
-     * @return ValueObject\Address|null
-     */
-    public function getShippingAddress()
-    {
-        return $this->shippingAddress;
     }
 
     /**
@@ -664,20 +541,6 @@ class Account extends AbstractSObject
         return $this;
     }
 
-    public function setBillingAddress(ValueObject\Address $billingAddress): self
-    {
-        $this->billingAddress = $billingAddress;
-
-        return $this;
-    }
-
-    public function setShippingAddress(ValueObject\Address $shippingAddress): self
-    {
-        $this->shippingAddress = $shippingAddress;
-
-        return $this;
-    }
-
     public function setPhone(string $phone = null): self
     {
         $this->phone = $phone;
@@ -872,45 +735,5 @@ class Account extends AbstractSObject
         $this->dandbCompanyId = $dandbCompanyId;
 
         return $this;
-    }
-
-    /**
-     * Because BillingAddress is not writtable.
-     *
-     * @JMS\PreSerialize
-     */
-    public function updateBillingAddress()
-    {
-        if (!$this->billingAddress instanceof ValueObject\Address) {
-            return;
-        }
-
-        $this->billingCity = $this->billingAddress->getCity();
-        $this->billingCountry = $this->billingAddress->getCountry();
-        $this->billingLatitude = $this->billingAddress->getLatitude();
-        $this->billingLongitude = $this->billingAddress->getLongitude();
-        $this->billingPostalCode = $this->billingAddress->getPostalCode();
-        $this->billingState = $this->billingAddress->getState();
-        $this->billingStreet = $this->billingAddress->getStreet();
-    }
-
-    /**
-     * Because ShippingAddress is not writable.
-     *
-     * @JMS\PreSerialize
-     */
-    public function updateShippingAddress()
-    {
-        if (!$this->shippingAddress instanceof ValueObject\Address) {
-            return;
-        }
-
-        $this->shippingCity = $this->shippingAddress->getCity();
-        $this->shippingCountry = $this->shippingAddress->getCountry();
-        $this->shippingLatitude = $this->shippingAddress->getLatitude();
-        $this->shippingLongitude = $this->shippingAddress->getLongitude();
-        $this->shippingPostalCode = $this->shippingAddress->getPostalCode();
-        $this->shippingState = $this->shippingAddress->getState();
-        $this->shippingStreet = $this->shippingAddress->getStreet();
     }
 }
