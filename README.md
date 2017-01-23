@@ -19,7 +19,7 @@ $ composer require php-http/guzzle6-adapter
 ```
 Otherwise you need to create your own implementation.
 
-To store access token we have implemented BlaBlaCarRedis token storege, but it needs `blablacar/redis-client`
+To store access token we have implemented BlaBlaCarRedis token storage, but it needs `blablacar/redis-client`
 ```
 $ composer require blablacar/redis-client "~1.0"
 ```
