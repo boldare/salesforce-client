@@ -19,11 +19,11 @@ $ composer require php-http/guzzle6-adapter
 ```
 Otherwise you need to create your own implementation.
 
-To store access token we have implemented BlaBlaCarRedis token storege, but it needs `blablacar/redis-clien`
+To store access token we have implemented BlaBlaCarRedis token storege, but it needs `blablacar/redis-client`
 ```
 $ composer require blablacar/redis-client "~1.0"
 ```
-Another option for token storage is `RequestTokenStorage` (this will keep the token in own property (memory) so the token would last until the script is terminated (e.g. current request), which is not really effective). Of course you can create your own storage, everything what you need to do is create class which will implements `StorageInterface`
+Another option for token storage is `RequestTokenStorage` (this will keep the token in own property (memory) so the token would last until the script is terminated (e.g. current request), which is not really effective). Of course you can create your own storage, everything what you need to do is to create a class which implements `Xsolve\SalesforceClient\Storage\TokenStorageInterface`
 
 ## Documentation
 Documentation is available in the doc directory.

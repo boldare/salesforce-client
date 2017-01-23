@@ -41,7 +41,7 @@ class SalesforceClientTest extends TestCase
 
     public function testExpiredTokenFlow()
     {
-        $this->httpClient->expects($this->at(0))->method('sendRequest')->will($this->throwException($this->getException(401)));
+        $this->httpClient->expects($this->at(0))->method('sendRequest')->will($this->throwException($this->getExceptionMock(401)));
         $this->httpClient->expects($this->at(1))->method('sendRequest')->willReturn($this->createMock(ResponseInterface::class));
 
         $response = $this->salesforceClient->doRequest($this->createMock(RequestInterface::class));
@@ -54,7 +54,7 @@ class SalesforceClientTest extends TestCase
      */
     public function testInvalidToken()
     {
-        $this->httpClient->method('sendRequest')->will($this->throwException($this->getException(404)));
+        $this->httpClient->method('sendRequest')->will($this->throwException($this->getExceptionMock(404)));
 
         $this->salesforceClient->doRequest($this->createMock(RequestInterface::class));
     }
@@ -67,7 +67,7 @@ class SalesforceClientTest extends TestCase
         $this->assertInternalType('array', $response);
     }
 
-    protected function getException(int $code)
+    protected function getExceptionMock(int $code)
     {
         $response = $this->createMock(ResponseInterface::class);
         $response->method('getStatusCode')->willReturn($code);

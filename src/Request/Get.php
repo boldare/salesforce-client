@@ -3,6 +3,8 @@
 namespace Xsolve\SalesforceClient\Request;
 
 use Xsolve\SalesforceClient\Enum\AbstractSObjectType;
+use Xsolve\SalesforceClient\Enum\ContentType;
+use Xsolve\SalesforceClient\Enum\RequestMethod;
 
 class Get implements RequestInterface
 {
@@ -41,28 +43,28 @@ class Get implements RequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getMethod(): string
+    public function getMethod(): RequestMethod
     {
-        return self::METHOD_GET;
+        return RequestMethod::GET();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getParams(): string
+    public function getParams(): array
     {
         if (empty($this->params)) {
-            return '';
+            return [];
         }
 
-        return http_build_query(['fields' => implode(',', $this->params)]);
+        return ['fields' => implode(',', $this->params)];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getMediaType(): string
+    public function getContentType(): ContentType
     {
-        return self::TYPE_FORM;
+        return ContentType::FORM();
     }
 }

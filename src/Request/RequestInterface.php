@@ -2,21 +2,16 @@
 
 namespace Xsolve\SalesforceClient\Request;
 
+use Xsolve\SalesforceClient\Enum\ContentType;
+use Xsolve\SalesforceClient\Enum\RequestMethod;
+
 interface RequestInterface
 {
-    const METHOD_GET = 'GET';
-    const METHOD_POST = 'POST';
-    const METHOD_PATCH = 'PATCH';
-    const METHOD_DELETE = 'DELETE';
+    public function getMethod(): RequestMethod;
 
-    const TYPE_FORM = 'application/x-www-form-urlencoded';
-    const TYPE_JSON = 'application/json';
-
-    public function getMethod(): string;
-
-    public function getParams(): string;
+    public function getParams(): array;
 
     public function getEndpoint(): string;
 
-    public function getMediaType(): string;
+    public function getContentType(): ContentType;
 }

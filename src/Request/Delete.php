@@ -3,6 +3,8 @@
 namespace Xsolve\SalesforceClient\Request;
 
 use Xsolve\SalesforceClient\Enum\AbstractSObjectType;
+use Xsolve\SalesforceClient\Enum\ContentType;
+use Xsolve\SalesforceClient\Enum\RequestMethod;
 
 class Delete implements RequestInterface
 {
@@ -27,9 +29,9 @@ class Delete implements RequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getMethod(): string
+    public function getMethod(): RequestMethod
     {
-        return self::METHOD_DELETE;
+        return RequestMethod::DELETE();
     }
 
     /**
@@ -43,13 +45,13 @@ class Delete implements RequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getParams(): string
+    public function getParams(): array
     {
-        return '';
+        return [];
     }
 
-    public function getMediaType(): string
+    public function getContentType(): ContentType
     {
-        return self::TYPE_FORM;
+        return ContentType::FORM();
     }
 }

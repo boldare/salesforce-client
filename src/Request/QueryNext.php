@@ -2,6 +2,9 @@
 
 namespace Xsolve\SalesforceClient\Request;
 
+use Xsolve\SalesforceClient\Enum\ContentType;
+use Xsolve\SalesforceClient\Enum\RequestMethod;
+
 class QueryNext implements RequestInterface
 {
     const ENDPOINT = '/query/%s';
@@ -21,18 +24,18 @@ class QueryNext implements RequestInterface
         return sprintf(self::ENDPOINT, $this->nextResultIdentifier);
     }
 
-    public function getMethod(): string
+    public function getMethod(): RequestMethod
     {
-        return self::METHOD_GET;
+        return RequestMethod::GET();
     }
 
-    public function getParams(): string
+    public function getParams(): array
     {
-        return '';
+        return [];
     }
 
-    public function getMediaType(): string
+    public function getContentType(): ContentType
     {
-        return self::TYPE_FORM;
+        return ContentType::FORM();
     }
 }

@@ -3,6 +3,8 @@
 namespace Xsolve\SalesforceClient\Request;
 
 use PHPUnit\Framework\TestCase;
+use Xsolve\SalesforceClient\Enum\ContentType;
+use Xsolve\SalesforceClient\Enum\RequestMethod;
 use Xsolve\SalesforceClient\Enum\SObjectType;
 
 class UpdateTest extends TestCase
@@ -13,8 +15,8 @@ class UpdateTest extends TestCase
         $request = new Update(SObjectType::ACCOUNT(), 'id', $params);
 
         $this->assertSame('/sobjects/Account/id/', $request->getEndpoint());
-        $this->assertSame(RequestInterface::METHOD_PATCH, $request->getMethod());
-        $this->assertSame($params, json_decode($request->getParams(), true));
-        $this->assertSame(RequestInterface::TYPE_JSON, $request->getMediaType());
+        $this->assertSame(RequestMethod::PATCH(), $request->getMethod());
+        $this->assertSame($params, $request->getParams());
+        $this->assertSame(ContentType::JSON(), $request->getContentType());
     }
 }

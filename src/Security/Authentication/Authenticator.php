@@ -5,7 +5,6 @@ namespace Xsolve\SalesforceClient\Security\Authentication;
 use GuzzleHttp\Psr7\Request;
 use Http\Client\Exception\HttpException;
 use Http\Client\HttpClient;
-use Xsolve\SalesforceClient\Request\RequestInterface;
 use Xsolve\SalesforceClient\Security\Authentication\Strategy\RegenerateStrategyInterface;
 use Xsolve\SalesforceClient\Security\Token\Token;
 use Xsolve\SalesforceClient\Security\Token\TokenInterface;
@@ -97,9 +96,9 @@ class Authenticator implements AuthenticatorInterface
     protected function getRequest(Credentials $credentials): Request
     {
         return new Request(
-            RequestInterface::METHOD_POST,
+            \Xsolve\SalesforceClient\Enum\RequestMethod::POST()->value(),
             self::ENDPOINT,
-            ['Content-type' => RequestInterface::TYPE_FORM],
+            ['Content-type' => \Xsolve\SalesforceClient\Enum\ContentType::FORM()->value()],
             http_build_query($credentials->getParameters())
         );
     }

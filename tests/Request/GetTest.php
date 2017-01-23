@@ -3,6 +3,8 @@
 namespace Xsolve\SalesforceClient\Request;
 
 use PHPUnit\Framework\TestCase;
+use Xsolve\SalesforceClient\Enum\ContentType;
+use Xsolve\SalesforceClient\Enum\RequestMethod;
 use Xsolve\SalesforceClient\Enum\SObjectType;
 
 class GetTest extends TestCase
@@ -15,17 +17,15 @@ class GetTest extends TestCase
         string $id,
         array $params,
         string $expectedEndpoint,
-        string $expectedMethod,
+        RequestMethod $expectedMethod,
         array $expectedParams
     ) {
         $request = new Get($type, $id, $params);
 
-        $arr = [];
-        parse_str($request->getParams(), $arr);
         $this->assertSame($expectedEndpoint, $request->getEndpoint());
         $this->assertSame($expectedMethod, $request->getMethod());
-        $this->assertSame($expectedParams, $arr);
-        $this->assertSame(RequestInterface::TYPE_FORM, $request->getMediaType());
+        $this->assertSame($expectedParams, $request->getParams());
+        $this->assertSame(ContentType::FORM(), $request->getContentType());
     }
 
     public function dataProvieder()
@@ -36,7 +36,7 @@ class GetTest extends TestCase
                 'id',
                 [],
                 '/sobjects/Account/id/',
-                RequestInterface::METHOD_GET,
+                RequestMethod::GET(),
                 [],
             ],
             [
@@ -44,7 +44,7 @@ class GetTest extends TestCase
                 'id',
                 ['AccountName', 'Id'],
                 '/sobjects/Lead/id/',
-                RequestInterface::METHOD_GET,
+                RequestMethod::GET(),
                 ['fields' => 'AccountName,Id'],
             ],
         ];

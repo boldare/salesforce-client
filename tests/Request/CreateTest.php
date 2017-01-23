@@ -3,6 +3,8 @@
 namespace Xsolve\SalesforceClient\Request;
 
 use PHPUnit\Framework\TestCase;
+use Xsolve\SalesforceClient\Enum\ContentType;
+use Xsolve\SalesforceClient\Enum\RequestMethod;
 use Xsolve\SalesforceClient\Enum\SObjectType;
 
 class CreateTest extends TestCase
@@ -13,8 +15,8 @@ class CreateTest extends TestCase
         $request = new Create(SObjectType::ACCOUNT(), $params);
 
         $this->assertSame('/sobjects/Account/', $request->getEndpoint());
-        $this->assertSame(RequestInterface::METHOD_POST, $request->getMethod());
-        $this->assertSame($params, json_decode($request->getParams(), true));
-        $this->assertSame(RequestInterface::TYPE_JSON, $request->getMediaType());
+        $this->assertSame(RequestMethod::POST(), $request->getMethod());
+        $this->assertSame($params, $request->getParams());
+        $this->assertSame(ContentType::JSON(), $request->getContentType());
     }
 }

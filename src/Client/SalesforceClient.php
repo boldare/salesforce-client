@@ -6,6 +6,7 @@ use GuzzleHttp\Psr7\Request;
 use Http\Client\Exception\HttpException;
 use Http\Client\HttpClient;
 use Psr\Http\Message\ResponseInterface;
+use Xsolve\SalesforceClient\Enum\ContentType;
 use Xsolve\SalesforceClient\Generator\TokenGeneratorInterface;
 use Xsolve\SalesforceClient\Request\RequestInterface;
 use Xsolve\SalesforceClient\Security\Token\TokenInterface;
@@ -63,10 +64,10 @@ class SalesforceClient
     protected function sendRequest(TokenInterface $token, RequestInterface $request): ResponseInterface
     {
         return $this->client->sendRequest(new Request(
-                $request->getMethod(),
+                $request->getMethod()->value(),
                 $this->getUri($token, $request),
                 $this->getHeaders($token, $request),
-                $request->getParams()
+                $this->parseParams($request->getParams(), $request->getContentType())
             )
         );
     }
@@ -75,7 +76,7 @@ class SalesforceClient
     {
         return [
             'authorization' => sprintf('%s %s', $token->getTokenType(), $token->getAccessToken()),
-            'Content-type' => $request->getMediaType(),
+            'Content-type' => $request->getContentType()->value(),
         ];
     }
 
@@ -86,5 +87,14 @@ class SalesforceClient
             rtrim($token->getInstanceUrl(), '/'),
             sprintf('%s%s/%s', self::PREFIX, $this->version, ltrim($request->getEndpoint(), '/'))
         );
+    }
+
+    protected function parseParams(array $params, ContentType $contentType): string
+    {
+        if ((string) $contentType === (string) ContentType::FORM()) {
+            return http_build_query($params);
+        }
+
+        return json_encode($params);
     }
 }

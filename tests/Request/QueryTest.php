@@ -3,6 +3,8 @@
 namespace Xsolve\SalesforceClient\Request;
 
 use PHPUnit\Framework\TestCase;
+use Xsolve\SalesforceClient\Enum\ContentType;
+use Xsolve\SalesforceClient\Enum\RequestMethod;
 
 class QueryTest extends TestCase
 {
@@ -13,10 +15,10 @@ class QueryTest extends TestCase
     {
         $request = new Query($query);
 
-        $this->assertSame(RequestInterface::METHOD_GET, $request->getMethod());
+        $this->assertSame(RequestMethod::GET(), $request->getMethod());
         $this->assertEmpty($request->getParams());
         $this->assertSame($endpoint, urldecode($request->getEndpoint()));
-        $this->assertSame(RequestInterface::TYPE_FORM, $request->getMediaType());
+        $this->assertSame(ContentType::FORM(), $request->getContentType());
     }
 
     public function endpointsProvider()
