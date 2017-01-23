@@ -46,15 +46,7 @@ class Authenticator implements AuthenticatorInterface
             throw new Exception\AuthenticationRequestException('Authentication request failed.', 400, $e);
         }
 
-        $parsedBody = json_decode($response, true);
-
-        if (!$parsedBody) {
-            throw new Exception\InvalidAuthenticationResponseException(sprintf('Cannot decode response: %s', $response));
-        }
-
-        if (!$this->hasRequiredFields($parsedBody)) {
-            throw new Exception\InvalidAuthenticationResponseException(sprintf('Response do not contains required fields: token_type, access_token, instance_url.'));
-        }
+        $parsedBody = $this->parse($response);
 
         return new Token(
             $parsedBody['token_type'],
@@ -62,6 +54,28 @@ class Authenticator implements AuthenticatorInterface
             $parsedBody['instance_url'],
             isset($parsedBody['refresh_token']) ? $parsedBody['refresh_token'] : ''
         );
+    }
+
+    /**
+     * @throws Exception\InvalidAuthenticationResponseException
+     */
+    private function parse($rawResponse): array
+    {
+        $parsedBody = json_decode($rawResponse, true);
+
+        if (!$parsedBody) {
+            throw new Exception\InvalidAuthenticationResponseException(
+                sprintf('Cannot decode response: %s', $rawResponse)
+            );
+        }
+
+        if (!$this->hasRequiredFields($parsedBody)) {
+            throw new Exception\InvalidAuthenticationResponseException(
+                'Response does not contains required fields: token_type, access_token, instance_url.'
+            );
+        }
+
+        return $parsedBody;
     }
 
     /**

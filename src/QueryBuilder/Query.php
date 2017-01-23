@@ -132,40 +132,14 @@ class Query
     {
         $this->validate();
         $this->visitQueryParts();
-        $selects = implode(', ', array_map(
-            function (AbstractSelect $select): string {
-                return $select->asSOQL();
-            },
-            $this->selects
-        ));
 
-        $query = sprintf('SELECT %s FROM %s', $selects, $this->from->asSOQL());
-
-        if ($this->where) {
-            $query .= sprintf(' WHERE %s', $this->where->asSOQL());
-        }
-
-        if ($this->groupBy) {
-            $query .= sprintf(' GROUP BY %s', $this->groupBy->asSOQL());
-        }
-
-        if ($this->having) {
-            $query .= sprintf(' HAVING %s', $this->having->asSOQL());
-        }
-
-        if ($this->orderBy) {
-            $query .= sprintf(' ORDER BY %s', $this->orderBy->asSOQL());
-        }
-
-        if (is_int($this->limit)) {
-            $query .= sprintf(' LIMIT %d', $this->limit);
-        }
-
-        if (is_int($this->offset)) {
-            $query .= sprintf(' OFFSET %d', $this->offset);
-        }
-
-        return $query;
+        return $this->parseSelect()
+            .$this->parseWhere()
+            .$this->parseGroupBy()
+            .$this->parseHaving()
+            .$this->parseOrderBy()
+            .$this->parseLimit()
+            .$this->parseOffset();
     }
 
     private function validate()
@@ -199,5 +173,71 @@ class Query
             [$this->having],
             [$this->orderBy]
         );
+    }
+
+    private function parseSelect(): string
+    {
+        $selects = implode(', ', array_map(
+            function (AbstractSelect $select): string {
+                return $select->asSOQL();
+            },
+            $this->selects
+        ));
+
+        return sprintf('SELECT %s FROM %s', $selects, $this->from->asSOQL());
+    }
+
+    private function parseWhere(): string
+    {
+        if (!$this->where) {
+            return '';
+        }
+
+        return sprintf(' WHERE %s', $this->where->asSOQL());
+    }
+
+    private function parseGroupBy(): string
+    {
+        if (!$this->groupBy) {
+            return '';
+        }
+
+        return sprintf(' GROUP BY %s', $this->groupBy->asSOQL());
+    }
+
+    private function parseHaving(): string
+    {
+        if (!$this->having) {
+            return '';
+        }
+
+        return sprintf(' HAVING %s', $this->having->asSOQL());
+    }
+
+    private function parseOrderBy(): string
+    {
+        if (!$this->orderBy) {
+            return '';
+        }
+
+        return sprintf(' ORDER BY %s', $this->orderBy->asSOQL());
+    }
+
+    private function parseLimit(): string
+    {
+        if (!is_int($this->limit)) {
+            return '';
+        }
+
+        return sprintf(' LIMIT %d', $this->limit);
+    }
+
+    private function parseOffset(): string
+    {
+        if (!is_int($this->offset)) {
+            return '';
+        }
+
+        return sprintf(' OFFSET %d', $this->offset);
     }
 }
