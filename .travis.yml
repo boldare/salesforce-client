@@ -12,7 +12,6 @@ script:
  - vendor/bin/php-cs-fixer fix . --rules=@Symfony --diff --dry-run -v
 
 before_script:
- - composer require guzzlehttp/guzzle "~6.2" --no-update
  - composer require blablacar/redis-client "~1.0" --no-update
  - composer install
 

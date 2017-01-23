@@ -3,6 +3,8 @@
 namespace Xsolve\SalesforceClient\Request;
 
 use Xsolve\SalesforceClient\Enum\AbstractSObjectType;
+use Xsolve\SalesforceClient\Enum\ContentType;
+use Xsolve\SalesforceClient\Enum\RequestMethod;
 
 class Create implements RequestInterface
 {
@@ -35,9 +37,9 @@ class Create implements RequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getMethod(): string
+    public function getMethod(): RequestMethod
     {
-        return self::METHOD_POST;
+        return RequestMethod::POST();
     }
 
     /**
@@ -45,8 +47,14 @@ class Create implements RequestInterface
      */
     public function getParams(): array
     {
-        return [
-            'json' => $this->params,
-        ];
+        return $this->params;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getContentType(): ContentType
+    {
+        return ContentType::JSON();
     }
 }

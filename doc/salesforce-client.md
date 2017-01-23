@@ -7,16 +7,16 @@ A basic client for managing objects in Salesforce. You can use it to low level c
 ```php
 use Blablacar\Redis\Client as Redis;
 use GuzzleHttp\Client;
+use Http\Adapter\Guzzle6\Client as GuzzleAdapter;
 use Xsolve\SalesforceClient\Client\SalesforceClient;
 use Xsolve\SalesforceClient\Enum\SObjectType;
 use Xsolve\SalesforceClient\Generator\TokenGenerator;
-use Xsolve\SalesforceClient\Http\GuzzleClient;
 use Xsolve\SalesforceClient\Security\Authentication\Authenticator;
 use Xsolve\SalesforceClient\Security\Authentication\Credentials;
 use Xsolve\SalesforceClient\Security\Authentication\Strategy\PasswordGrantRegenerateStrategy;
 use Xsolve\SalesforceClient\Storage\BlablacarRedisStorage;
 
-$client = new GuzzleClient(new Client([
+$client = new GuzzleAdapter(new Client([
     'base_uri' => 'https://login.salesforce.com/',
 //  'base_uri' => 'https://test.salesforce.com/',  // For sandbox
 ]));

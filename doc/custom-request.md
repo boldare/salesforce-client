@@ -10,6 +10,8 @@ namespace App;
 
 use Xsolve\SalesforceClient\Request\RequestInterface;
 use Xsolve\SalesforceClient\Request\Get;
+use Xsolve\SalesforceClient\Enum\ContentType;
+use Xsolve\SalesforceClient\Enum\RequestMethod;
 
 class CustomGet implements RequestInterface
 {
@@ -40,9 +42,9 @@ class CustomGet implements RequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getMethod(): string
+    public function getMethod(): RequestMethod
     {
-        return self::METHOD_GET;
+        return RequestMethod::GET();
     }
 
     /**
@@ -51,6 +53,14 @@ class CustomGet implements RequestInterface
     public function getParams(): array
     {
         return [];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getContentType(): ContentType
+    {
+        return ContentType::FORM();
     }
 }
 ```

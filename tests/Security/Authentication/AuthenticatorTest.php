@@ -3,8 +3,8 @@
 namespace Xsolve\SalesforceClient\Security\Authentication;
 
 use PHPUnit\Framework\TestCase;
+use Http\Client\HttpClient;
 use Psr\Http\Message\ResponseInterface;
-use Xsolve\SalesforceClient\Http\ClientInterface;
 use Xsolve\SalesforceClient\Security\Authentication\Strategy\RegenerateStrategyInterface;
 use Xsolve\SalesforceClient\Security\Token\TokenInterface;
 
@@ -16,7 +16,7 @@ class AuthenticatorTest extends TestCase
     protected $authenticator;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|ClientInterface
+     * @var \PHPUnit_Framework_MockObject_MockObject|HttpClient
      */
     protected $client;
 
@@ -45,13 +45,13 @@ class AuthenticatorTest extends TestCase
      */
     public function setUp()
     {
-        $this->client = $this->createMock(ClientInterface::class);
+        $this->client = $this->createMock(HttpClient::class);
         $this->credentials = $this->createMock(Credentials::class);
         $this->response = $this->createMock(ResponseInterface::class);
         $this->regenerateStrategy = $this->createMock(RegenerateStrategyInterface::class);
         $this->token = $this->createMock(TokenInterface::class);
 
-        $this->client->method('request')->willReturn($this->response);
+        $this->client->method('sendRequest')->willReturn($this->response);
         $this->authenticator = new Authenticator($this->client, [$this->regenerateStrategy]);
     }
 

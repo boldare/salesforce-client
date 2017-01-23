@@ -19,13 +19,17 @@ Add the library to your project using Composer as follows:
 ```
 $ composer require xsolve-pl/salesforce-client
 ```
-
-Guzzle and Redis are not required by default to keep your project clean. If you wish to use them, please install suggested dependencies:
+We are using http://httplug.io/, so you can use any of [existing adapters](https://packagist.org/providers/php-http/client-implementation), for example:
 ```
-$ composer require guzzlehttp/guzzle "~6.2"
+$ composer require php-http/guzzle6-adapter
+```
+Otherwise you need to create your own implementation.
+
+To store access token we have implemented BlaBlaCarRedis token storage, but it needs `blablacar/redis-client`
+```
 $ composer require blablacar/redis-client "~1.0"
 ```
-Otherwise you must implement your own logic to handle HTTP requests, but for token storage you can use `RequestTokenStorage` (this will keep the token in own property (memory) so the token would last until the script is terminated (e.g. current request), which is not really effective).
+Another option for token storage is `RequestTokenStorage` (this will keep the token in own property (memory) so the token would last until the script is terminated (e.g. current request), which is not really effective). Of course you can create your own storage, everything what you need to do is to create a class which implements `Xsolve\SalesforceClient\Storage\TokenStorageInterface`
 
 ## Documentation
 Documentation is available in the doc directory.
