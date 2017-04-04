@@ -2,4 +2,3 @@ vendor/
 composer.lock
 /nbproject/private/
 .php_cs.cache
-
