@@ -1,11 +1,9 @@
 ----------
-#xsolve-pl/salesforce-client [![Build Status][travis_img]][travis_url] [![Scrutinizer Code Quality][scrutinizer_img]][scrutinizer_url] [![Code Coverage][code_coverage_img]][code_coverage_url]
-[travis_img]: https://travis-ci.com/xsolve-pl/salesforce-client.svg?token=SjQKyns8C8K1pNxxqcyw&branch=master
-[travis_url]: https://travis-ci.com/xsolve-pl/salesforce-client
-[scrutinizer_img]: https://scrutinizer-ci.com/g/xsolve-pl/salesforce-client/badges/quality-score.png?b=master
-[scrutinizer_url]: https://scrutinizer-ci.com/g/xsolve-pl/salesforce-client/?branch=master
-[code_coverage_img]: https://scrutinizer-ci.com/g/xsolve-pl/salesforce-client/badges/coverage.png?b=master
-[code_coverage_url]: https://scrutinizer-ci.com/g/xsolve-pl/salesforce-client/?branch=master
+# xsolve-pl/salesforce-client 
+
+[![Build Status](https://travis-ci.com/xsolve-pl/salesforce-client.svg?token=39Kpq1nqZvx3q3ACdTHo&branch=master)](https://travis-ci.com/xsolve-pl/salesforce-client)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/xsolve-pl/salesforce-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/xsolve-pl/salesforce-client/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/xsolve-pl/salesforce-client/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/xsolve-pl/salesforce-client/?branch=master)
 
 ## Introduction
 This library is for integration with Salesforce via REST API.
