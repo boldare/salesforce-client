@@ -4,6 +4,15 @@ namespace Xsolve\SalesforceClient\Enum;
 
 use Eloquent\Enumeration\AbstractEnumeration;
 
+/**
+ * @method static $this DIFFERENT()
+ * @method static $this ACKNOWLEDGED()
+ * @method static $this NOT_FOUND()
+ * @method static $this INACTIVE()
+ * @method static $this PENDING()
+ * @method static $this SELECT_MATCH()
+ * @method static $this SKIPPED()
+ */
 abstract class AbstractStatus extends AbstractEnumeration
 {
     const DIFFERENT = 'Different';

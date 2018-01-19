@@ -34,7 +34,7 @@ class BlablacarRedisStorage implements TokenStorageInterface
     {
         $token = $this->client->get($this->key);
 
-        if ($token === null) {
+        if (null === $token) {
             throw new \LogicException('No token has been set');
         }
 

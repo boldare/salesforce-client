@@ -5,10 +5,11 @@ namespace Xsolve\SalesforceClient\Model;
 use JMS\Serializer\Annotation as JMS;
 use Xsolve\SalesforceClient\Enum\AbstractSObjectType;
 use Xsolve\SalesforceClient\Enum\SObjectType;
-use Xsolve\SalesforceClient\Model\ValueObject\Address;
 
 class Contract extends AbstractSObject
 {
+    use BillingAddressTrait;
+
     /**
      * @var string
      * @JMS\Type("string")
@@ -46,61 +47,6 @@ class Contract extends AbstractSObject
      * @JMS\Type("DateTime<'Y-m-d'>")
      */
     protected $endDate;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $billingStreet;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $billingCity;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $billingState;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $billingPostalCode;
-
-    /**
-     * @var string|null
-     * @JMS\Type("string")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $billingCountry;
-
-    /**
-     * @var float|null
-     * @JMS\Type("float")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $billingLatitude;
-
-    /**
-     * @var float|null
-     * @JMS\Type("float")
-     * @JMS\Groups({"update", "create"})
-     */
-    protected $billingLongitude;
-
-    /**
-     * @var Address|null
-     * @JMS\Type("Xsolve\SalesforceClient\Model\ValueObject\Address")
-     */
-    protected $billingAddress;
 
     /**
      * @var int|null
@@ -272,14 +218,6 @@ class Contract extends AbstractSObject
     public function getEndDate()
     {
         return $this->endDate;
-    }
-
-    /**
-     * @return Address|null
-     */
-    public function getBillingAddress()
-    {
-        return $this->billingAddress;
     }
 
     /**
@@ -462,13 +400,6 @@ class Contract extends AbstractSObject
         return $this;
     }
 
-    public function setBillingAddress(Address $billingAddress): self
-    {
-        $this->billingAddress = $billingAddress;
-
-        return $this;
-    }
-
     public function setContractTerm(int $contractTerm = null): self
     {
         $this->contractTerm = $contractTerm;
@@ -579,25 +510,5 @@ class Contract extends AbstractSObject
         $this->lastReferencedDate = $lastReferencedDate;
 
         return $this;
-    }
-
-    /**
-     * Because BillingAddress is not writtable.
-     *
-     * @JMS\PreSerialize
-     */
-    public function updateBillingAddress()
-    {
-        if (!$this->billingAddress instanceof Address) {
-            return;
-        }
-
-        $this->billingCity = $this->billingAddress->getCity();
-        $this->billingCountry = $this->billingAddress->getCountry();
-        $this->billingLatitude = $this->billingAddress->getLatitude();
-        $this->billingLongitude = $this->billingAddress->getLongitude();
-        $this->billingPostalCode = $this->billingAddress->getPostalCode();
-        $this->billingState = $this->billingAddress->getState();
-        $this->billingStreet = $this->billingAddress->getStreet();
     }
 }

@@ -49,7 +49,7 @@ class SalesforceClient
             $response = $this->sendRequest($token, $request);
         } catch (HttpException $ex) {
             // Token is expired or invalid - get new and retry
-            if ($ex->getCode() !== self::UNAUTHORIZED) {
+            if (self::UNAUTHORIZED !== $ex->getCode()) {
                 throw $ex;
             }
 
