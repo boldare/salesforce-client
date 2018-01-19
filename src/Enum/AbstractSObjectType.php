@@ -4,6 +4,19 @@ namespace Xsolve\SalesforceClient\Enum;
 
 use Eloquent\Enumeration\AbstractEnumeration;
 
+/**
+ * @method self LEAD()
+ * @method self ACCOUNT()
+ * @method self PRODUCT()
+ * @method self CONTRACT()
+ * @method self ORDER()
+ * @method self PRICEBOOK()
+ * @method self PRICEBOOK_ENTRY()
+ * @method self OPPORTUNITY()
+ * @method self CONTACT()
+ * @method self CASE_SO()
+ * @method self SOLUTION()
+ */
 abstract class AbstractSObjectType extends AbstractEnumeration
 {
     const LEAD = 'Lead';

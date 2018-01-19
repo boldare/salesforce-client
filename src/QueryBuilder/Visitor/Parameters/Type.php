@@ -4,6 +4,13 @@ namespace Xsolve\SalesforceClient\QueryBuilder\Visitor\Parameters;
 
 use Eloquent\Enumeration\AbstractEnumeration;
 
+/**
+ * @method self STRING()
+ * @method self INT()
+ * @method self DATETIME()
+ * @method self FLOAT()
+ * @method self BOOL()
+ */
 class Type extends AbstractEnumeration
 {
     const STRING = 'string';
