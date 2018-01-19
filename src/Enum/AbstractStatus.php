@@ -5,13 +5,13 @@ namespace Xsolve\SalesforceClient\Enum;
 use Eloquent\Enumeration\AbstractEnumeration;
 
 /**
- * @method self DIFFERENT()
- * @method self ACKNOWLEDGED()
- * @method self NOT_FOUND()
- * @method self INACTIVE()
- * @method self PENDING()
- * @method self SELECT_MATCH()
- * @method self SKIPPED()
+ * @method static $this DIFFERENT()
+ * @method static $this ACKNOWLEDGED()
+ * @method static $this NOT_FOUND()
+ * @method static $this INACTIVE()
+ * @method static $this PENDING()
+ * @method static $this SELECT_MATCH()
+ * @method static $this SKIPPED()
  */
 abstract class AbstractStatus extends AbstractEnumeration
 {

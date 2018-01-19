@@ -5,10 +5,10 @@ namespace Xsolve\SalesforceClient\Enum;
 use Eloquent\Enumeration\AbstractEnumeration;
 
 /**
- * @method self OWNERSHIP_PUBLIC()
- * @method self OWNERSHIP_PRIVATE()
- * @method self OWNERSHIP_SUBSIDIARY()
- * @method self OWNERSHIP_OTHER()
+ * @method static $this OWNERSHIP_PUBLIC()
+ * @method static $this OWNERSHIP_PRIVATE()
+ * @method static $this OWNERSHIP_SUBSIDIARY()
+ * @method static $this OWNERSHIP_OTHER()
  */
 abstract class AbstractOwnership extends AbstractEnumeration
 {

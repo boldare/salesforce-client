@@ -5,8 +5,8 @@ namespace Xsolve\SalesforceClient\QueryBuilder\Expr\Compare;
 use Eloquent\Enumeration\AbstractEnumeration;
 
 /**
- * @method self CONJUNCTION()
- * @method self DISJUNCTION()
+ * @method static $this CONJUNCTION()
+ * @method static $this DISJUNCTION()
  */
 class Operator extends AbstractEnumeration
 {

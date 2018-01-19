@@ -5,10 +5,10 @@ namespace Xsolve\SalesforceClient\Enum;
 use Eloquent\Enumeration\AbstractEnumeration;
 
 /**
- * @method self GET()
- * @method self POST()
- * @method self PATCH()
- * @method self DELETE()
+ * @method static $this GET()
+ * @method static $this POST()
+ * @method static $this PATCH()
+ * @method static $this DELETE()
  */
 class RequestMethod extends AbstractEnumeration
 {

@@ -5,8 +5,8 @@ namespace Xsolve\SalesforceClient\QueryBuilder\Expr\OrderBy;
 use Eloquent\Enumeration\AbstractEnumeration;
 
 /**
- * @method self ASC()
- * @method self DESC()
+ * @method static $this ASC()
+ * @method static $this DESC()
  */
 class Order extends AbstractEnumeration
 {

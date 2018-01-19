@@ -5,8 +5,8 @@ namespace Xsolve\SalesforceClient\Enum;
 use Eloquent\Enumeration\AbstractEnumeration;
 
 /**
- * @method self JSON()
- * @method self FORM()
+ * @method static $this JSON()
+ * @method static $this FORM()
  */
 class ContentType extends AbstractEnumeration
 {

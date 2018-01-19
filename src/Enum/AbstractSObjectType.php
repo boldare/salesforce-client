@@ -5,17 +5,17 @@ namespace Xsolve\SalesforceClient\Enum;
 use Eloquent\Enumeration\AbstractEnumeration;
 
 /**
- * @method self LEAD()
- * @method self ACCOUNT()
- * @method self PRODUCT()
- * @method self CONTRACT()
- * @method self ORDER()
- * @method self PRICEBOOK()
- * @method self PRICEBOOK_ENTRY()
- * @method self OPPORTUNITY()
- * @method self CONTACT()
- * @method self CASE_SO()
- * @method self SOLUTION()
+ * @method static $this LEAD()
+ * @method static $this ACCOUNT()
+ * @method static $this PRODUCT()
+ * @method static $this CONTRACT()
+ * @method static $this ORDER()
+ * @method static $this PRICEBOOK()
+ * @method static $this PRICEBOOK_ENTRY()
+ * @method static $this OPPORTUNITY()
+ * @method static $this CONTACT()
+ * @method static $this CASE_SO()
+ * @method static $this SOLUTION()
  */
 abstract class AbstractSObjectType extends AbstractEnumeration
 {
