@@ -4,6 +4,10 @@ SalesforceClient
 A basic client for managing objects in Salesforce. You can use it to low level communication with Salesforce, although you need to know how request should look like and what will be returned.
 
 ### How to create
+> You must append the user’s security token to their password A security token is an automatically-generated key from Salesforce.
+> For example, if a user's password is mypassword, and their security token is XXXXXXXXXX, then the value provided for this parmeter must be mypasswordXXXXXXXXXX.
+> For more information on security tokens see “Reset Your Security Token” in the online help.
+
 ```php
 use Blablacar\Redis\Client as Redis;
 use GuzzleHttp\Client;
@@ -20,13 +24,14 @@ $client = new GuzzleAdapter(new Client([
     'base_uri' => 'https://login.salesforce.com/',
 //  'base_uri' => 'https://test.salesforce.com/',  // For sandbox
 ]));
+
 $credentials = new Credentials(
-    'CLIENT_ID',
-    'CLIENT_SECRET',
+    'CLIENT_ID', // change to your client id (Connected App -> Consumer Key)
+    'CLIENT_SECRET', // change to your client secret (Connected App -> Consumer Secret)
     'password',
     [
-        'username' => 'USERNAME', // change to your credentials
-        'password' => 'PASSWORD', // change to your credentials
+        'username' => 'USERNAME', // change to your account credentials
+        'password' => 'PASSWORD', // change to your account password + security token
     ]
 );
 
