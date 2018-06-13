@@ -4,9 +4,9 @@ SalesforceClient
 A basic client for managing objects in Salesforce. You can use it to low level communication with Salesforce, although you need to know how request should look like and what will be returned.
 
 ### How to create
-> You must append the user’s security token to their password A security token is an automatically-generated key from Salesforce.
+> You must [append the user’s security token to their password](https://developer.salesforce.com/docs/atlas.en-us.210.0.api.meta/api/sforce_api_concepts_security.htm). A security token is an automatically-generated key from Salesforce.
 > For example, if a user's password is mypassword, and their security token is XXXXXXXXXX, then the value provided for this parmeter must be mypasswordXXXXXXXXXX.
-> For more information on security tokens see “Reset Your Security Token” in the online help.
+> For more information on security tokens see “Reset Your Security Token” in the [online help](https://help.salesforce.com/articleView?id=user_security_token.htm&type=5).
 
 ```php
 use Blablacar\Redis\Client as Redis;
