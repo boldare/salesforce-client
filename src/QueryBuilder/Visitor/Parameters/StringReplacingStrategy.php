@@ -11,6 +11,6 @@ class StringReplacingStrategy implements ReplacingStrategyInterface
 
     public function replace($value): string
     {
-        return sprintf('\'%s\'', preg_quote($value, '\''));
+        return sprintf('\'%s\'', str_replace(['\\', '\''], ['\\\\\\', '\\\''], $value));
     }
 }
